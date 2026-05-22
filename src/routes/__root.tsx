@@ -14,13 +14,14 @@ import { useEffect, useMemo } from "react";
 import appCss from "../styles.css?url";
 
 const DECKS = {
+  shopify: { label: "Shopify AI Self-Review", total: 7 },
   workos: { label: "WorkOS", total: 7 },
 } as const;
 
 type DeckId = keyof typeof DECKS;
 
 function parseLocation(pathname: string): { deck: DeckId; slide: number } | null {
-  const m = pathname.match(/^\/(workos)\/(\d+)/);
+  const m = pathname.match(/^\/(shopify|workos)\/(\d+)/);
   if (!m) return null;
   return { deck: m[1] as DeckId, slide: parseInt(m[2], 10) };
 }
@@ -65,8 +66,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "WorkOS Deck" },
-      { name: "description", content: "WorkOS presentation deck" },
+      { title: "WorkOS" },
+      { name: "description", content: "WorkOS presentation decks" },
+      { property: "og:title", content: "WorkOS" },
+      { name: "twitter:title", content: "WorkOS" },
+      { property: "og:description", content: "WorkOS presentation decks" },
+      { name: "twitter:description", content: "WorkOS presentation decks" },
+      { name: "twitter:card", content: "summary" },
+      { property: "og:type", content: "website" },
     ],
     links: [{ rel: "stylesheet", href: appCss }],
   }),
