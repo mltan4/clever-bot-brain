@@ -135,7 +135,7 @@ function DeckShell() {
             return (
               <Link
                 key={id}
-                {...({ to: `/${id}/$slide`, params: { slide: "1" } } as never)}
+                {...({ to: `/${id}/$slide`, params: { slide: "1" } } as Record<string, unknown>)}
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                   isActive
                     ? "bg-primary text-primary-foreground"
