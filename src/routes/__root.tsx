@@ -135,8 +135,7 @@ function DeckShell() {
             return (
               <Link
                 key={id}
-                to="/$deck/$slide" as any
-                params={{ deck: id, slide: "1" } as any}
+                {...({ to: `/${id}/$slide`, params: { slide: "1" } } as never)}
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                   isActive
                     ? "bg-primary text-primary-foreground"
