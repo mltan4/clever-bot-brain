@@ -133,9 +133,9 @@ function DeckShell() {
           {(Object.keys(DECKS) as DeckId[]).map((id) => {
             const isActive = deck === id;
             return (
-              <Link
+              <button
                 key={id}
-                {...({ to: `/${id}/$slide`, params: { slide: "1" } } as Record<string, unknown>)}
+                onClick={() => navigate({ to: `/${id}/$slide`, params: { slide: "1" } } as never)}
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                   isActive
                     ? "bg-primary text-primary-foreground"
@@ -143,7 +143,7 @@ function DeckShell() {
                 }`}
               >
                 {DECKS[id].label}
-              </Link>
+              </button>
             );
           })}
         </nav>
