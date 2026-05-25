@@ -11,7 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WorkosSlideRouteImport } from './routes/workos.$slide'
-import { Route as ShopifySlideRouteImport } from './routes/shopify.$slide'
+import { Route as CommerceSlideRouteImport } from './routes/commerce.$slide'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -23,39 +23,39 @@ const WorkosSlideRoute = WorkosSlideRouteImport.update({
   path: '/workos/$slide',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ShopifySlideRoute = ShopifySlideRouteImport.update({
-  id: '/shopify/$slide',
-  path: '/shopify/$slide',
+const CommerceSlideRoute = CommerceSlideRouteImport.update({
+  id: '/commerce/$slide',
+  path: '/commerce/$slide',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/shopify/$slide': typeof ShopifySlideRoute
+  '/commerce/$slide': typeof CommerceSlideRoute
   '/workos/$slide': typeof WorkosSlideRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/shopify/$slide': typeof ShopifySlideRoute
+  '/commerce/$slide': typeof CommerceSlideRoute
   '/workos/$slide': typeof WorkosSlideRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/shopify/$slide': typeof ShopifySlideRoute
+  '/commerce/$slide': typeof CommerceSlideRoute
   '/workos/$slide': typeof WorkosSlideRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/shopify/$slide' | '/workos/$slide'
+  fullPaths: '/' | '/commerce/$slide' | '/workos/$slide'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/shopify/$slide' | '/workos/$slide'
-  id: '__root__' | '/' | '/shopify/$slide' | '/workos/$slide'
+  to: '/' | '/commerce/$slide' | '/workos/$slide'
+  id: '__root__' | '/' | '/commerce/$slide' | '/workos/$slide'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ShopifySlideRoute: typeof ShopifySlideRoute
+  CommerceSlideRoute: typeof CommerceSlideRoute
   WorkosSlideRoute: typeof WorkosSlideRoute
 }
 
@@ -75,11 +75,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorkosSlideRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/shopify/$slide': {
-      id: '/shopify/$slide'
-      path: '/shopify/$slide'
-      fullPath: '/shopify/$slide'
-      preLoaderRoute: typeof ShopifySlideRouteImport
+    '/commerce/$slide': {
+      id: '/commerce/$slide'
+      path: '/commerce/$slide'
+      fullPath: '/commerce/$slide'
+      preLoaderRoute: typeof CommerceSlideRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -87,9 +87,19 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ShopifySlideRoute: ShopifySlideRoute,
+  CommerceSlideRoute: CommerceSlideRoute,
   WorkosSlideRoute: WorkosSlideRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

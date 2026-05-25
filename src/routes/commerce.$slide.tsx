@@ -1,8 +1,8 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
-import { shopifySlides } from "@/decks/shopify";
+import { commerceSlides } from "@/decks/commerce";
 
-export const Route = createFileRoute("/shopify/$slide")({
-  component: ShopifySlide,
+export const Route = createFileRoute("/commerce/$slide")({
+  component: CommerceSlide,
   notFoundComponent: () => (
     <div className="flex items-center justify-center h-full text-muted-foreground">
       Slide not found
@@ -10,10 +10,10 @@ export const Route = createFileRoute("/shopify/$slide")({
   ),
 });
 
-function ShopifySlide() {
+function CommerceSlide() {
   const { slide } = Route.useParams();
   const idx = parseInt(slide, 10) - 1;
-  if (isNaN(idx) || idx < 0 || idx >= shopifySlides.length) throw notFound();
-  const Slide = shopifySlides[idx];
+  if (isNaN(idx) || idx < 0 || idx >= commerceSlides.length) throw notFound();
+  const Slide = commerceSlides[idx];
   return <Slide />;
 }

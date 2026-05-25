@@ -14,14 +14,14 @@ import { useEffect, useMemo } from "react";
 import appCss from "../styles.css?url";
 
 const DECKS = {
-  shopify: { label: "Shopify AI Self-Review", total: 7 },
+  commerce: { label: "Commerce AI Self-Review", total: 7 },
   workos: { label: "WorkOS", total: 7 },
 } as const;
 
 type DeckId = keyof typeof DECKS;
 
 function parseLocation(pathname: string): { deck: DeckId; slide: number } | null {
-  const m = pathname.match(/^\/(shopify|workos)\/(\d+)/);
+  const m = pathname.match(/^\/(commerce|workos)\/(\d+)/);
   if (!m) return null;
   return { deck: m[1] as DeckId, slide: parseInt(m[2], 10) };
 }
@@ -67,7 +67,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Product Decks" },
-      { name: "description", content: "Shopify AI Self-Review Agent & WorkOS presentation decks" },
+      { name: "description", content: "Commerce AI Self-Review Agent & WorkOS presentation decks" },
     ],
     links: [{ rel: "stylesheet", href: appCss }],
   }),

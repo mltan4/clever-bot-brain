@@ -7,23 +7,23 @@ function S1() {
     <SlideFrame>
       <div className="flex-1 flex flex-col justify-center">
         <div className="text-accent text-[28px] font-semibold uppercase tracking-[0.22em] mb-6">
-          Shopify · Case Study
+          Commerce · Case Study
         </div>
         <div className="text-[180px] font-extrabold leading-none tracking-tight text-foreground mb-2">
-          13<span className="text-accent">%</span>
+          10<span className="text-accent">%</span>
         </div>
         <div className="text-[32px] text-muted-foreground mb-12 max-w-[1400px]">
-          of Shopify developers adopted the tool within weeks of launch
+          of Commerce developers adopted the tool within weeks of launch
         </div>
         <h1 className="text-[80px] font-extrabold leading-[1.05] tracking-tight mb-6">
-          Shopify AI Self-Review Agent
+          Commerce AI Self-Review Agent
         </h1>
         <p className="text-[32px] text-muted-foreground max-w-[1500px] leading-snug mb-10">
           An AI-native compliance tool that collapsed 3–6 week review cycles to
           days by moving quality upstream — before submission.
         </p>
         <div className="flex flex-wrap gap-3">
-          <Chip>Shopify App Store PM</Chip>
+          <Chip>Commerce App Store PM</Chip>
           <Chip>AI-Native Tool</Chip>
           <Chip>Ops + Product</Chip>
           <Chip>Cross-Functional</Chip>
@@ -107,12 +107,12 @@ function Terminal() {
         <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
         <span className="w-3 h-3 rounded-full bg-green-500/80" />
         <span className="ml-3 text-muted-foreground text-[16px]">
-          shopify-review · zsh
+          commerce-review · zsh
         </span>
       </div>
       <div className="p-6 leading-relaxed">
         <div className="text-muted-foreground">
-          <span className="text-accent">$</span> shopify app review --self
+          <span className="text-accent">$</span> commerce app review --self
         </div>
         <div className="text-muted-foreground">Running compliance checks...</div>
         <div className="mt-4 border border-border rounded-lg p-4 bg-surface/40">
@@ -373,11 +373,11 @@ function BarChart() {
 function S6() {
   return (
     <SlideFrame>
-      <SlideHeader kicker="Outcomes" title="13% adoption. Review cycles collapsed." />
+      <SlideHeader kicker="Outcomes" title="10% adoption. Review cycles collapsed." />
       <div className="grid grid-cols-3 gap-8 mb-10">
         <Stat value="3–6 wks" label="Old review cycle" tone="negative" />
         <Stat value="~Days" label="New cycle for clean submissions" tone="positive" />
-        <Stat value="13%" label="Developer adoption within weeks" tone="accent" />
+        <Stat value="10%" label="Developer adoption within weeks" tone="accent" />
       </div>
       <div className="flex-1 min-h-0">
         <BarChart />
@@ -426,4 +426,4 @@ function S7() {
   );
 }
 
-export const shopifySlides = [S1, S2, S3, S4, S5, S6, S7];
+export const commerceSlides = [S1, S2, S3, S4, S5, S6, S7];
