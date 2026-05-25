@@ -1,7 +1,7 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { shopifySlides } from "@/decks/shopify";
 
-export const Route = createFileRoute("/shopify/$slide")({
+export const Route = createFileRoute("/commerce/$slide")({
   component: ShopifySlide,
   notFoundComponent: () => (
     <div className="flex items-center justify-center h-full text-muted-foreground">
