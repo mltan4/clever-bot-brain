@@ -10,10 +10,10 @@ export const Route = createFileRoute("/commerce/$slide")({
   ),
 });
 
-function ShopifySlide() {
+function CommerceSlide() {
   const { slide } = Route.useParams();
   const idx = parseInt(slide, 10) - 1;
-  if (isNaN(idx) || idx < 0 || idx >= shopifySlides.length) throw notFound();
-  const Slide = shopifySlides[idx];
+  if (isNaN(idx) || idx < 0 || idx >= commerceSlides.length) throw notFound();
+  const Slide = commerceSlides[idx];
   return <Slide />;
 }
