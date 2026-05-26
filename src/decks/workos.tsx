@@ -67,7 +67,7 @@ function S2() {
   ];
   return (
     <SlideFrame>
-      <SlideHeader title="Every PM Has This Problem" />
+      <SlideHeader title="Every Team Has This Problem" />
       <div className="grid grid-cols-2 gap-10 flex-1 min-h-0">
         <div
           className="rounded-2xl p-10 font-mono text-[22px] leading-relaxed whitespace-pre-wrap"
@@ -111,8 +111,12 @@ need to decide before sprint. TBD`}
 
 /* -------------------- Slide 3: The Pipeline -------------------- */
 function S3() {
-  const boxes = [
-    { folder: "00_inbox/", desc: "Raw meeting notes", color: BLUE },
+  const sources = [
+    { folder: "00_inbox/notes/", desc: "Meeting notes", color: BLUE },
+    { folder: "00_inbox/feedback/", desc: "Customer feedback", color: "#38BDF8" },
+    { folder: "00_inbox/raw/", desc: "Raw data & signals", color: "#0EA5E9" },
+  ];
+  const pipeline = [
     { folder: "01_processed/", desc: "Cleaned summary + signals", color: "#64748B" },
     { folder: "02_principles/", desc: "Durable beliefs", color: "#A78BFA" },
     { folder: "03_decisions/", desc: "Committed forks", color: "#2DD4BF" },
@@ -120,31 +124,80 @@ function S3() {
   ];
   return (
     <SlideFrame>
-      <SlideHeader title="Raw Conversation → Structured Product Knowledge" />
-      <div className="flex items-stretch gap-3 mb-12">
-        {boxes.map((b, i) => (
-          <div key={b.folder} className="flex items-stretch gap-3 flex-1">
+      <SlideHeader title="Many Inputs → Structured Product Knowledge → Back Again" />
+      <div className="flex items-stretch gap-6 mb-8">
+        <div className="flex flex-col gap-3 w-[360px]">
+          <div
+            className="font-mono text-[16px] uppercase tracking-[0.2em] mb-1"
+            style={{ color: MUTED }}
+          >
+            Sources
+          </div>
+          {sources.map((s) => (
             <div
-              className="flex-1 rounded-xl overflow-hidden"
+              key={s.folder}
+              className="rounded-xl overflow-hidden"
               style={{ background: CARD_BG }}
             >
-              <div className="h-2" style={{ background: b.color }} />
-              <div className="p-6">
-                <div className="font-mono text-[20px] mb-3" style={{ color: b.color }}>
-                  {b.folder}
+              <div className="h-2" style={{ background: s.color }} />
+              <div className="px-5 py-3">
+                <div
+                  className="font-mono text-[16px] mb-1"
+                  style={{ color: s.color }}
+                >
+                  {s.folder}
                 </div>
-                <div className="text-[20px]" style={{ color: "#E2E8F0" }}>
-                  {b.desc}
+                <div className="text-[18px]" style={{ color: "#E2E8F0" }}>
+                  {s.desc}
                 </div>
               </div>
             </div>
-            {i < boxes.length - 1 && (
-              <div className="flex items-center text-[32px]" style={{ color: MUTED }}>
-                →
+          ))}
+        </div>
+        <div
+          className="flex flex-col items-center justify-center text-[40px]"
+          style={{ color: MUTED }}
+        >
+          →
+        </div>
+        <div className="flex items-stretch gap-3 flex-1">
+          {pipeline.map((b, i) => (
+            <div key={b.folder} className="flex items-stretch gap-3 flex-1">
+              <div
+                className="flex-1 rounded-xl overflow-hidden"
+                style={{ background: CARD_BG }}
+              >
+                <div className="h-2" style={{ background: b.color }} />
+                <div className="p-5">
+                  <div
+                    className="font-mono text-[18px] mb-2"
+                    style={{ color: b.color }}
+                  >
+                    {b.folder}
+                  </div>
+                  <div className="text-[18px]" style={{ color: "#E2E8F0" }}>
+                    {b.desc}
+                  </div>
+                </div>
               </div>
-            )}
-          </div>
-        ))}
+              {i < pipeline.length - 1 && (
+                <div className="flex items-center text-[28px]" style={{ color: MUTED }}>
+                  →
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+      <div
+        className="flex items-center gap-4 mb-6 rounded-xl px-6 py-3"
+        style={{ background: `${EMERALD}10`, border: `1px dashed ${EMERALD}55` }}
+      >
+        <span className="text-[24px]" style={{ color: EMERALD }}>↺</span>
+        <span className="text-[20px]" style={{ color: "#E2E8F0" }}>
+          Shipped specs generate new feedback and data — feeding the next loop.
+          Work isn't linear; it's a cycle.
+        </span>
       </div>
       <div className="grid grid-cols-2 gap-8 flex-1 min-h-0">
         <div className="rounded-2xl p-8" style={{ background: CARD_BG }}>
