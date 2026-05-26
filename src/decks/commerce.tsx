@@ -463,4 +463,4 @@ function S8() {
   );
 }
 
-export const commerceSlides = [S1, S2, S3, S4, S5, S6, S7, S8];
+export const commerceSlides = [S1, S2, S2b, S3, S4, S5, S6, S7, S8];
