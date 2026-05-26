@@ -48,6 +48,111 @@ function S2() {
   );
 }
 
+/* -------------------- Slide 3 — Solution Demo -------------------- */
+function S2b() {
+  const features = [
+    {
+      title: "Recommendation, not a blocker",
+      body: "Preserves trust if the tool is wrong — developers stay in control of submission.",
+    },
+    {
+      title: "Softened language",
+      body: '"Likely passing" / "likely failing" — never absolute. Calibrated to confidence.',
+    },
+    {
+      title: "Unlimited runs",
+      body: "Fix and re-run as many times as you want. The onus is on the developer.",
+    },
+  ];
+  return (
+    <SlideFrame>
+      <SlideHeader
+        kicker="The Solution · Demo"
+        title="AI self-review agent — here's what it looks like"
+      />
+      <div className="grid grid-cols-2 gap-10 flex-1 min-h-0">
+        {/* Terminal */}
+        <div className="rounded-xl overflow-hidden border border-border bg-[#0b0f1a] flex flex-col shadow-2xl">
+          <div className="flex items-center gap-2 px-4 py-2.5 bg-[#1a1f2e] border-b border-border">
+            <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+            <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
+            <span className="w-3 h-3 rounded-full bg-[#28c840]" />
+            <span className="ml-3 text-[14px] font-mono text-muted-foreground">
+              shopify-review — zsh
+            </span>
+          </div>
+          <div className="p-5 font-mono text-[15px] leading-relaxed flex-1 overflow-hidden">
+            <div className="text-foreground">
+              <span className="text-[color:var(--positive)]">$</span> shopify app review --self
+            </div>
+            <div className="text-muted-foreground mb-4">Running compliance checks...</div>
+
+            <div className="rounded-md border border-border bg-black/30 p-4 mb-4">
+              <div className="text-foreground mb-3">Compliance Report</div>
+              <div className="grid grid-cols-3 gap-4 mb-3">
+                <div>
+                  <div className="text-[color:var(--positive)] text-[28px] font-bold leading-none">29</div>
+                  <div className="text-[12px] text-muted-foreground mt-1">Likely passing</div>
+                </div>
+                <div>
+                  <div className="text-accent text-[28px] font-bold leading-none">3</div>
+                  <div className="text-[12px] text-muted-foreground mt-1">Needs review</div>
+                </div>
+                <div>
+                  <div className="text-[color:var(--negative)] text-[28px] font-bold leading-none">1</div>
+                  <div className="text-[12px] text-muted-foreground mt-1">Likely failing</div>
+                </div>
+              </div>
+              <div className="space-y-2 text-[13px]">
+                <div>
+                  <div><span className="text-[color:var(--negative)]">✗</span> <span className="text-foreground">webhooks/orders.create</span> — invalid endpoint</div>
+                  <div className="text-muted-foreground pl-5">returns 500 on test payload · recommended fix: verify HMAC</div>
+                </div>
+                <div>
+                  <div><span className="text-accent">?</span> <span className="text-foreground">GraphQL version 2023-04 is deprecated</span></div>
+                  <div className="text-muted-foreground pl-5">upgrade to 2024-10 before submission</div>
+                </div>
+                <div>
+                  <div><span className="text-[color:var(--positive)]">✓</span> <span className="text-foreground">listing.screenshots</span> — all 5 present, correct dimensions</div>
+                  <div className="text-muted-foreground pl-5">1600×900 · PNG</div>
+                </div>
+                <div>
+                  <div><span className="text-[color:var(--positive)]">✓</span> <span className="text-foreground">oauth scopes</span> — minimal & justified</div>
+                  <div className="text-muted-foreground pl-5">read_products, write_orders</div>
+                </div>
+              </div>
+            </div>
+            <div className="text-foreground">
+              <span className="text-[color:var(--positive)]">$</span> <span className="inline-block w-2 h-4 bg-foreground/70 animate-pulse align-middle" />
+            </div>
+          </div>
+        </div>
+
+        {/* Feature cards */}
+        <div className="flex flex-col gap-5 justify-center">
+          {features.map((f, i) => (
+            <Card key={f.title}>
+              <div className="flex gap-5">
+                <div className="text-accent font-mono text-[26px] font-bold shrink-0">
+                  0{i + 1}
+                </div>
+                <div>
+                  <div className="text-[26px] font-bold mb-2 leading-tight">
+                    {f.title}
+                  </div>
+                  <div className="text-[20px] text-muted-foreground leading-snug">
+                    {f.body}
+                  </div>
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </SlideFrame>
+  );
+}
+
 /* -------------------- Slide 3 — Role & Metrics -------------------- */
 function S3() {
   const funnel = [
@@ -358,4 +463,4 @@ function S8() {
   );
 }
 
-export const commerceSlides = [S1, S2, S3, S4, S5, S6, S7, S8];
+export const commerceSlides = [S1, S2, S2b, S3, S4, S5, S6, S7, S8];
