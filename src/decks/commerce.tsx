@@ -463,4 +463,7 @@ function S8() {
   );
 }
 
-export const commerceSlides = [S1, S2, S2b, S3, S4, S5, S6, S7, S8];
+/* -------------------- Slide 9 — Solution Demo (reprise) -------------------- */
+const S9 = S2b;
+
+export const commerceSlides = [S1, S2, S2b, S3, S4, S5, S6, S7, S8, S9];
