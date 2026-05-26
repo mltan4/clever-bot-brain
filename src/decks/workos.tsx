@@ -67,7 +67,7 @@ function S2() {
   ];
   return (
     <SlideFrame>
-      <SlideHeader title="Every PM Has This Problem" />
+      <SlideHeader title="Every Team Has This Problem" />
       <div className="grid grid-cols-2 gap-10 flex-1 min-h-0">
         <div
           className="rounded-2xl p-10 font-mono text-[22px] leading-relaxed whitespace-pre-wrap"
