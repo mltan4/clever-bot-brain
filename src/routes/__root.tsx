@@ -14,7 +14,7 @@ import { useEffect, useMemo } from "react";
 import appCss from "../styles.css?url";
 
 const DECKS = {
-  commerce: { label: "Commerce AI Self-Review", total: 7 },
+  commerce: { label: "Shopify AI Toolkit — App Review", total: 8 },
   workos: { label: "WorkOS", total: 7 },
 } as const;
 
