@@ -10,7 +10,7 @@ function S1() {
           Shopify App Store · Case Study
         </div>
         <h1 className="text-[88px] font-extrabold leading-[1.02] tracking-tight mb-8 max-w-[1600px]">
-          Scaling the Shopify App Store Without Sacrificing Integrity
+          Scaling the Shopify App Store
         </h1>
         <p className="text-[36px] text-muted-foreground max-w-[1500px] leading-snug mb-16">
           How we cut review SLA from{" "}
@@ -256,7 +256,7 @@ function S7() {
   ];
   return (
     <SlideFrame>
-      <SlideHeader
+        <SlideHeader
         kicker="Stakeholder Management"
         title="Four Groups. One Principle That Ended the Hardest Debate."
       />
@@ -278,7 +278,7 @@ function S7() {
           ))}
         </div>
         <div className="flex flex-col justify-center">
-          <Callout label="The Hardest Moment">
+          <Callout label="Some Challenges">
             A VP proposed{" "}
             <span className="text-foreground font-semibold">
               opening the gates
@@ -286,7 +286,7 @@ function S7() {
             — let all apps in, let the marketplace self-regulate. Faster SLA,
             fewer resources. But it violated ecosystem integrity.
             <div className="mt-5 text-[26px] text-muted-foreground">
-              We shut it down with one principle:
+              We aligned with a principle:
             </div>
             <div className="mt-3 text-accent text-[30px] font-semibold leading-snug">
               "We are the steward of this marketplace, not just the operator."
