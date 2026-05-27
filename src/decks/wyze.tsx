@@ -348,13 +348,14 @@ function S6() {
             className="font-mono text-[18px] uppercase tracking-[0.18em]"
             style={{ color: POSITIVE }}
           >
-            What Moved the Room
+            Cross-functional Alignment
           </div>
           <p className="text-[22px] leading-snug">
-            The initial reaction from hardware PMs: "What if the app isn't ready
-            when we ship?" My answer: "Right now, you're not ready when we ship."
-            That reframe didn't win the argument. Data did.
+            The initial reaction from hardware PMs was concern about the app
+            not being ready when the device shipped. The reframe didn't win the
+            argument — data did.
           </p>
+
           <div
             className="rounded-xl p-6"
             style={{ background: "#1E293B" }}
