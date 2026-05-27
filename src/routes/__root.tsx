@@ -14,15 +14,18 @@ import { useEffect, useMemo } from "react";
 import appCss from "../styles.css?url";
 
 const DECKS = {
+  about: { label: "About", total: 1 },
   commerce: { label: "Shopify AI Toolkit", total: 12 },
-  wyze: { label: "Wyze Scaling Release", total: 8 },
+  wyze: { label: "Wyze Growth", total: 8 },
   workos: { label: "WorkOS", total: 7 },
 } as const;
+
+const PLAYGROUND_URL = "https://nextcraft.life/";
 
 type DeckId = keyof typeof DECKS;
 
 function parseLocation(pathname: string): { deck: DeckId; slide: number } | null {
-  const m = pathname.match(/^\/(commerce|workos|wyze)\/(\d+)/);
+  const m = pathname.match(/^\/(about|commerce|workos|wyze)\/(\d+)/);
   if (!m) return null;
   return { deck: m[1] as DeckId, slide: parseInt(m[2], 10) };
 }
@@ -147,6 +150,14 @@ function DeckShell() {
               </button>
             );
           })}
+          <a
+            href={PLAYGROUND_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 rounded-md text-sm font-medium transition-colors text-muted-foreground hover:text-foreground hover:bg-surface"
+          >
+            Playground ↗
+          </a>
         </nav>
         <div className="flex items-center gap-4">
           {/* Dots */}
