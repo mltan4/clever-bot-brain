@@ -14,9 +14,9 @@ import { useEffect, useMemo } from "react";
 import appCss from "../styles.css?url";
 
 const DECKS = {
-  commerce: { label: "Shopify AI Toolkit — App Review", total: 10 },
+  commerce: { label: "Shopify AI Toolkit", total: 10 },
+  wyze: { label: "Wyze Scaling Release", total: 8 },
   workos: { label: "WorkOS", total: 7 },
-  wyze: { label: "Wyze App Release", total: 8 },
 } as const;
 
 type DeckId = keyof typeof DECKS;
@@ -68,7 +68,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Product Decks" },
-      { name: "description", content: "Commerce AI Self-Review Agent & WorkOS presentation decks" },
+      { name: "description", content: "Shopify AI Toolkit, Wyze Scaling Release, and WorkOS presentation decks" },
     ],
     links: [{ rel: "stylesheet", href: appCss }],
   }),
