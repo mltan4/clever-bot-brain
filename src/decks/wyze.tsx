@@ -19,16 +19,16 @@ function S1() {
           Case Study
         </div>
         <h1 className="text-[88px] font-extrabold leading-[1.02] tracking-tight mb-8 max-w-[1600px]">
-          Scaling the<br />
-          Wyze App Release
+          Scaling Mobile<br />
+          Release Cycles
         </h1>
         <p
           className="text-[34px] leading-snug max-w-[1400px] mb-16"
           style={{ color: "#E2E8F0" }}
         >
-          How decoupling mobile from hardware turned Wyze's app into a retention
-          engine — <span style={{ color: POSITIVE }}>100K to 4M downloads</span>{" "}
-          across 7 products
+          Decoupling releases —{" "}
+          <span style={{ color: POSITIVE }}>100K to 4M downloads</span> across 7
+          products
         </p>
         <div
           className="font-mono text-[20px] uppercase tracking-[0.24em]"
