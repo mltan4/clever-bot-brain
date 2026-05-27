@@ -245,40 +245,36 @@ function S4() {
 
 /* -------------------- Slide 5: Insight & Pivot -------------------- */
 function S5() {
+  const tracks = [
+    {
+      n: "01",
+      t: "Alpha",
+      d: "Internal daily builds. Engineers and PMs dogfooded against in-progress hardware firmware to catch integration breaks early.",
+    },
+    {
+      n: "02",
+      t: "Beta",
+      d: "Opt-in power users on a weekly cadence. Stress-tested new device integrations against real homes before hardware launch.",
+    },
+    {
+      n: "03",
+      t: "TestFlight / Production",
+      d: "Stable bi-weekly releases to the full user base. Independent of any single hardware ship date.",
+    },
+  ];
   return (
     <SlideFrame>
-      <SlideHeader title="The Shift: From Features to Habits" />
-      <div
-        className="rounded-2xl p-10 mb-10 border-l-4"
-        style={{
-          background: `${POSITIVE}14`,
-          borderColor: POSITIVE,
-        }}
+      <SlideHeader title="Decouple the Release Cycle" />
+      <p
+        className="text-[26px] leading-snug max-w-[1600px] mb-10"
+        style={{ color: "#E2E8F0" }}
       >
-        <p className="text-[34px] font-bold leading-tight mb-5">
-          "We stopped asking 'What does this device do?' and started asking 'What
-          habit does this product need to create?'"
-        </p>
-        <p className="text-[22px] leading-snug" style={{ color: "#E2E8F0" }}>
-          A camera you check before leaving for work. A sensor that tells you
-          your kid got home. A lock you arm every night without thinking.
-          Retention isn't about features — it's about whether you're embedded in
-          someone's daily routine.
-        </p>
-      </div>
-      <div className="grid grid-cols-2 gap-8 flex-1 min-h-0">
-        {[
-          {
-            n: "01",
-            t: "Category Infrastructure",
-            d: "Built reusable scaffolding by device category — so the third camera wasn't a custom build from scratch.",
-          },
-          {
-            n: "02",
-            t: "Decouple the Release Cycle",
-            d: "iOS/Android shipped on their own cadence — every 2 weeks. Hardware integration staged independently. No more waiting on firmware.",
-          },
-        ].map((c) => (
+        Instead of one mobile release tied to each hardware update, we ran
+        multiple software releases per hardware cycle — and split the mobile app
+        into three parallel tracks so integration work never blocked the ship.
+      </p>
+      <div className="grid grid-cols-3 gap-8 flex-1 min-h-0">
+        {tracks.map((c) => (
           <Card key={c.n} accent>
             <div
               className="font-mono text-[28px] font-bold mb-4"
@@ -286,7 +282,7 @@ function S5() {
             >
               {c.n}
             </div>
-            <div className="text-[30px] font-bold mb-4">{c.t}</div>
+            <div className="text-[34px] font-bold mb-4">{c.t}</div>
             <p className="text-[22px] leading-snug" style={{ color: "#E2E8F0" }}>
               {c.d}
             </p>
@@ -296,6 +292,7 @@ function S5() {
     </SlideFrame>
   );
 }
+
 
 /* -------------------- Slide 6: Stakeholder Work -------------------- */
 function S6() {
