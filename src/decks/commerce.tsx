@@ -289,20 +289,20 @@ function S6() {
   return (
     <SlideFrame>
       <SlideHeader title="Improving the submission flow" />
-      <div className="grid grid-cols-3 gap-8 mb-8 flex-1 min-h-0">
+      <div className="grid grid-cols-3 gap-8 mb-8 items-start">
         {cols.map((c, i) => (
           <Card key={c.title} className="flex flex-col">
-            <div className="text-accent font-mono text-[22px] mb-3">
+            <div className="text-accent font-mono text-[24px] mb-3">
               0{i + 1}
             </div>
-            <div className="text-[28px] font-bold mb-5 leading-tight">
+            <div className="text-[30px] font-bold mb-5 leading-tight">
               {c.title}
             </div>
             <ul className="space-y-3">
               {c.items.map((it) => (
                 <li
                   key={it}
-                  className="text-[22px] text-muted-foreground leading-snug flex gap-2"
+                  className="text-[24px] text-muted-foreground leading-snug flex gap-3"
                 >
                   <span className="text-accent shrink-0">·</span>
                   <span>{it}</span>
