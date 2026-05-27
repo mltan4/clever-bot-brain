@@ -530,4 +530,133 @@ function S10() {
   );
 }
 
-export const commerceSlides = [S1, S2, S3, S4, S5, S6, S7, S8, S9, S10];
+/* -------------------- Demo Slide — AI Self-Review Agent -------------------- */
+function SDemo() {
+  const principles = [
+    {
+      title: "Recommendation, not a blocker",
+      body: "Preserves trust if the tool is wrong — developers stay in control of submission.",
+    },
+    {
+      title: "Softened language",
+      body: '"Likely passing" / "likely failing" — never absolute. Calibrated to confidence.',
+    },
+    {
+      title: "Unlimited runs",
+      body: "Fix and re-run as many times as you want. The onus is on the developer.",
+    },
+  ];
+  return (
+    <SlideFrame>
+      <div className="text-accent text-[22px] font-semibold uppercase tracking-[0.2em] mb-4">
+        The Solution · Demo
+      </div>
+      <h1 className="text-[60px] font-extrabold leading-[1.05] tracking-tight mb-10">
+        AI self-review agent — here's what it looks like
+      </h1>
+      <div className="grid grid-cols-2 gap-10 flex-1 min-h-0">
+        {/* Terminal mock */}
+        <div className="rounded-2xl border border-border bg-[#0b0f1a] overflow-hidden flex flex-col">
+          <div className="flex items-center gap-3 px-6 py-4 border-b border-border bg-[#0a0e18]">
+            <span className="w-3 h-3 rounded-full bg-[#ff5f56]" />
+            <span className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
+            <span className="w-3 h-3 rounded-full bg-[#27c93f]" />
+            <span className="ml-4 text-muted-foreground font-mono text-[16px]">
+              commerce-review · zsh
+            </span>
+          </div>
+          <div className="p-8 font-mono text-[16px] leading-relaxed flex-1">
+            <div className="text-foreground">
+              <span className="text-accent">$</span> commerce app review --self
+            </div>
+            <div className="text-muted-foreground mb-5">
+              Running compliance checks...
+            </div>
+            <div className="rounded-xl border border-border bg-[#0a0e18] p-6">
+              <div className="text-foreground font-semibold mb-4 text-[18px]">
+                Compliance Report
+              </div>
+              <div className="grid grid-cols-3 gap-4 mb-5">
+                <div>
+                  <div className="text-[color:var(--positive)] text-[40px] font-bold leading-none">29</div>
+                  <div className="text-muted-foreground text-[14px] mt-1">Likely passing</div>
+                </div>
+                <div>
+                  <div className="text-[#F59E0B] text-[40px] font-bold leading-none">3</div>
+                  <div className="text-muted-foreground text-[14px] mt-1">Needs review</div>
+                </div>
+                <div>
+                  <div className="text-[#ef4444] text-[40px] font-bold leading-none">1</div>
+                  <div className="text-muted-foreground text-[14px] mt-1">Likely failing</div>
+                </div>
+              </div>
+              <div className="space-y-3">
+                <div>
+                  <div className="text-foreground">
+                    <span className="text-[#ef4444] mr-2">x</span>
+                    webhooks/orders.create — invalid endpoint
+                  </div>
+                  <div className="text-muted-foreground text-[13px] ml-6">
+                    returns 500 on test payload · recommended fix: verify HMAC
+                  </div>
+                </div>
+                <div>
+                  <div className="text-foreground">
+                    <span className="text-[#F59E0B] mr-2">?</span>
+                    GraphQL version 2023-04 is deprecated
+                  </div>
+                  <div className="text-muted-foreground text-[13px] ml-6">
+                    upgrade to 2024-10 before submission
+                  </div>
+                </div>
+                <div>
+                  <div className="text-foreground">
+                    <span className="text-[color:var(--positive)] mr-2">✓</span>
+                    listing.screenshots — all 5 present, correct dimensions
+                  </div>
+                  <div className="text-muted-foreground text-[13px] ml-6">
+                    1600×900 · PNG
+                  </div>
+                </div>
+                <div>
+                  <div className="text-foreground">
+                    <span className="text-[color:var(--positive)] mr-2">✓</span>
+                    oauth scopes — minimal & justified
+                  </div>
+                  <div className="text-muted-foreground text-[13px] ml-6">
+                    read_products, write_orders
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="text-accent mt-5">$ _</div>
+          </div>
+        </div>
+
+        {/* Principles */}
+        <div className="flex flex-col gap-5 justify-center">
+          {principles.map((p, i) => (
+            <div
+              key={p.title}
+              className="rounded-2xl border border-border bg-surface p-8 flex gap-6"
+            >
+              <div className="text-accent font-mono text-[28px] font-bold leading-none shrink-0">
+                0{i + 1}
+              </div>
+              <div>
+                <div className="text-[28px] font-bold leading-tight mb-2">
+                  {p.title}
+                </div>
+                <div className="text-[20px] text-muted-foreground leading-snug">
+                  {p.body}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </SlideFrame>
+  );
+}
+
+export const commerceSlides = [S1, S2, S3, SDemo, S4, S5, S6, S7, SDemo, S8, S9, S10];
