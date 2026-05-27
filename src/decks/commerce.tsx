@@ -226,20 +226,20 @@ function S5() {
       <h1 className="text-[60px] font-extrabold leading-[1.05] tracking-tight mb-12">
         Three parallel tracks — one team accountable for each
       </h1>
-      <div className="grid grid-cols-3 gap-8 mb-8 flex-1 min-h-0">
+      <div className="grid grid-cols-3 gap-8 mb-8 items-start">
         {tracks.map((t) => (
           <div
             key={t.title}
             className="rounded-2xl border border-border bg-[#0b0f1a] flex flex-col overflow-hidden"
           >
             <div className="h-2" style={{ backgroundColor: t.accent }} />
-            <div className="p-8 flex flex-col gap-5 flex-1">
-              <div className="text-[30px] font-bold leading-tight">{t.title}</div>
+            <div className="p-8 flex flex-col gap-5">
+              <div className="text-[32px] font-bold leading-tight">{t.title}</div>
               <ul className="space-y-3">
                 {t.items.map((it) => (
                   <li
                     key={it}
-                    className="text-[22px] text-muted-foreground leading-snug flex gap-2"
+                    className="text-[24px] text-muted-foreground leading-snug flex gap-3"
                   >
                     <span className="text-accent shrink-0">·</span>
                     <span>{it}</span>
