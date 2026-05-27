@@ -30,18 +30,27 @@ function S2() {
     <SlideFrame>
       <SlideHeader
         kicker="Business Context"
-        title="App Submission Volume Outpaced Our Capacity to Review"
+        title="Scaling Crisis: App Volume Outpaced Our Review Capacity"
       />
       <div className="grid grid-cols-3 gap-8 mb-10">
         <Stat value="40%" label="spike in app submission volume" tone="accent" />
         <Stat value="45 days" label="SLA at peak (benchmark: 11 days)" tone="negative" />
         <Stat value="23K" label="existing + new developers affected, vocal on social" tone="accent" />
       </div>
-      <p className="text-[26px] text-muted-foreground leading-snug max-w-[1700px]">
+      <p className="text-[32px] text-muted-foreground leading-snug max-w-[1700px] mb-8">
         These developers serve merchants generating{" "}
         <span className="text-accent font-semibold">$1.3B in commerce</span>. Slow
         reviews were a reputational and ecosystem risk with leadership visibility.
       </p>
+      <div className="rounded-xl border-l-4 border-accent bg-accent/10 px-8 py-6">
+        <div className="text-accent text-[20px] font-semibold uppercase tracking-[0.18em] mb-2">
+          The Problem
+        </div>
+        <div className="text-[30px] text-foreground leading-snug font-semibold">
+          AI dramatically lowered the barrier to building apps, causing
+          submission volume to outpace review capacity.
+        </div>
+      </div>
     </SlideFrame>
   );
 }
@@ -50,11 +59,6 @@ function SVideo() {
   return (
     <SlideFrame>
       <SlideHeader kicker="Process Walkthrough" title="How App Review works" />
-      <p className="text-[26px] text-muted-foreground leading-snug max-w-[1700px] mb-8">
-        A 3P dev submits, auto checks run first, then our QA team checks it
-        against 150+ requirements. Feedback goes to email, and the cycle
-        repeats until the app passes.
-      </p>
       <div className="flex-1 flex items-center justify-center min-h-0">
         <video
           src="/shopify-app-walkthrough.mp4"
@@ -66,9 +70,7 @@ function SVideo() {
   );
 }
 
-
-
-/* -------------------- Slide 3 — Role & Mandate -------------------- */
+/* -------------------- Slide 4 — Role & Mandate -------------------- */
 function S3() {
   const funnel = [
     "Apps in the store",
@@ -78,6 +80,13 @@ function S3() {
     "Violations reported post-publish",
     "Reviews & ratings",
   ];
+  const left = ["faster approvals", "lower friction", "ecosystem growth"];
+  const right = [
+    "merchant trust",
+    "fraud prevention",
+    "quality standards",
+    "platform safety",
+  ];
   return (
     <SlideFrame>
       <SlideHeader
@@ -85,29 +94,54 @@ function S3() {
         title="Mission: Grow the app store without compromising integrity"
       />
       <div className="grid grid-cols-2 gap-12 flex-1 min-h-0">
-        <div className="flex flex-col justify-center">
-          <p className="text-[26px] leading-snug text-muted-foreground mb-8">
-            As Shopify App Store lead, my mandate was to increase apps while
-            maintaining quality: two things in{" "}
-            <span className="text-accent font-semibold">direct tension</span>{" "}
-            when volume spikes.
+        <div className="flex flex-col justify-center gap-8">
+          <p className="text-[24px] leading-snug text-muted-foreground">
+            As Shopify App Store lead, my mandate was to balance two forces in{" "}
+            <span className="text-accent font-semibold">direct tension</span>:
           </p>
-          <div className="text-[24px] font-bold text-foreground mb-5">
-            I owned a full performance funnel:
+          <div className="grid grid-cols-[1fr_auto_1fr] items-stretch gap-4">
+            <div className="rounded-2xl border border-border bg-surface p-6 flex flex-col">
+              <div className="text-accent text-[16px] font-semibold uppercase tracking-[0.18em] mb-2">
+                Left
+              </div>
+              <div className="text-[26px] font-bold leading-tight mb-4">
+                Increase App Volume
+              </div>
+              <ul className="space-y-2">
+                {left.map((it) => (
+                  <li
+                    key={it}
+                    className="text-[20px] text-muted-foreground flex gap-2"
+                  >
+                    <span className="text-accent">·</span>
+                    <span>{it}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="flex items-center text-accent text-[40px] font-bold">
+              ⇄
+            </div>
+            <div className="rounded-2xl border border-border bg-surface p-6 flex flex-col">
+              <div className="text-accent text-[16px] font-semibold uppercase tracking-[0.18em] mb-2">
+                Right
+              </div>
+              <div className="text-[26px] font-bold leading-tight mb-4">
+                Protect Marketplace Integrity
+              </div>
+              <ul className="space-y-2">
+                {right.map((it) => (
+                  <li
+                    key={it}
+                    className="text-[20px] text-muted-foreground flex gap-2"
+                  >
+                    <span className="text-accent">·</span>
+                    <span>{it}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <ol className="space-y-3">
-            {funnel.map((item, i) => (
-              <li
-                key={item}
-                className={`text-[22px] flex gap-4 ${
-                  i === 0 ? "text-accent font-semibold" : "text-muted-foreground"
-                }`}
-              >
-                <span className="font-mono">{String(i + 1).padStart(2, "0")}</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ol>
         </div>
         <div className="flex flex-col items-center justify-center gap-3">
           {funnel.map((label, i) => {
@@ -138,67 +172,116 @@ function S3() {
   );
 }
 
-/* -------------------- Slide 4 — Ideas We Considered -------------------- */
-function S4() {
-  const cards = [
-    {
-      title: "Risk-Based Review",
-      accent: "var(--accent)",
-      items: [
-        "Fast-track lanes for trusted partners",
-        "Audit-heavy model: post-publish enforcement",
-        "Domain expertise tiers (L1/L2/L3)",
-      ],
-    },
-    {
-      title: "Dev Tooling & Submission",
-      accent: "#3B82F6",
-      items: [
-        "Inline validation in submission UI",
-        "Developer pre-submission test environment",
-        "Actionable partner dashboard feedback",
-        "AI pre-check against 150+ requirements",
-      ],
-    },
-    {
-      title: "Policy, Legal & Governance",
-      accent: "#F59E0B",
-      items: [
-        "Severity framework (minor → critical)",
-        "Audit & reduce 150+ requirements",
-        "Post-publish remediation for non-critical issues",
-      ],
-    },
+/* -------------------- Slide 5 — Diagnostic Framework -------------------- */
+function SDiagnostic() {
+  const steps = [
+    "Developer Submission",
+    "Pre-Submission Validation",
+    "Internal Review Queue",
+    "Policy & Compliance Checks",
+    "Publish to Store",
   ];
+  const bottlenecks = [
+    "Poor quality submissions entering queue",
+    "Inefficient reviewer routing",
+    "Outdated / overlapping requirements",
+  ];
+  return (
+    <SlideFrame>
+      <SlideHeader kicker="Diagnostic Framework" title="Where the pipeline broke down" />
+      <div className="grid grid-cols-[1.1fr_1fr] gap-12 flex-1 min-h-0">
+        <div className="flex flex-col items-center justify-center gap-3">
+          {steps.map((label, i) => {
+            const width = 100 - i * 8;
+            return (
+              <div key={label} className="w-full flex flex-col items-center">
+                <div
+                  className="rounded-lg border border-border flex items-center justify-center px-6 py-5"
+                  style={{
+                    width: `${width}%`,
+                    backgroundColor: `color-mix(in oklab, var(--accent) ${
+                      22 - i * 2
+                    }%, var(--surface))`,
+                  }}
+                >
+                  <span className="text-accent font-mono text-[20px] mr-4">
+                    0{i + 1}
+                  </span>
+                  <span className="text-[24px] font-semibold text-foreground text-center">
+                    {label}
+                  </span>
+                </div>
+                {i < steps.length - 1 && (
+                  <div className="text-accent text-[24px] leading-none my-1">↓</div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+        <div className="flex flex-col justify-center">
+          <div className="rounded-2xl border border-border bg-[#0b0f1a] p-10">
+            <div className="text-accent text-[20px] font-semibold uppercase tracking-[0.18em] mb-6">
+              Bottlenecks
+            </div>
+            <ul className="space-y-5">
+              {bottlenecks.map((b) => (
+                <li
+                  key={b}
+                  className="flex gap-4 text-[26px] text-foreground leading-snug"
+                >
+                  <span className="text-[#ef4444] shrink-0">❌</span>
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </SlideFrame>
+  );
+}
+
+/* -------------------- Slide 6 — Ideas We Considered (table) -------------------- */
+function S4() {
+  const rows: Array<{ name: string; impact: string; speed: string; complexity: string }> = [
+    { name: "Improve submission communication", impact: "Medium", speed: "Fast", complexity: "Low" },
+    { name: "AI pre-submission toolkit", impact: "High", speed: "Medium", complexity: "Medium" },
+    { name: "Reviewer specialization routing", impact: "Medium", speed: "Medium", complexity: "Low" },
+    { name: "Rewrite 150+ policies", impact: "High", speed: "Slow", complexity: "High" },
+  ];
+  const tone = (v: string) => {
+    if (v === "High" || v === "Fast") return "text-[color:var(--positive)]";
+    if (v === "Slow" || v === "High ") return "text-[#ef4444]";
+    if (v === "Medium") return "text-[#F59E0B]";
+    if (v === "Low") return "text-[color:var(--positive)]";
+    return "text-foreground";
+  };
   return (
     <SlideFrame>
       <div className="text-accent text-[22px] font-semibold uppercase tracking-[0.2em] mb-4">
         Ideas we considered
       </div>
       <h1 className="text-[60px] font-extrabold leading-[1.05] tracking-tight mb-12">
-        We mapped 40+ ideas into three categories before deciding
+        We mapped 40+ ideas — here are the four we evaluated
       </h1>
-      <div className="grid grid-cols-3 gap-8 items-start">
-        {cards.map((c) => (
+      <div className="rounded-2xl border border-border bg-surface overflow-hidden">
+        <div className="grid grid-cols-[2.2fr_1fr_1fr_1fr] gap-6 px-8 py-5 bg-[#0b0f1a] text-[20px] uppercase tracking-[0.16em] text-muted-foreground font-semibold">
+          <div>Initiative</div>
+          <div>Impact</div>
+          <div>Speed</div>
+          <div>Complexity</div>
+        </div>
+        {rows.map((r, i) => (
           <div
-            key={c.title}
-            className="rounded-2xl border border-border bg-surface flex flex-col overflow-hidden"
+            key={r.name}
+            className={`grid grid-cols-[2.2fr_1fr_1fr_1fr] gap-6 px-8 py-6 items-center ${
+              i < rows.length - 1 ? "border-b border-border" : ""
+            }`}
           >
-            <div className="h-2" style={{ backgroundColor: c.accent }} />
-            <div className="p-8 flex flex-col gap-5">
-              <div className="text-[30px] font-bold leading-tight">{c.title}</div>
-              <ul className="space-y-3">
-                {c.items.map((it) => (
-                  <li
-                    key={it}
-                    className="text-[24px] text-muted-foreground leading-snug flex gap-3"
-                  >
-                    <span className="text-accent shrink-0">·</span>
-                    <span>{it}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <div className="text-[28px] font-semibold text-foreground">{r.name}</div>
+            <div className={`text-[26px] font-semibold ${tone(r.impact)}`}>{r.impact}</div>
+            <div className={`text-[26px] font-semibold ${tone(r.speed)}`}>{r.speed}</div>
+            <div className={`text-[26px] font-semibold ${tone(r.complexity)}`}>{r.complexity}</div>
           </div>
         ))}
       </div>
@@ -206,15 +289,15 @@ function S4() {
   );
 }
 
-/* -------------------- Slide 5 — Three Parallel Tracks -------------------- */
+/* -------------------- Slide 7 — Three Parallel Tracks -------------------- */
 function S5() {
   const tracks = [
     {
       title: "Product / Eng",
       accent: "var(--accent)",
       items: [
-        "AI-powered self-review toolkit",
         "Improved submission form",
+        "AI Self-Review Toolkit",
       ],
     },
     {
@@ -237,10 +320,10 @@ function S5() {
   return (
     <SlideFrame>
       <div className="text-accent text-[22px] font-semibold uppercase tracking-[0.2em] mb-4">
-        Three parallel tracks we committed to
+        Ownership Model
       </div>
       <h1 className="text-[60px] font-extrabold leading-[1.05] tracking-tight mb-12">
-        Three parallel tracks — one team accountable for each
+        Three parallel tracks — Ownership Model
       </h1>
       <div className="grid grid-cols-3 gap-8 mb-8 items-start">
         {tracks.map((t) => (
@@ -251,17 +334,17 @@ function S5() {
             <div className="h-2" style={{ backgroundColor: t.accent }} />
             <div className="p-8 flex flex-col gap-5">
               <div className="text-[32px] font-bold leading-tight">{t.title}</div>
-              <ul className="space-y-3">
-                {t.items.map((it) => (
+              <ol className="space-y-4">
+                {t.items.map((it, i) => (
                   <li
                     key={it}
-                    className="text-[24px] text-muted-foreground leading-snug flex gap-3"
+                    className="text-[28px] text-foreground leading-snug flex gap-4"
                   >
-                    <span className="text-accent shrink-0">·</span>
+                    <span className="text-accent font-mono shrink-0">{i + 1}.</span>
                     <span>{it}</span>
                   </li>
                 ))}
-              </ul>
+              </ol>
             </div>
           </div>
         ))}
@@ -274,7 +357,7 @@ function S5() {
   );
 }
 
-/* -------------------- Slide 6 — Improving the Submission Flow -------------------- */
+/* -------------------- Slide 8 — Improving the Submission Flow -------------------- */
 function S6() {
   const cols = [
     {
@@ -296,9 +379,9 @@ function S6() {
     {
       title: "What the Data Showed",
       items: [
-        "Bounce rate didn't move",
-        "Developers submitting apps without self-testing",
-        "Communication wasn't the core problem",
+        "We reduced wait time from 45 to 40 days (12%)",
+        "But developers were still submitting apps without testing",
+        "Communication improved, but we need more solution",
       ],
     },
   ];
@@ -314,17 +397,17 @@ function S6() {
             <div className="text-[30px] font-bold mb-5 leading-tight">
               {c.title}
             </div>
-            <ul className="space-y-3">
-              {c.items.map((it) => (
+            <ol className="space-y-4">
+              {c.items.map((it, j) => (
                 <li
                   key={it}
-                  className="text-[24px] text-muted-foreground leading-snug flex gap-3"
+                  className="text-[26px] text-foreground leading-snug flex gap-3"
                 >
-                  <span className="text-accent shrink-0">·</span>
+                  <span className="text-accent font-mono shrink-0">{j + 1}.</span>
                   <span>{it}</span>
                 </li>
               ))}
-            </ul>
+            </ol>
           </Card>
         ))}
       </div>
@@ -335,11 +418,11 @@ function S6() {
   );
 }
 
-/* -------------------- Slide 7 — Improving the Quality of Submission -------------------- */
+/* -------------------- Slide 9 — Shopify AI Self-Review Toolkit -------------------- */
 function S7() {
   return (
     <SlideFrame>
-      <SlideHeader title="Improving the quality of submission" />
+      <SlideHeader title="Shopify AI Self-Review Toolkit" />
       <div className="flex flex-col gap-8 flex-1 min-h-0">
         <div className="rounded-2xl border border-border bg-[#0b0f1a] p-10">
           <ul className="space-y-4">
@@ -350,7 +433,7 @@ function S7() {
             ].map((it) => (
               <li
                 key={it}
-                className="text-[26px] text-foreground leading-snug flex gap-3"
+                className="text-[30px] text-foreground leading-snug flex gap-3"
               >
                 <span className="text-accent shrink-0">·</span>
                 <span>{it}</span>
@@ -370,7 +453,7 @@ function S7() {
             ].map((it) => (
               <li
                 key={it}
-                className="text-[26px] text-foreground leading-snug flex gap-3"
+                className="text-[30px] text-foreground leading-snug flex gap-3"
               >
                 <span className="text-accent shrink-0">·</span>
                 <span>{it}</span>
@@ -383,7 +466,7 @@ function S7() {
   );
 }
 
-/* -------------------- Slide 8 — Stakeholder Management -------------------- */
+/* -------------------- Principle (was S8) -------------------- */
 function S8() {
   const groups = [
     { t: "App Developers", d: "23K external developers · vocal on social media" },
@@ -420,7 +503,7 @@ function S8() {
           </p>
           <div className="rounded-xl border-l-4 border-accent bg-accent/10 px-6 py-5">
             <div className="text-accent text-[28px] font-semibold leading-snug">
-              "We are the steward of this marketplace, not just the operator."
+              Short-term wins have long-term consequences.
             </div>
           </div>
         </div>
@@ -429,11 +512,11 @@ function S8() {
   );
 }
 
-/* -------------------- Slide 9 — Outcomes -------------------- */
+/* -------------------- Outcomes (was S9) -------------------- */
 function S9() {
   const rows = [
     { metric: "SLA", before: "45 days", after: "2 weeks" },
-    { metric: "MCP Adoption", before: "—", after: "13% at launch" },
+    { metric: "AI Toolkit", before: "—", after: "13% adoption at launch" },
     { metric: "Reception", before: "—", after: "Positive dev forums" },
   ];
   return (
@@ -480,7 +563,7 @@ function S9() {
             <div className="text-accent text-[20px] font-semibold uppercase tracking-[0.18em] mb-3">
               Ops
             </div>
-            <p className="text-[22px] text-muted-foreground leading-snug">
+            <p className="text-[26px] text-muted-foreground leading-snug">
               Frontline ops team built for the most complex submissions — removed
               the bottleneck of generalist reviewers on nuanced cases.
             </p>
@@ -492,7 +575,7 @@ function S9() {
             <div className="text-accent text-[20px] font-semibold uppercase tracking-[0.18em] mb-3">
               Policy
             </div>
-            <p className="text-[22px] text-muted-foreground leading-snug">
+            <p className="text-[26px] text-muted-foreground leading-snug">
               Critical failures category introduced — apps with critical issues
               rejected outright, giving developers clearer signal on what truly
               blocks publication.
@@ -507,12 +590,29 @@ function S9() {
   );
 }
 
-/* -------------------- Slide 10 — Learnings -------------------- */
+/* -------------------- Slide 13 — Learnings -------------------- */
 function S10() {
-  const bullets = [
-    "We evaluated 40–50 ideas before aligning. Some took weeks to kill because we hadn't established governing principles upfront.",
-    'The principle we should have led with: "We are stewards of the marketplace. Quality is non-negotiable. Ecosystem integrity beats short-term throughput."',
-    "Used as a filter from day one, those principles would have eliminated half the idea list in week one and accelerated consensus across legal, governance, and leadership.",
+  const lessons = [
+    {
+      h: "Define governing principles before generating solutions.",
+      d: "In multi-stakeholder environments, principles are a prioritization tool.",
+    },
+    {
+      h: "Ship lean, read the data, then decide where to invest.",
+      d: "A lean v1 is a hypothesis test. The data tells you whether to invest more or move on.",
+    },
+    {
+      h: "AI judgment is only as good as the human judgment you embed in it.",
+      d: "SME collaboration and human-in-the-loop allow for fine-tuning early products effectively.",
+    },
+    {
+      h: "Parallel workstreams are an ops strategy, not a compromise.",
+      d: "Complex operational problems rarely have one root cause. Design for parallel progress, not sequential perfection.",
+    },
+    {
+      h: "Nemawashi (根回し) works wonders.",
+      d: "",
+    },
   ];
   return (
     <SlideFrame>
@@ -522,28 +622,28 @@ function S10() {
       <h1 className="text-[60px] font-extrabold leading-[1.05] tracking-tight mb-10">
         Learnings
       </h1>
-      <div className="rounded-2xl border border-border bg-surface p-12 flex-1 flex flex-col justify-center">
-        <div className="text-[30px] font-bold text-foreground mb-6 leading-tight">
-          Define governing principles before generating solutions.
-        </div>
-        <ul className="space-y-5 mb-8">
-          {bullets.map((b, i) => (
-            <li
-              key={i}
-              className="flex gap-4 text-[24px] text-muted-foreground leading-snug"
-            >
-              <span className="text-accent shrink-0">•</span>
-              <span>{b}</span>
-            </li>
-          ))}
-        </ul>
-        <div className="rounded-xl border-l-4 border-accent bg-accent/10 px-6 py-5">
-          <div className="text-accent text-[24px] font-semibold leading-snug">
-            Lesson: In multi-stakeholder environments, principles are a
-            prioritization tool. Also: Nemawashi (根回し) works wonders.
-          </div>
-        </div>
-      </div>
+      <ol className="flex flex-col gap-5 flex-1 min-h-0">
+        {lessons.map((l, i) => (
+          <li
+            key={i}
+            className="rounded-2xl border border-border bg-surface px-8 py-6 flex gap-6"
+          >
+            <span className="text-accent font-mono text-[32px] font-bold shrink-0">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <div>
+              <div className="text-[26px] font-bold text-foreground leading-snug">
+                {l.h}
+              </div>
+              {l.d && (
+                <div className="text-[22px] text-muted-foreground leading-snug mt-2">
+                  {l.d}
+                </div>
+              )}
+            </div>
+          </li>
+        ))}
+      </ol>
     </SlideFrame>
   );
 }
@@ -641,4 +741,4 @@ function SDemo() {
   );
 }
 
-export const commerceSlides = [S1, S2, SVideo, S3, SDemo, S4, S5, S6, S7, SDemo, S8, S9, S10];
+export const commerceSlides = [S1, S2, SVideo, S3, SDiagnostic, S4, S5, S6, S7, SDemo, S9, S8, S10];

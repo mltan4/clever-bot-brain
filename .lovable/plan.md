@@ -1,70 +1,72 @@
-## Goal
+All changes are in `src/decks/commerce.tsx`. Slide numbers below = deck position (current order: S1, S2, SVideo, S3, SDemo, S4, S5, S6, S7, SDemo, S8, S9, S10).
 
-A single-page web app that presents two decks ("Shopify AI Self-Review Agent" and "WorkOS") with a persistent top nav to switch between them, keyboard + button navigation, slide counter, and progress indicator. Clean modern dark theme, no inner scrolling — each slide fits the viewport.
+### Slide 2 — Business Context (S2)
+- Title → `Scaling Crisis: App Volume Outpaced Our Review Capacity`
+- Increase font size of the "$1.3B in commerce…" paragraph (text-[26px] → text-[32px])
+- Add a highlighted call-out block: *"AI dramatically lowered the barrier to building apps, causing submission volume to outpace review capacity."*
 
-## Routes
+### Slide 4 — Role & Mandate (S3)
+- Remove the left-side 01–06 numbered list (redundant with funnel)
+- Keep the funnel diagram (right column)
+- Replace the left column with a 2-sided tension diagram:
+  - LEFT — **Increase App Volume**: faster approvals · lower friction · ecosystem growth
+  - RIGHT — **Protect Marketplace Integrity**: merchant trust · fraud prevention · quality standards · platform safety
 
-- `/` — redirects to `/shopify/1`
-- `/shopify/$slide` — Shopify deck
-- `/workos/$slide` — WorkOS deck
+### Slide 5 — Replace SDemo with "Diagnostic Framework"
+Replace the demo slide content (at this position only) with a funnel diagram:
+Developer Submission → Pre-Submission Validation → Internal Review Queue → Policy & Compliance Checks → Publish to Store
+Then a "Bottlenecks" annotation block:
+- ❌ Poor quality submissions entering queue
+- ❌ Inefficient reviewer routing
+- ❌ Outdated / overlapping requirements
 
-Top nav is rendered in `__root.tsx` and is always visible. Active deck is highlighted.
+(The second SDemo at position 10 stays as-is.)
 
-## Layout
+### Slide 6 — Ideas we considered (S4)
+Replace the 3-column card grid with a table:
 
-```
-┌────────────────────────────────────────────────┐
-│  Top nav: [Shopify] [WorkOS]      3 / 7        │
-├────────────────────────────────────────────────┤
-│  Progress bar (thin, accent color)             │
-├────────────────────────────────────────────────┤
-│                                                │
-│             SLIDE CONTENT (fills)              │
-│                                                │
-├────────────────────────────────────────────────┤
-│  ◀ Prev                              Next ▶    │
-└────────────────────────────────────────────────┘
-```
+| Initiative | Impact | Speed | Complexity |
+|---|---|---|---|
+| Improve submission communication | Medium | Fast | Low |
+| AI pre-submission toolkit | High | Medium | Medium |
+| Reviewer specialization routing | Medium | Medium | Low |
+| Rewrite 150+ policies | High | Slow | High |
 
-- Fixed viewport height (`h-screen`, `overflow-hidden`).
-- Slides scale-to-fit using a 1920×1080 inner canvas with CSS `transform: scale()` so layout never breaks at different window sizes and content never scrolls.
-- Keyboard: `←` prev, `→` next, looping disabled (clamped).
+### Slide 7 — Three parallel tracks (S5)
+- Title → `Three parallel tracks — Ownership Model`
+- Increase bullet text size and number them (1., 2., …)
+- Re-order Product/Eng bullets: 1) Improved submission form, 2) AI Self-Review Toolkit
 
-## Design system
+### Slide 8 — Improving the submission flow (S6)
+- Increase bullet text size and number them
+- Replace "What the Data Showed" bullets with:
+  1. We reduced wait time from 45 to 40 days (12%)
+  2. But developers were still submitting apps without testing
+  3. Communication improved, but we need more solution
 
-Dark theme tokens added to `src/styles.css` (oklch):
-- Background: near-black with subtle blue tint
-- Foreground: off-white
-- Accent: electric indigo / cyan for highlights, progress bar, highlighted chart bar
-- Muted card surface for content blocks
-- Mono font (JetBrains Mono via Google Fonts) for the terminal/CLI block on Shopify slide 3
-- Sans (Inter) for everything else
+### Slide 9 — (S7)
+- Title → `Shopify AI Self-Review Toolkit`
+- Increase font size of bullets
 
-## Files to create
+### Slide 11 — Principle (currently S8)
+- Replace the quoted blockquote `"We are the steward of this marketplace, not just the operator."` with: **Short-term wins have long-term consequences** (no quotes)
 
-- `src/routes/__root.tsx` — add top nav (deck switcher), counter, progress bar, prev/next footer wrapper around `<Outlet />`. Hook up arrow-key listener via `useEffect`.
-- `src/routes/index.tsx` — `<Navigate to="/shopify/1" />`
-- `src/routes/shopify.$slide.tsx` — reads `slide` param, renders the matching slide component, sets per-slide `head()` title.
-- `src/routes/workos.$slide.tsx` — same pattern.
-- `src/decks/shopify/index.ts` — array of 7 slide components + deck metadata (title, total).
-- `src/decks/shopify/Slide1.tsx` … `Slide7.tsx` — one file per slide, content per spec.
-- `src/decks/workos/index.ts` + `Slide1.tsx` … `Slide7.tsx` — same.
-- `src/components/SlideFrame.tsx` — 1920×1080 canvas + scale-to-fit wrapper.
-- `src/components/deck-ui/` — small shared primitives: `Chip`, `Card`, `Callout`, `StatBlock`, `Terminal` (for slide 3), `BarChart` (simple SVG, for Shopify slide 6), `PipelineFlow` (for WorkOS slide 3), `VerticalSteps` (WorkOS slide 6).
-- `src/hooks/useDeckNavigation.ts` — current deck/slide, next/prev handlers, keyboard binding.
+### Slide 12 — Outcomes (currently S9)
+- Replace "MCP Adoption" row label with "AI Toolkit"
+- Increase the description text size for the Ops and Policy track cards
 
-## Slide content
+### Slide 13 — Learnings (S10)
+Turn into 5 numbered points (bold headline + supporting sentence):
+1. **Define governing principles before generating solutions.** In multi-stakeholder environments, principles are a prioritization tool.
+2. **Ship lean, read the data, then decide where to invest.** A lean v1 is a hypothesis test. The data tells you whether to invest more or move on.
+3. **AI judgment is only as good as the human judgment you embed in it.** SME collaboration and human-in-the-loop allow for fine-tuning early products effectively.
+4. **Parallel workstreams are an ops strategy, not a compromise.** Complex operational problems rarely have one root cause. Design for parallel progress, not sequential perfection.
+5. **Nemawashi (根回し) works wonders.**
 
-Each slide is built exactly per the spec in the brief (headings, bullet counts, callouts, chips, cards, columns, metrics). No content invented beyond what's specified. The bar chart on Shopify slide 6 highlights the "With AI self-review ~1.5 days" bar in the accent color; the other 3 bars in muted.
+### Final reorder
+Swap slides 11 and 12 → Outcomes appears before Principle.
 
-## Navigation behavior
+New `commerceSlides` order:
+`[S1, S2, SVideo, S3, SDiagnostic, S4(table), S5, S6, S7, SDemo, S9(Outcomes), S8(Principle), S10]`
 
-- `useEffect` in `__root.tsx` adds `keydown` listener; uses `useNavigate` + current `useLocation` to compute next/prev within the active deck (clamped 1..7).
-- Switching decks via top nav navigates to `/<deck>/1`.
-- Counter and progress bar derive from the URL.
-
-## Out of scope
-
-- No persistence, no backend, no auth.
-- No real images — pure CSS/SVG visuals (terminal mock, bar chart, pipeline flow).
-- No animation beyond simple transitions on progress bar and hover states.
+No other files change; deck total stays at 13.
