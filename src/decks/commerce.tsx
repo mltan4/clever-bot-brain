@@ -532,20 +532,6 @@ function S10() {
 
 /* -------------------- Demo Slide — AI Self-Review Agent -------------------- */
 function SDemo() {
-  const principles = [
-    {
-      title: "Recommendation, not a blocker",
-      body: "Preserves trust if the tool is wrong — developers stay in control of submission.",
-    },
-    {
-      title: "Softened language",
-      body: '"Likely passing" / "likely failing" — never absolute. Calibrated to confidence.',
-    },
-    {
-      title: "Unlimited runs",
-      body: "Fix and re-run as many times as you want. The onus is on the developer.",
-    },
-  ];
   return (
     <SlideFrame>
       <div className="text-accent text-[22px] font-semibold uppercase tracking-[0.2em] mb-4">
