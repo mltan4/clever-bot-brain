@@ -491,32 +491,36 @@ function S9() {
   );
 }
 
-/* -------------------- Slide 10 — What I'd Do Differently -------------------- */
+/* -------------------- Slide 10 — Learnings -------------------- */
 function S10() {
+  const bullets = [
+    "We evaluated 40–50 ideas before aligning. Some took weeks to kill because we hadn't established governing principles upfront.",
+    'The principle we should have led with: "We are stewards of the marketplace. Quality is non-negotiable. Ecosystem integrity beats short-term throughput."',
+    "Used as a filter from day one, those principles would have eliminated half the idea list in week one and accelerated consensus across legal, governance, and leadership.",
+  ];
   return (
     <SlideFrame>
       <div className="text-accent text-[22px] font-semibold uppercase tracking-[0.2em] mb-4">
-        What I'd do differently
+        Learnings
       </div>
       <h1 className="text-[60px] font-extrabold leading-[1.05] tracking-tight mb-10">
-        What I'd do differently
+        Learnings
       </h1>
       <div className="rounded-2xl border border-border bg-surface p-12 flex-1 flex flex-col justify-center">
-        <div className="text-[30px] font-bold text-foreground mb-5 leading-tight">
+        <div className="text-[30px] font-bold text-foreground mb-6 leading-tight">
           Define governing principles before generating solutions.
         </div>
-        <p className="text-[24px] text-muted-foreground leading-snug mb-6">
-          We evaluated 40–50 ideas before aligning. Some took weeks to kill
-          because we hadn't established governing principles upfront. The
-          principle we should have led with:{" "}
-          <span className="text-foreground font-semibold">
-            "We are stewards of the marketplace. Quality is non-negotiable.
-            Ecosystem integrity beats short-term throughput."
-          </span>{" "}
-          Used as a filter from day one, those principles would have eliminated
-          half the idea list in week one and accelerated consensus across legal,
-          governance, and leadership.
-        </p>
+        <ul className="space-y-5 mb-8">
+          {bullets.map((b, i) => (
+            <li
+              key={i}
+              className="flex gap-4 text-[24px] text-muted-foreground leading-snug"
+            >
+              <span className="text-accent shrink-0">•</span>
+              <span>{b}</span>
+            </li>
+          ))}
+        </ul>
         <div className="rounded-xl border-l-4 border-accent bg-accent/10 px-6 py-5">
           <div className="text-accent text-[24px] font-semibold leading-snug">
             Lesson: In multi-stakeholder environments, principles are a

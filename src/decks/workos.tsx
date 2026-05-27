@@ -19,12 +19,18 @@ function S1() {
           backgroundSize: "60px 60px",
         }}
       />
-      <div className="flex-1 flex flex-col items-center justify-center text-center relative">
-        <h1 className="text-[260px] font-extrabold leading-none tracking-tighter mb-10">
+      <div className="flex-1 flex flex-col justify-center relative">
+        <div
+          className="font-mono text-[22px] uppercase tracking-[0.24em] mb-8"
+          style={{ color: EMERALD }}
+        >
+          Part 2 of 2 — Personal AI Project Demo
+        </div>
+        <h1 className="text-[88px] font-extrabold leading-[1.02] tracking-tight mb-8 max-w-[1600px]">
           Work<span style={{ color: EMERALD }}>OS</span>
         </h1>
         <p
-          className="text-[36px] font-medium max-w-[1400px] mb-12 leading-snug"
+          className="text-[34px] leading-snug max-w-[1500px] mb-12"
           style={{ color: "#E2E8F0" }}
         >
           A personal AI-powered pipeline that turns raw meeting notes into
@@ -51,7 +57,7 @@ function S1() {
           className="font-mono text-[20px] uppercase tracking-[0.24em]"
           style={{ color: MUTED }}
         >
-          Part 2 of 2 — Personal AI Project Demo · Mark Tan
+          Mark Tan
         </div>
       </div>
     </SlideFrame>
@@ -269,7 +275,7 @@ function S4() {
     <SlideFrame>
       <div className="mb-6">
         <h1 className="text-[60px] font-extrabold leading-tight tracking-tight mb-3">
-          I Didn't Just Automate Everything. I Compared.
+          Comparison - Crawl. Walk. Run.
         </h1>
         <p className="text-[24px]" style={{ color: MUTED }}>
           Three execution tracks — designed to understand where human judgment is
@@ -404,7 +410,7 @@ function S6() {
   ];
   return (
     <SlideFrame>
-      <SlideHeader title="Why I Built This for Myself — and Why It Matters Here" />
+      <SlideHeader title="Why I Built This for Myself" />
       <div className="grid grid-cols-[1fr_auto_1fr] gap-8 items-center flex-1 min-h-0">
         <div className="flex flex-col gap-4">
           <div

@@ -6,8 +6,8 @@ const MUTED = "#94A3B8";
 const points = [
   "I grew up in the Philippines and spent years dreaming about working in tech in the US.",
   "My career has mostly been figuring things out — across product, ops, and community.",
-  "I started out obsessed with UX, later realized systems and workflows create bigger long-term impact.",
-  "I enjoy turning messy operational problems into calmer, more reliable systems.",
+  "I started out obsessed with UX, later realized systems and workflows is where I can have a bigger impact.",
+  "Peers consistently describe me as organized. I genuinely love checklists.",
   "I'd love to teach and help more people onboard into new technology.",
 ];
 
