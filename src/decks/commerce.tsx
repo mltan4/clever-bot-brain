@@ -1,39 +1,46 @@
 import { SlideFrame } from "@/components/SlideFrame";
 import type { ReactNode } from "react";
 
-/* ===== Tokens (px values are designed for 1920×1080 SlideFrame) ===== */
+/* ===== Tokens — dark navy theme (previous version styling) ===== */
 const C = {
   navy: "#0F172A",
   navy2: "#1E293B",
   navy2Border: "#334155",
-  slate: "#0F172A",
-  slateMid: "#334155",
-  gray: "#475569",
+  slateMid: "#475569",
   muted: "#94A3B8",
   text: "#CBD5E1",
-  divider: "#DBEAFE",
-  cardBg: "#F8FAFC",
-  cardBorder: "#E2E8F0",
-  blue: "#2563EB",
+  textBright: "#E2E8F0",
+  white: "#FFFFFF",
+  blue: "#3B82F6",
   blue2: "#1D4ED8",
   blueM: "#60A5FA",
-  blueLight: "#EFF6FF",
-  blueLightBorder: "#DBEAFE",
+  blueLight: "#1E3A8A",
   green: "#10B981",
   greenL: "#34D399",
-  red: "#EF4444",
-  purple: "#7C3AED",
-  teal: "#14B8A6",
+  red: "#F87171",
+  purple: "#A78BFA",
+  teal: "#2DD4BF",
   amber: "#F59E0B",
-  grayAccent: "#64748B",
+  grayAccent: "#94A3B8",
 };
 
 /* ===== Helpers ===== */
-function Divider() {
-  return <div className="h-px w-full my-10" style={{ background: C.divider }} />;
+function Stage({ children }: { children: ReactNode }) {
+  return (
+    <div
+      className="flex-1 flex flex-col"
+      style={{ background: C.navy, margin: -96, padding: 96, color: C.text }}
+    >
+      {children}
+    </div>
+  );
 }
 
-function Overline({ children, color = C.gray }: { children: ReactNode; color?: string }) {
+function Divider() {
+  return <div className="h-px w-full my-10" style={{ background: C.navy2Border }} />;
+}
+
+function Overline({ children, color = C.blueM }: { children: ReactNode; color?: string }) {
   return (
     <div
       className="font-semibold uppercase mb-6"
@@ -44,35 +51,7 @@ function Overline({ children, color = C.gray }: { children: ReactNode; color?: s
   );
 }
 
-function WhiteCard({
-  accent,
-  children,
-}: {
-  accent: string;
-  children: ReactNode;
-}) {
-  return (
-    <div
-      className="rounded-xl overflow-hidden flex flex-col"
-      style={{
-        background: C.cardBg,
-        border: `1px solid ${C.cardBorder}`,
-        boxShadow: "0 10px 30px -12px rgba(15,23,42,0.12)",
-      }}
-    >
-      <div style={{ height: 10, background: accent }} />
-      <div className="p-10 flex-1">{children}</div>
-    </div>
-  );
-}
-
-function DarkCard({
-  accent,
-  children,
-}: {
-  accent: string;
-  children: ReactNode;
-}) {
+function DarkCard({ accent, children }: { accent: string; children: ReactNode }) {
   return (
     <div
       className="rounded-xl overflow-hidden flex flex-col"
@@ -109,12 +88,12 @@ function Callout({ children }: { children: ReactNode }) {
     <div
       className="flex overflow-hidden rounded-xl"
       style={{
-        background: C.blueLight,
-        border: `1px solid ${C.blueLightBorder}`,
+        background: "rgba(59,130,246,0.12)",
+        border: `1px solid ${C.blue2}`,
       }}
     >
       <div style={{ width: 10, background: C.blue, flexShrink: 0 }} />
-      <div className="p-8 flex-1" style={{ fontSize: 24, color: C.slate, lineHeight: 1.5 }}>
+      <div className="p-8 flex-1" style={{ fontSize: 24, color: C.textBright, lineHeight: 1.5 }}>
         {children}
       </div>
     </div>
@@ -123,7 +102,7 @@ function Callout({ children }: { children: ReactNode }) {
 
 function Bullets({
   items,
-  color = C.slate,
+  color = C.text,
   size = 22,
 }: {
   items: string[];
@@ -146,25 +125,24 @@ function Bullets({
 function S1() {
   return (
     <SlideFrame>
-      <div className="flex-1 flex items-center" style={{ background: C.navy, margin: -96, padding: 96 }}>
-        <div className="flex items-stretch gap-12 max-w-[1500px]">
-          <div style={{ width: 8, background: C.blue, borderRadius: 4 }} />
-          <div className="flex flex-col justify-center">
-            <h1 style={{ fontSize: 88, fontWeight: 800, color: "#fff", lineHeight: 1.05, letterSpacing: "-0.02em" }}>
-              Scaling the Shopify App Store
-            </h1>
-            <p style={{ fontSize: 36, color: C.muted, marginTop: 28 }}>
-              From 45 days to 2 weeks — AI-powered self-review toolkit
-            </p>
+      <Stage>
+        <div className="flex-1 flex items-center">
+          <div className="flex items-stretch gap-12 max-w-[1500px]">
+            <div style={{ width: 8, background: C.blue, borderRadius: 4 }} />
+            <div className="flex flex-col justify-center">
+              <h1 style={{ fontSize: 88, fontWeight: 800, color: C.white, lineHeight: 1.05, letterSpacing: "-0.02em" }}>
+                Scaling the Shopify App Store
+              </h1>
+              <p style={{ fontSize: 36, color: C.muted, marginTop: 28 }}>
+                From 45 days to 2 weeks — AI-powered self-review toolkit
+              </p>
+            </div>
           </div>
         </div>
-        <div
-          className="absolute"
-          style={{ left: 96, bottom: 60, fontSize: 22, color: C.gray }}
-        >
+        <div style={{ fontSize: 22, color: C.muted }}>
           Project 1 of 2 · Mark Tan · Product Operations Case Study
         </div>
-      </div>
+      </Stage>
     </SlideFrame>
   );
 }
@@ -178,34 +156,36 @@ function S2() {
   ];
   return (
     <SlideFrame>
-      <h1 style={{ fontSize: 54, fontWeight: 700, color: C.slate, lineHeight: 1.15 }}>
-        App Submission Volume Outpaced Our Capacity to Review
-      </h1>
-      <Divider />
-      <p style={{ fontSize: 24, color: C.gray, lineHeight: 1.55, marginBottom: 48, maxWidth: 1600 }}>
-        How App Review works: a 3P developer submits, auto-checks run first, then our QA team validates against
-        150+ requirements. Feedback goes to email, and the cycle repeats until the app passes.
-      </p>
-      <div className="grid grid-cols-3 gap-10 mb-12">
-        {stats.map((s) => (
-          <div
-            key={s.label}
-            className="rounded-xl overflow-hidden text-center"
-            style={{ background: C.cardBg, border: `1px solid ${C.cardBorder}`, boxShadow: "0 10px 30px -12px rgba(15,23,42,0.12)" }}
-          >
-            <div style={{ height: 10, background: s.color }} />
-            <div className="px-8 py-12">
-              <div style={{ fontSize: 96, fontWeight: 800, color: s.color, lineHeight: 1 }}>{s.value}</div>
-              <div style={{ fontSize: 22, color: C.gray, marginTop: 16, lineHeight: 1.4 }}>{s.label}</div>
+      <Stage>
+        <h1 style={{ fontSize: 54, fontWeight: 700, color: C.white, lineHeight: 1.15 }}>
+          App Submission Volume Outpaced Our Capacity to Review
+        </h1>
+        <Divider />
+        <p style={{ fontSize: 24, color: C.text, lineHeight: 1.55, marginBottom: 48, maxWidth: 1600 }}>
+          How App Review works: a 3P developer submits, auto-checks run first, then our QA team validates against
+          150+ requirements. Feedback goes to email, and the cycle repeats until the app passes.
+        </p>
+        <div className="grid grid-cols-3 gap-10 mb-12">
+          {stats.map((s) => (
+            <div
+              key={s.label}
+              className="rounded-xl overflow-hidden text-center"
+              style={{ background: C.navy2, border: `1px solid ${C.navy2Border}` }}
+            >
+              <div style={{ height: 10, background: s.color }} />
+              <div className="px-8 py-12">
+                <div style={{ fontSize: 96, fontWeight: 800, color: s.color, lineHeight: 1 }}>{s.value}</div>
+                <div style={{ fontSize: 22, color: C.text, marginTop: 16, lineHeight: 1.4 }}>{s.label}</div>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-      <p style={{ fontSize: 26, color: C.slate, lineHeight: 1.45 }}>
-        These developers serve merchants generating{" "}
-        <span style={{ fontWeight: 700 }}>$1.3B in commerce</span>. Slow reviews weren't just an ops problem —
-        they were a reputational and ecosystem risk with leadership visibility.
-      </p>
+          ))}
+        </div>
+        <p style={{ fontSize: 26, color: C.textBright, lineHeight: 1.45 }}>
+          These developers serve merchants generating{" "}
+          <span style={{ fontWeight: 700, color: C.green }}>$1.3B in commerce</span>. Slow reviews weren't just an ops problem —
+          they were a reputational and ecosystem risk with leadership visibility.
+        </p>
+      </Stage>
     </SlideFrame>
   );
 }
@@ -223,62 +203,64 @@ function S3() {
   const shades = ["#1E3A8A", "#1D4ED8", "#2563EB", "#3B82F6", "#60A5FA", "#93C5FD"];
   return (
     <SlideFrame>
-      <h1 style={{ fontSize: 54, fontWeight: 700, color: C.slate, lineHeight: 1.15 }}>
-        Mission: Grow the app store without compromising integrity
-      </h1>
-      <Divider />
-      <div className="grid grid-cols-2 gap-16 flex-1 min-h-0">
-        <div className="flex flex-col justify-center">
-          <p style={{ fontSize: 26, color: C.slate, lineHeight: 1.5, marginBottom: 32 }}>
-            As Shopify App Store lead, my mandate was to increase apps while maintaining quality — two things
-            in direct tension when volume spikes.
-          </p>
-          <div style={{ fontSize: 26, fontWeight: 700, color: C.slate, marginBottom: 20 }}>
-            I owned a full performance funnel:
-          </div>
-          <ol className="space-y-3">
-            {items.map((it, i) => (
-              <li
-                key={it}
-                style={{
-                  fontSize: 24,
-                  color: i === 0 ? C.blue : C.slate,
-                  fontWeight: i === 0 ? 700 : 400,
-                }}
-              >
-                {i + 1}. {it}
-              </li>
-            ))}
-          </ol>
-        </div>
-        <div className="flex flex-col items-center justify-center gap-3">
-          {items.map((it, i) => {
-            const width = 100 - i * 11;
-            return (
-              <div
-                key={it}
-                className="rounded-md flex items-center justify-center"
-                style={{
-                  width: `${width}%`,
-                  background: shades[i],
-                  padding: "22px 24px",
-                }}
-              >
-                <span
+      <Stage>
+        <h1 style={{ fontSize: 54, fontWeight: 700, color: C.white, lineHeight: 1.15 }}>
+          Mission: Grow the app store without compromising integrity
+        </h1>
+        <Divider />
+        <div className="grid grid-cols-2 gap-16 flex-1 min-h-0">
+          <div className="flex flex-col justify-center">
+            <p style={{ fontSize: 26, color: C.text, lineHeight: 1.5, marginBottom: 32 }}>
+              As Shopify App Store lead, my mandate was to increase apps while maintaining quality — two things
+              in direct tension when volume spikes.
+            </p>
+            <div style={{ fontSize: 26, fontWeight: 700, color: C.white, marginBottom: 20 }}>
+              I owned a full performance funnel:
+            </div>
+            <ol className="space-y-3">
+              {items.map((it, i) => (
+                <li
+                  key={it}
                   style={{
-                    color: "#fff",
-                    fontSize: 22,
-                    fontWeight: i === 0 ? 700 : 500,
-                    textAlign: "center",
+                    fontSize: 24,
+                    color: i === 0 ? C.blueM : C.text,
+                    fontWeight: i === 0 ? 700 : 400,
                   }}
                 >
                   {i + 1}. {it}
-                </span>
-              </div>
-            );
-          })}
+                </li>
+              ))}
+            </ol>
+          </div>
+          <div className="flex flex-col items-center justify-center gap-3">
+            {items.map((it, i) => {
+              const width = 100 - i * 11;
+              return (
+                <div
+                  key={it}
+                  className="rounded-md flex items-center justify-center"
+                  style={{
+                    width: `${width}%`,
+                    background: shades[i],
+                    padding: "22px 24px",
+                  }}
+                >
+                  <span
+                    style={{
+                      color: "#fff",
+                      fontSize: 22,
+                      fontWeight: i === 0 ? 700 : 500,
+                      textAlign: "center",
+                    }}
+                  >
+                    {i + 1}. {it}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      </Stage>
     </SlideFrame>
   );
 }
@@ -317,21 +299,23 @@ function S4() {
   ];
   return (
     <SlideFrame>
-      <Overline>Ideas We Considered</Overline>
-      <h1 style={{ fontSize: 48, fontWeight: 700, color: C.slate, lineHeight: 1.15 }}>
-        We mapped 40+ ideas into three categories before deciding
-      </h1>
-      <Divider />
-      <div className="grid grid-cols-3 gap-8 flex-1 min-h-0">
-        {cols.map((c) => (
-          <WhiteCard key={c.title} accent={c.accent}>
-            <div style={{ fontSize: 28, fontWeight: 700, color: c.accent, marginBottom: 24 }}>
-              {c.title}
-            </div>
-            <Bullets items={c.bullets} color={C.gray} size={22} />
-          </WhiteCard>
-        ))}
-      </div>
+      <Stage>
+        <Overline>Ideas We Considered</Overline>
+        <h1 style={{ fontSize: 48, fontWeight: 700, color: C.white, lineHeight: 1.15 }}>
+          We mapped 40+ ideas into three categories before deciding
+        </h1>
+        <Divider />
+        <div className="grid grid-cols-3 gap-8 flex-1 min-h-0">
+          {cols.map((c) => (
+            <DarkCard key={c.title} accent={c.accent}>
+              <div style={{ fontSize: 28, fontWeight: 700, color: c.accent, marginBottom: 24 }}>
+                {c.title}
+              </div>
+              <Bullets items={c.bullets} color={C.text} size={22} />
+            </DarkCard>
+          ))}
+        </div>
+      </Stage>
     </SlideFrame>
   );
 }
@@ -357,25 +341,27 @@ function S5() {
   ];
   return (
     <SlideFrame>
-      <Overline color={C.blue}>Three Parallel Tracks We Committed To</Overline>
-      <h1 style={{ fontSize: 48, fontWeight: 700, color: C.slate, lineHeight: 1.15 }}>
-        Three parallel tracks — one team accountable for each
-      </h1>
-      <Divider />
-      <div className="grid grid-cols-3 gap-8 mb-12">
-        {tracks.map((t) => (
-          <DarkCard key={t.title} accent={t.accent}>
-            <div style={{ fontSize: 28, fontWeight: 700, color: "#fff", marginBottom: 24 }}>
-              {t.title}
-            </div>
-            <Bullets items={t.bullets} color={C.text} size={22} />
-          </DarkCard>
-        ))}
-      </div>
-      <Callout>
-        <span style={{ color: C.blue2, fontWeight: 700 }}>Going deeper: </span>
-        For this presentation I'll focus on the Product / Eng track — specifically the AI toolkit.
-      </Callout>
+      <Stage>
+        <Overline>Three Parallel Tracks We Committed To</Overline>
+        <h1 style={{ fontSize: 48, fontWeight: 700, color: C.white, lineHeight: 1.15 }}>
+          Three parallel tracks — one team accountable for each
+        </h1>
+        <Divider />
+        <div className="grid grid-cols-3 gap-8 mb-12">
+          {tracks.map((t) => (
+            <DarkCard key={t.title} accent={t.accent}>
+              <div style={{ fontSize: 28, fontWeight: 700, color: "#fff", marginBottom: 24 }}>
+                {t.title}
+              </div>
+              <Bullets items={t.bullets} color={C.text} size={22} />
+            </DarkCard>
+          ))}
+        </div>
+        <Callout>
+          <span style={{ color: C.blueM, fontWeight: 700 }}>Going deeper: </span>
+          For this presentation I'll focus on the Product / Eng track — specifically the AI toolkit.
+        </Callout>
+      </Stage>
     </SlideFrame>
   );
 }
@@ -413,24 +399,26 @@ function S6() {
   ];
   return (
     <SlideFrame>
-      <h1 style={{ fontSize: 48, fontWeight: 700, color: C.slate, lineHeight: 1.15 }}>
-        Improving the submission flow
-      </h1>
-      <Divider />
-      <div className="grid grid-cols-3 gap-8 mb-10 flex-1 min-h-0">
-        {cards.map((c) => (
-          <WhiteCard key={c.title} accent={c.accent}>
-            <div style={{ fontSize: 26, fontWeight: 700, color: c.accent, marginBottom: 24 }}>
-              {c.title}
-            </div>
-            <Bullets items={c.bullets} color={C.slate} size={22} />
-          </WhiteCard>
-        ))}
-      </div>
-      <Callout>
-        <span style={{ color: C.blue2, fontWeight: 700 }}>The decision: </span>
-        Redirect investment to pre-submission assessment.
-      </Callout>
+      <Stage>
+        <h1 style={{ fontSize: 48, fontWeight: 700, color: C.white, lineHeight: 1.15 }}>
+          Improving the submission flow
+        </h1>
+        <Divider />
+        <div className="grid grid-cols-3 gap-8 mb-10 flex-1 min-h-0">
+          {cards.map((c) => (
+            <DarkCard key={c.title} accent={c.accent}>
+              <div style={{ fontSize: 26, fontWeight: 700, color: c.accent, marginBottom: 24 }}>
+                {c.title}
+              </div>
+              <Bullets items={c.bullets} color={C.text} size={22} />
+            </DarkCard>
+          ))}
+        </div>
+        <Callout>
+          <span style={{ color: C.blueM, fontWeight: 700 }}>The decision: </span>
+          Redirect investment to pre-submission assessment.
+        </Callout>
+      </Stage>
     </SlideFrame>
   );
 }
@@ -439,10 +427,7 @@ function S6() {
 function S7() {
   return (
     <SlideFrame>
-      <div
-        className="flex-1 flex flex-col"
-        style={{ background: C.navy, margin: -96, padding: 96 }}
-      >
+      <Stage>
         <h1 style={{ fontSize: 60, fontWeight: 700, color: "#fff", lineHeight: 1.15, marginBottom: 56 }}>
           Improving the quality of submission
         </h1>
@@ -476,7 +461,7 @@ function S7() {
             />
           </DarkPanel>
         </div>
-      </div>
+      </Stage>
     </SlideFrame>
   );
 }
@@ -491,48 +476,50 @@ function S8() {
   ];
   return (
     <SlideFrame>
-      <h1 style={{ fontSize: 50, fontWeight: 700, color: C.slate, lineHeight: 1.15 }}>
-        Principle: Shopify Is a Steward, Not Just an Operator
-      </h1>
-      <Divider />
-      <div className="grid grid-cols-2 gap-12 flex-1 min-h-0">
-        <div className="flex flex-col justify-center gap-5">
-          {groups.map((g) => (
-            <div
-              key={g.label}
-              className="flex rounded-xl overflow-hidden"
-              style={{ background: C.cardBg, border: `1px solid ${C.cardBorder}` }}
-            >
-              <div style={{ width: 10, background: g.color }} />
-              <div className="p-6">
-                <div style={{ fontSize: 28, fontWeight: 700, color: C.slate }}>{g.label}</div>
-                <div style={{ fontSize: 20, color: C.gray, marginTop: 6 }}>{g.desc}</div>
+      <Stage>
+        <h1 style={{ fontSize: 50, fontWeight: 700, color: C.white, lineHeight: 1.15 }}>
+          Principle: Shopify Is a Steward, Not Just an Operator
+        </h1>
+        <Divider />
+        <div className="grid grid-cols-2 gap-12 flex-1 min-h-0">
+          <div className="flex flex-col justify-center gap-5">
+            {groups.map((g) => (
+              <div
+                key={g.label}
+                className="flex rounded-xl overflow-hidden"
+                style={{ background: C.navy2, border: `1px solid ${C.navy2Border}` }}
+              >
+                <div style={{ width: 10, background: g.color }} />
+                <div className="p-6">
+                  <div style={{ fontSize: 28, fontWeight: 700, color: C.white }}>{g.label}</div>
+                  <div style={{ fontSize: 20, color: C.text, marginTop: 6 }}>{g.desc}</div>
+                </div>
               </div>
+            ))}
+          </div>
+          <DarkPanel accent={C.blue} className="flex flex-col">
+            <div style={{ fontSize: 26, fontWeight: 700, color: C.blueM, marginBottom: 20 }}>
+              Challenges
             </div>
-          ))}
+            <p style={{ fontSize: 22, color: C.text, lineHeight: 1.55, marginBottom: 16 }}>
+              A VP proposed opening the gates — let all apps in, let the marketplace self-regulate.
+            </p>
+            <p style={{ fontSize: 22, color: C.text, lineHeight: 1.55, marginBottom: 16 }}>
+              On paper: faster SLA, fewer resources. In practice: copycat apps, low-quality submissions,
+              eroded merchant trust.
+            </p>
+            <p style={{ fontSize: 22, color: C.text, lineHeight: 1.55, marginBottom: 20 }}>
+              The counter wasn't a feature comparison. It was a principle:
+            </p>
+            <div
+              className="rounded-lg px-6 py-6 text-center"
+              style={{ background: C.blue2, color: "#fff", fontStyle: "italic", fontWeight: 700, fontSize: 24, lineHeight: 1.4 }}
+            >
+              "We are the steward of this marketplace, not just the operator."
+            </div>
+          </DarkPanel>
         </div>
-        <DarkPanel accent={C.blue} className="flex flex-col">
-          <div style={{ fontSize: 26, fontWeight: 700, color: C.blueM, marginBottom: 20 }}>
-            Challenges
-          </div>
-          <p style={{ fontSize: 22, color: C.text, lineHeight: 1.55, marginBottom: 16 }}>
-            A VP proposed opening the gates — let all apps in, let the marketplace self-regulate.
-          </p>
-          <p style={{ fontSize: 22, color: C.text, lineHeight: 1.55, marginBottom: 16 }}>
-            On paper: faster SLA, fewer resources. In practice: copycat apps, low-quality submissions,
-            eroded merchant trust.
-          </p>
-          <p style={{ fontSize: 22, color: C.text, lineHeight: 1.55, marginBottom: 20 }}>
-            The counter wasn't a feature comparison. It was a principle:
-          </p>
-          <div
-            className="rounded-lg px-6 py-6 text-center"
-            style={{ background: C.blue2, color: "#fff", fontStyle: "italic", fontWeight: 700, fontSize: 24, lineHeight: 1.4 }}
-          >
-            "We are the steward of this marketplace, not just the operator."
-          </div>
-        </DarkPanel>
-      </div>
+      </Stage>
     </SlideFrame>
   );
 }
@@ -546,8 +533,8 @@ function S9() {
   ];
   return (
     <SlideFrame>
-      <div className="flex-1 flex flex-col" style={{ background: C.navy, margin: -96, padding: 96 }}>
-        <Overline color={C.blueM}>Outcomes</Overline>
+      <Stage>
+        <Overline>Outcomes</Overline>
         <h1 style={{ fontSize: 52, fontWeight: 700, color: "#fff", lineHeight: 1.15, marginBottom: 48 }}>
           Results across all three tracks
         </h1>
@@ -594,10 +581,10 @@ function S9() {
             </DarkPanel>
           </div>
         </div>
-        <div style={{ fontSize: 20, fontStyle: "italic", color: C.gray, marginTop: 32 }}>
+        <div style={{ fontSize: 20, fontStyle: "italic", color: C.muted, marginTop: 32 }}>
           Jan → Apr 2026 · 4 months end to end
         </div>
-      </div>
+      </Stage>
     </SlideFrame>
   );
 }
@@ -606,8 +593,8 @@ function S9() {
 function S10() {
   return (
     <SlideFrame>
-      <div className="flex-1 flex flex-col" style={{ background: C.navy, margin: -96, padding: 96 }}>
-        <Overline color={C.blueM}>What I'd Do Differently</Overline>
+      <Stage>
+        <Overline>What I'd Do Differently</Overline>
         <h1 style={{ fontSize: 56, fontWeight: 700, color: "#fff", lineHeight: 1.15, marginBottom: 56 }}>
           What I'd do differently
         </h1>
@@ -634,7 +621,7 @@ function S10() {
             </p>
           </div>
         </DarkPanel>
-      </div>
+      </Stage>
     </SlideFrame>
   );
 }
