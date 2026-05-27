@@ -32,7 +32,7 @@ function S2() {
         kicker="Business Context"
         title="App Submission Volume Outpaced Our Capacity to Review"
       />
-      <p className="text-[20px] text-muted-foreground leading-snug max-w-[1700px] mb-8">
+      <p className="text-[26px] text-muted-foreground leading-snug max-w-[1700px] mb-8">
         <span className="text-foreground font-semibold">How App Review works:</span> A
         3P dev submits, auto checks run first, then our QA team checks it against
         150+ requirements. Feedback goes to email, and the cycle repeats until the
@@ -93,26 +93,24 @@ function S3() {
             ))}
           </ol>
         </div>
-        <div className="flex flex-col items-center justify-center gap-2">
+        <div className="flex flex-col items-center justify-center gap-3">
           {funnel.map((label, i) => {
-            const width = 100 - i * 12;
-            const opacity = 1 - i * 0.12;
+            const width = 100 - i * 10;
             return (
               <div
                 key={label}
-                className="rounded-lg border border-border flex items-center justify-center px-6 py-4"
+                className="rounded-lg border border-border flex items-center justify-center px-6 py-5"
                 style={{
                   width: `${width}%`,
                   backgroundColor: `color-mix(in oklab, var(--accent) ${
-                    20 - i * 2
+                    24 - i * 2
                   }%, var(--surface))`,
-                  opacity,
                 }}
               >
-                <span className="text-accent font-mono text-[16px] mr-3">
+                <span className="text-accent font-mono text-[20px] mr-4">
                   0{i + 1}
                 </span>
-                <span className="text-[18px] font-medium text-foreground text-center">
+                <span className="text-[24px] font-semibold text-foreground text-center">
                   {label}
                 </span>
               </div>
@@ -164,20 +162,20 @@ function S4() {
       <h1 className="text-[60px] font-extrabold leading-[1.05] tracking-tight mb-12">
         We mapped 40+ ideas into three categories before deciding
       </h1>
-      <div className="grid grid-cols-3 gap-8 flex-1 min-h-0">
+      <div className="grid grid-cols-3 gap-8 items-start">
         {cards.map((c) => (
           <div
             key={c.title}
             className="rounded-2xl border border-border bg-surface flex flex-col overflow-hidden"
           >
             <div className="h-2" style={{ backgroundColor: c.accent }} />
-            <div className="p-8 flex flex-col gap-5 flex-1">
-              <div className="text-[28px] font-bold leading-tight">{c.title}</div>
-              <ul className="space-y-3 flex-1">
+            <div className="p-8 flex flex-col gap-5">
+              <div className="text-[30px] font-bold leading-tight">{c.title}</div>
+              <ul className="space-y-3">
                 {c.items.map((it) => (
                   <li
                     key={it}
-                    className="text-[20px] text-muted-foreground leading-snug flex gap-2"
+                    className="text-[24px] text-muted-foreground leading-snug flex gap-3"
                   >
                     <span className="text-accent shrink-0">·</span>
                     <span>{it}</span>
@@ -228,20 +226,20 @@ function S5() {
       <h1 className="text-[60px] font-extrabold leading-[1.05] tracking-tight mb-12">
         Three parallel tracks — one team accountable for each
       </h1>
-      <div className="grid grid-cols-3 gap-8 mb-8 flex-1 min-h-0">
+      <div className="grid grid-cols-3 gap-8 mb-8 items-start">
         {tracks.map((t) => (
           <div
             key={t.title}
             className="rounded-2xl border border-border bg-[#0b0f1a] flex flex-col overflow-hidden"
           >
             <div className="h-2" style={{ backgroundColor: t.accent }} />
-            <div className="p-8 flex flex-col gap-5 flex-1">
-              <div className="text-[30px] font-bold leading-tight">{t.title}</div>
+            <div className="p-8 flex flex-col gap-5">
+              <div className="text-[32px] font-bold leading-tight">{t.title}</div>
               <ul className="space-y-3">
                 {t.items.map((it) => (
                   <li
                     key={it}
-                    className="text-[22px] text-muted-foreground leading-snug flex gap-2"
+                    className="text-[24px] text-muted-foreground leading-snug flex gap-3"
                   >
                     <span className="text-accent shrink-0">·</span>
                     <span>{it}</span>
@@ -291,20 +289,20 @@ function S6() {
   return (
     <SlideFrame>
       <SlideHeader title="Improving the submission flow" />
-      <div className="grid grid-cols-3 gap-8 mb-8 flex-1 min-h-0">
+      <div className="grid grid-cols-3 gap-8 mb-8 items-start">
         {cols.map((c, i) => (
           <Card key={c.title} className="flex flex-col">
-            <div className="text-accent font-mono text-[22px] mb-3">
+            <div className="text-accent font-mono text-[24px] mb-3">
               0{i + 1}
             </div>
-            <div className="text-[28px] font-bold mb-5 leading-tight">
+            <div className="text-[30px] font-bold mb-5 leading-tight">
               {c.title}
             </div>
             <ul className="space-y-3">
               {c.items.map((it) => (
                 <li
                   key={it}
-                  className="text-[22px] text-muted-foreground leading-snug flex gap-2"
+                  className="text-[24px] text-muted-foreground leading-snug flex gap-3"
                 >
                   <span className="text-accent shrink-0">·</span>
                   <span>{it}</span>
@@ -522,7 +520,7 @@ function S10() {
         <div className="rounded-xl border-l-4 border-accent bg-accent/10 px-6 py-5">
           <div className="text-accent text-[24px] font-semibold leading-snug">
             Lesson: In multi-stakeholder environments, principles are a
-            prioritization tool.
+            prioritization tool. Also: Nemawashi (根回し) works wonders.
           </div>
         </div>
       </div>
