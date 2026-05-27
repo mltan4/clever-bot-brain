@@ -93,26 +93,24 @@ function S3() {
             ))}
           </ol>
         </div>
-        <div className="flex flex-col items-center justify-center gap-2">
+        <div className="flex flex-col items-center justify-center gap-3">
           {funnel.map((label, i) => {
-            const width = 100 - i * 12;
-            const opacity = 1 - i * 0.12;
+            const width = 100 - i * 10;
             return (
               <div
                 key={label}
-                className="rounded-lg border border-border flex items-center justify-center px-6 py-4"
+                className="rounded-lg border border-border flex items-center justify-center px-6 py-5"
                 style={{
                   width: `${width}%`,
                   backgroundColor: `color-mix(in oklab, var(--accent) ${
-                    20 - i * 2
+                    24 - i * 2
                   }%, var(--surface))`,
-                  opacity,
                 }}
               >
-                <span className="text-accent font-mono text-[16px] mr-3">
+                <span className="text-accent font-mono text-[20px] mr-4">
                   0{i + 1}
                 </span>
-                <span className="text-[18px] font-medium text-foreground text-center">
+                <span className="text-[24px] font-semibold text-foreground text-center">
                   {label}
                 </span>
               </div>
