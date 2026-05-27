@@ -162,20 +162,20 @@ function S4() {
       <h1 className="text-[60px] font-extrabold leading-[1.05] tracking-tight mb-12">
         We mapped 40+ ideas into three categories before deciding
       </h1>
-      <div className="grid grid-cols-3 gap-8 flex-1 min-h-0">
+      <div className="grid grid-cols-3 gap-8 items-start">
         {cards.map((c) => (
           <div
             key={c.title}
             className="rounded-2xl border border-border bg-surface flex flex-col overflow-hidden"
           >
             <div className="h-2" style={{ backgroundColor: c.accent }} />
-            <div className="p-8 flex flex-col gap-5 flex-1">
-              <div className="text-[28px] font-bold leading-tight">{c.title}</div>
-              <ul className="space-y-3 flex-1">
+            <div className="p-8 flex flex-col gap-5">
+              <div className="text-[30px] font-bold leading-tight">{c.title}</div>
+              <ul className="space-y-3">
                 {c.items.map((it) => (
                   <li
                     key={it}
-                    className="text-[20px] text-muted-foreground leading-snug flex gap-2"
+                    className="text-[24px] text-muted-foreground leading-snug flex gap-3"
                   >
                     <span className="text-accent shrink-0">·</span>
                     <span>{it}</span>
