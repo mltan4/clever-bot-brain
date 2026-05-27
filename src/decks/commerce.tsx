@@ -32,7 +32,7 @@ function S2() {
         kicker="Business Context"
         title="App Submission Volume Outpaced Our Capacity to Review"
       />
-      <p className="text-[20px] text-muted-foreground leading-snug max-w-[1700px] mb-8">
+      <p className="text-[26px] text-muted-foreground leading-snug max-w-[1700px] mb-8">
         <span className="text-foreground font-semibold">How App Review works:</span> A
         3P dev submits, auto checks run first, then our QA team checks it against
         150+ requirements. Feedback goes to email, and the cycle repeats until the
