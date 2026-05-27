@@ -383,7 +383,7 @@ function S7() {
     { m: "App Downloads", b: "100K", a: "4 million" },
     { m: "Products", b: "1", a: "7 (6 in <1 year)" },
     { m: "ARR", b: "—", a: "~$80M" },
-    { m: "Fundraise", b: "—", a: "$120M Series B" },
+    
     { m: "90-Day Retention", b: "Single device", a: "↑ at 2+ devices" },
   ];
   return (
