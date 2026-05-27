@@ -520,7 +520,7 @@ function S10() {
         <div className="rounded-xl border-l-4 border-accent bg-accent/10 px-6 py-5">
           <div className="text-accent text-[24px] font-semibold leading-snug">
             Lesson: In multi-stakeholder environments, principles are a
-            prioritization tool.
+            prioritization tool. Also: Nemawashi (根回し) works wonders.
           </div>
         </div>
       </div>
