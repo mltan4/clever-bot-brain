@@ -52,6 +52,28 @@ function S2() {
   );
 }
 
+function SVideo() {
+  return (
+    <SlideFrame>
+      <SlideHeader kicker="Process Walkthrough" title="How App Review works" />
+      <p className="text-[26px] text-muted-foreground leading-snug max-w-[1700px] mb-8">
+        A 3P dev submits, auto checks run first, then our QA team checks it
+        against 150+ requirements. Feedback goes to email, and the cycle
+        repeats until the app passes.
+      </p>
+      <div className="flex-1 flex items-center justify-center min-h-0">
+        <video
+          src="/shopify-app-walkthrough.mp4"
+          controls
+          className="max-h-full max-w-full rounded-2xl border border-border"
+        />
+      </div>
+    </SlideFrame>
+  );
+}
+
+
+
 /* -------------------- Slide 3 — Role & Mandate -------------------- */
 function S3() {
   const funnel = [
@@ -625,4 +647,4 @@ function SDemo() {
   );
 }
 
-export const commerceSlides = [S1, S2, S3, SDemo, S4, S5, S6, S7, SDemo, S8, S9, S10];
+export const commerceSlides = [S1, S2, SVideo, S3, SDemo, S4, S5, S6, S7, SDemo, S8, S9, S10];

@@ -15,7 +15,7 @@ import appCss from "../styles.css?url";
 
 const DECKS = {
   about: { label: "About", total: 1 },
-  commerce: { label: "Shopify AI Toolkit", total: 12 },
+  commerce: { label: "Shopify AI Toolkit", total: 13 },
   wyze: { label: "Wyze Growth", total: 8 },
   workos: { label: "WorkOS", total: 7 },
 } as const;
