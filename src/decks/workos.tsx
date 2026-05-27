@@ -410,7 +410,7 @@ function S6() {
   ];
   return (
     <SlideFrame>
-      <SlideHeader title="Why I Built This for Myself — and Why It Matters Here" />
+      <SlideHeader title="Why I Built This for Myself" />
       <div className="grid grid-cols-[1fr_auto_1fr] gap-8 items-center flex-1 min-h-0">
         <div className="flex flex-col gap-4">
           <div
