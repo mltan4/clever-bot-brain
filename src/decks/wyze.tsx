@@ -90,12 +90,12 @@ function S3() {
             tissue across every product Wyze made.
           </p>
           <div
-            className="font-mono text-[20px] uppercase tracking-[0.18em] mb-5"
+            className="font-mono text-[24px] uppercase tracking-[0.18em] mb-5"
             style={{ color: ACCENT }}
           >
             What this actually meant:
           </div>
-          <ol className="flex flex-col gap-3">
+          <ol className="flex flex-col gap-4">
             {[
               "App growth (downloads, ratings, DAU)",
               "Cross-device experience cohesion",
@@ -105,11 +105,11 @@ function S3() {
             ].map((t, i) => (
               <li
                 key={t}
-                className="flex items-start gap-4 text-[22px]"
+                className="flex items-start gap-4 text-[26px]"
                 style={{ color: "#E2E8F0" }}
               >
                 <span
-                  className="font-mono text-[20px] w-8 shrink-0"
+                  className="font-mono text-[24px] w-10 shrink-0"
                   style={{ color: ACCENT }}
                 >
                   0{i + 1}
@@ -121,7 +121,7 @@ function S3() {
         </div>
         <div className="flex flex-col">
           <div
-            className="font-mono text-[18px] uppercase tracking-[0.2em] mb-5"
+            className="font-mono text-[22px] uppercase tracking-[0.2em] mb-5"
             style={{ color: MUTED }}
           >
             All 7 products live in one app
@@ -130,7 +130,7 @@ function S3() {
             {products.map((p) => (
               <div
                 key={p}
-                className="rounded-xl p-5 text-center text-[20px] font-semibold"
+                className="rounded-xl p-5 text-center text-[24px] font-semibold"
                 style={{
                   background: CARD_BG,
                   border: `1px solid ${ACCENT}40`,
