@@ -275,7 +275,7 @@ function S4() {
     <SlideFrame>
       <div className="mb-6">
         <h1 className="text-[60px] font-extrabold leading-tight tracking-tight mb-3">
-          I Didn't Just Automate Everything. I Compared.
+          Comparison - Crawl. Walk. Run.
         </h1>
         <p className="text-[24px]" style={{ color: MUTED }}>
           Three execution tracks — designed to understand where human judgment is
