@@ -16,12 +16,13 @@ import appCss from "../styles.css?url";
 const DECKS = {
   commerce: { label: "Shopify AI Toolkit — App Review", total: 10 },
   workos: { label: "WorkOS", total: 7 },
+  wyze: { label: "Wyze App Release", total: 8 },
 } as const;
 
 type DeckId = keyof typeof DECKS;
 
 function parseLocation(pathname: string): { deck: DeckId; slide: number } | null {
-  const m = pathname.match(/^\/(commerce|workos)\/(\d+)/);
+  const m = pathname.match(/^\/(commerce|workos|wyze)\/(\d+)/);
   if (!m) return null;
   return { deck: m[1] as DeckId, slide: parseInt(m[2], 10) };
 }
