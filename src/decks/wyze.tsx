@@ -53,16 +53,14 @@ function S2() {
         <Stat value="$120M" label="Series B raised / ~$80M ARR" tone="accent" />
       </div>
       <p
-        className="text-[28px] leading-snug max-w-[1500px] mb-8"
+        className="text-[28px] leading-snug max-w-[1500px]"
         style={{ color: "#E2E8F0" }}
       >
-        Wyze's thesis: charge a fraction of Ring or Nest, win on volume. But cheap,
-        interchangeable hardware has a trap — if the app isn't exceptional,
-        there's no lock-in. The app was the only moat.
+        Wyze's initial thesis: charge a fraction of Ring or Nest means that we
+        win on volume. But cheap, interchangeable hardware is not enough. We
+        have to deliver a good software experience with frequent updates.
       </p>
-      <Callout label="The Bet">
-        We priced for acquisition. The app had to earn the retention.
-      </Callout>
+
     </SlideFrame>
   );
 }
