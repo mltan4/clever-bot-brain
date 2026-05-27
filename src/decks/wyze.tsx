@@ -18,7 +18,7 @@ function S1() {
         >
           Case Study
         </div>
-        <h1 className="text-[120px] font-extrabold leading-[0.95] tracking-tighter mb-10 max-w-[1500px]">
+        <h1 className="text-[88px] font-extrabold leading-[1.02] tracking-tight mb-8 max-w-[1600px]">
           Scaling the<br />
           Wyze App Release
         </h1>
@@ -34,8 +34,9 @@ function S1() {
           className="font-mono text-[20px] uppercase tracking-[0.24em]"
           style={{ color: MUTED }}
         >
-          Project 2 of 2 · Mark Tan · Product Operations Case Study
+          Mark Tan
         </div>
+
       </div>
     </SlideFrame>
   );
@@ -52,16 +53,14 @@ function S2() {
         <Stat value="$120M" label="Series B raised / ~$80M ARR" tone="accent" />
       </div>
       <p
-        className="text-[28px] leading-snug max-w-[1500px] mb-8"
+        className="text-[28px] leading-snug max-w-[1500px]"
         style={{ color: "#E2E8F0" }}
       >
-        Wyze's thesis: charge a fraction of Ring or Nest, win on volume. But cheap,
-        interchangeable hardware has a trap — if the app isn't exceptional,
-        there's no lock-in. The app was the only moat.
+        Wyze's initial thesis: charge a fraction of Ring or Nest means that we
+        win on volume. But cheap, interchangeable hardware is not enough. We
+        have to deliver a good software experience with frequent updates.
       </p>
-      <Callout label="The Bet">
-        We priced for acquisition. The app had to earn the retention.
-      </Callout>
+
     </SlideFrame>
   );
 }
@@ -212,7 +211,7 @@ function S4() {
               {c.items.map((it) => (
                 <li
                   key={it}
-                  className="flex items-start gap-3 text-[22px] leading-snug"
+                  className="flex items-start gap-3 text-[26px] leading-snug"
                   style={{ color: "#E2E8F0" }}
                 >
                   <span style={{ color: c.tone }}>•</span>
@@ -246,40 +245,36 @@ function S4() {
 
 /* -------------------- Slide 5: Insight & Pivot -------------------- */
 function S5() {
+  const tracks = [
+    {
+      n: "01",
+      t: "Alpha",
+      d: "Internal daily builds. Engineers and PMs dogfooded against in-progress hardware firmware to catch integration breaks early.",
+    },
+    {
+      n: "02",
+      t: "Beta",
+      d: "Opt-in power users on a weekly cadence. Stress-tested new device integrations against real homes before hardware launch.",
+    },
+    {
+      n: "03",
+      t: "TestFlight / Production",
+      d: "Stable bi-weekly releases to the full user base. Independent of any single hardware ship date.",
+    },
+  ];
   return (
     <SlideFrame>
-      <SlideHeader title="The Shift: From Features to Habits" />
-      <div
-        className="rounded-2xl p-10 mb-10 border-l-4"
-        style={{
-          background: `${POSITIVE}14`,
-          borderColor: POSITIVE,
-        }}
+      <SlideHeader title="Decouple the Release Cycle" />
+      <p
+        className="text-[26px] leading-snug max-w-[1600px] mb-10"
+        style={{ color: "#E2E8F0" }}
       >
-        <p className="text-[34px] font-bold leading-tight mb-5">
-          "We stopped asking 'What does this device do?' and started asking 'What
-          habit does this product need to create?'"
-        </p>
-        <p className="text-[22px] leading-snug" style={{ color: "#E2E8F0" }}>
-          A camera you check before leaving for work. A sensor that tells you
-          your kid got home. A lock you arm every night without thinking.
-          Retention isn't about features — it's about whether you're embedded in
-          someone's daily routine.
-        </p>
-      </div>
-      <div className="grid grid-cols-2 gap-8 flex-1 min-h-0">
-        {[
-          {
-            n: "01",
-            t: "Category Infrastructure",
-            d: "Built reusable scaffolding by device category — so the third camera wasn't a custom build from scratch.",
-          },
-          {
-            n: "02",
-            t: "Decouple the Release Cycle",
-            d: "iOS/Android shipped on their own cadence — every 2 weeks. Hardware integration staged independently. No more waiting on firmware.",
-          },
-        ].map((c) => (
+        Instead of one mobile release tied to each hardware update, we ran
+        multiple software releases per hardware cycle — and split the mobile app
+        into three parallel tracks so integration work never blocked the ship.
+      </p>
+      <div className="grid grid-cols-3 gap-8 flex-1 min-h-0">
+        {tracks.map((c) => (
           <Card key={c.n} accent>
             <div
               className="font-mono text-[28px] font-bold mb-4"
@@ -287,7 +282,7 @@ function S5() {
             >
               {c.n}
             </div>
-            <div className="text-[30px] font-bold mb-4">{c.t}</div>
+            <div className="text-[34px] font-bold mb-4">{c.t}</div>
             <p className="text-[22px] leading-snug" style={{ color: "#E2E8F0" }}>
               {c.d}
             </p>
@@ -297,6 +292,7 @@ function S5() {
     </SlideFrame>
   );
 }
+
 
 /* -------------------- Slide 6: Stakeholder Work -------------------- */
 function S6() {
@@ -352,13 +348,14 @@ function S6() {
             className="font-mono text-[18px] uppercase tracking-[0.18em]"
             style={{ color: POSITIVE }}
           >
-            What Moved the Room
+            Cross-functional Alignment
           </div>
           <p className="text-[22px] leading-snug">
-            The initial reaction from hardware PMs: "What if the app isn't ready
-            when we ship?" My answer: "Right now, you're not ready when we ship."
-            That reframe didn't win the argument. Data did.
+            The initial reaction from hardware PMs was concern about the app
+            not being ready when the device shipped. The reframe didn't win the
+            argument — data did.
           </p>
+
           <div
             className="rounded-xl p-6"
             style={{ background: "#1E293B" }}
@@ -386,7 +383,7 @@ function S7() {
     { m: "App Downloads", b: "100K", a: "4 million" },
     { m: "Products", b: "1", a: "7 (6 in <1 year)" },
     { m: "ARR", b: "—", a: "~$80M" },
-    { m: "Fundraise", b: "—", a: "$120M Series B" },
+    
     { m: "90-Day Retention", b: "Single device", a: "↑ at 2+ devices" },
   ];
   return (
