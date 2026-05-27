@@ -1,206 +1,278 @@
 import { SlideFrame } from "@/components/SlideFrame";
-import { Chip, Card, Callout, Stat, SlideHeader } from "@/components/deck-ui";
+import type { ReactNode } from "react";
 
-/* -------------------- Slide 1 — Title -------------------- */
+/* ===== Tokens (px values are designed for 1920×1080 SlideFrame) ===== */
+const C = {
+  navy: "#0F172A",
+  navy2: "#1E293B",
+  navy2Border: "#334155",
+  slate: "#0F172A",
+  slateMid: "#334155",
+  gray: "#475569",
+  muted: "#94A3B8",
+  text: "#CBD5E1",
+  divider: "#DBEAFE",
+  cardBg: "#F8FAFC",
+  cardBorder: "#E2E8F0",
+  blue: "#2563EB",
+  blue2: "#1D4ED8",
+  blueM: "#60A5FA",
+  blueLight: "#EFF6FF",
+  blueLightBorder: "#DBEAFE",
+  green: "#10B981",
+  greenL: "#34D399",
+  red: "#EF4444",
+  purple: "#7C3AED",
+  teal: "#14B8A6",
+  amber: "#F59E0B",
+  grayAccent: "#64748B",
+};
+
+/* ===== Helpers ===== */
+function Divider() {
+  return <div className="h-px w-full my-10" style={{ background: C.divider }} />;
+}
+
+function Overline({ children, color = C.gray }: { children: ReactNode; color?: string }) {
+  return (
+    <div
+      className="font-semibold uppercase mb-6"
+      style={{ color, fontSize: 16, letterSpacing: "0.22em" }}
+    >
+      {children}
+    </div>
+  );
+}
+
+function WhiteCard({
+  accent,
+  children,
+}: {
+  accent: string;
+  children: ReactNode;
+}) {
+  return (
+    <div
+      className="rounded-xl overflow-hidden flex flex-col"
+      style={{
+        background: C.cardBg,
+        border: `1px solid ${C.cardBorder}`,
+        boxShadow: "0 10px 30px -12px rgba(15,23,42,0.12)",
+      }}
+    >
+      <div style={{ height: 10, background: accent }} />
+      <div className="p-10 flex-1">{children}</div>
+    </div>
+  );
+}
+
+function DarkCard({
+  accent,
+  children,
+}: {
+  accent: string;
+  children: ReactNode;
+}) {
+  return (
+    <div
+      className="rounded-xl overflow-hidden flex flex-col"
+      style={{ background: C.navy2, border: `1px solid ${C.navy2Border}` }}
+    >
+      <div style={{ height: 10, background: accent }} />
+      <div className="p-10 flex-1">{children}</div>
+    </div>
+  );
+}
+
+function DarkPanel({
+  accent,
+  children,
+  className = "",
+}: {
+  accent: string;
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`flex overflow-hidden rounded-xl ${className}`}
+      style={{ background: C.navy2, border: `1px solid ${C.navy2Border}` }}
+    >
+      <div style={{ width: 12, background: accent, flexShrink: 0 }} />
+      <div className="p-10 flex-1">{children}</div>
+    </div>
+  );
+}
+
+function Callout({ children }: { children: ReactNode }) {
+  return (
+    <div
+      className="flex overflow-hidden rounded-xl"
+      style={{
+        background: C.blueLight,
+        border: `1px solid ${C.blueLightBorder}`,
+      }}
+    >
+      <div style={{ width: 10, background: C.blue, flexShrink: 0 }} />
+      <div className="p-8 flex-1" style={{ fontSize: 24, color: C.slate, lineHeight: 1.5 }}>
+        {children}
+      </div>
+    </div>
+  );
+}
+
+function Bullets({
+  items,
+  color = C.slate,
+  size = 22,
+}: {
+  items: string[];
+  color?: string;
+  size?: number;
+}) {
+  return (
+    <ul className="space-y-3">
+      {items.map((b, i) => (
+        <li key={i} style={{ color, fontSize: size, lineHeight: 1.5 }}>
+          <span style={{ color: C.muted, marginRight: 12 }}>·</span>
+          {b}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+/* =================== Slide 1 — Title =================== */
 function S1() {
   return (
     <SlideFrame>
-      <div className="flex-1 flex flex-col justify-center">
-        <div className="text-accent text-[28px] font-semibold uppercase tracking-[0.22em] mb-8">
-          Shopify App Store · Case Study
+      <div className="flex-1 flex items-center" style={{ background: C.navy, margin: -96, padding: 96 }}>
+        <div className="flex items-stretch gap-12 max-w-[1500px]">
+          <div style={{ width: 8, background: C.blue, borderRadius: 4 }} />
+          <div className="flex flex-col justify-center">
+            <h1 style={{ fontSize: 88, fontWeight: 800, color: "#fff", lineHeight: 1.05, letterSpacing: "-0.02em" }}>
+              Scaling the Shopify App Store
+            </h1>
+            <p style={{ fontSize: 36, color: C.muted, marginTop: 28 }}>
+              From 45 days to 2 weeks — AI-powered self-review toolkit
+            </p>
+          </div>
         </div>
-        <h1 className="text-[88px] font-extrabold leading-[1.02] tracking-tight mb-8 max-w-[1600px]">
-          Scaling the Shopify App Store
-        </h1>
-        <p className="text-[36px] text-muted-foreground max-w-[1500px] leading-snug mb-16">
-          How we cut review SLA from{" "}
-          <span className="text-foreground font-semibold">45 days to 2 weeks</span>{" "}
-          using an AI-powered self-review toolkit.
-        </p>
-        <div className="text-[22px] uppercase tracking-[0.22em] text-muted-foreground">
-          Project 1 of 2 · Mark Tan
+        <div
+          className="absolute"
+          style={{ left: 96, bottom: 60, fontSize: 22, color: C.gray }}
+        >
+          Project 1 of 2 · Mark Tan · Product Operations Case Study
         </div>
       </div>
     </SlideFrame>
   );
 }
 
-/* -------------------- Slide 2 — Business Context -------------------- */
+/* =================== Slide 2 — Business Context =================== */
 function S2() {
-  return (
-    <SlideFrame>
-      <SlideHeader
-        kicker="Business Context"
-        title="The Problem: A Good Problem That Became a Serious One"
-      />
-      <div className="grid grid-cols-3 gap-8 mb-12">
-        <Stat value="40%" label="spike in app submission volume" tone="accent" />
-        <Stat value="45 days" label="SLA at peak (benchmark: 11 days)" tone="negative" />
-        <Stat value="23,000" label="developers affected — all vocal on social" tone="accent" />
-      </div>
-      <Callout label="Why It Mattered">
-        These developers serve merchants generating{" "}
-        <span className="text-accent font-semibold">$1.3B in commerce</span>. Slow
-        reviews weren't just an ops problem — they were a reputational and
-        ecosystem risk with CEO-level visibility.
-      </Callout>
-    </SlideFrame>
-  );
-}
-
-/* -------------------- Slide 3 — Solution Demo -------------------- */
-function S2b() {
-  const features = [
-    {
-      title: "Recommendation, not a blocker",
-      body: "Preserves trust if the tool is wrong — developers stay in control of submission.",
-    },
-    {
-      title: "Softened language",
-      body: '"Likely passing" / "likely failing" — never absolute. Calibrated to confidence.',
-    },
-    {
-      title: "Unlimited runs",
-      body: "Fix and re-run as many times as you want. The onus is on the developer.",
-    },
+  const stats = [
+    { value: "40%", label: "spike in app submission volume", color: C.blue },
+    { value: "45 days", label: "SLA at peak (benchmark: 11 days)", color: C.red },
+    { value: "23K", label: "existing + new developers affected, vocal on social", color: C.green },
   ];
   return (
     <SlideFrame>
-      <SlideHeader
-        kicker="The Solution · Demo"
-        title="AI self-review agent — here's what it looks like"
-      />
-      <div className="grid grid-cols-2 gap-10 flex-1 min-h-0">
-        {/* Terminal */}
-        <div className="rounded-xl overflow-hidden border border-border bg-[#0b0f1a] flex flex-col shadow-2xl">
-          <div className="flex items-center gap-2 px-4 py-2.5 bg-[#1a1f2e] border-b border-border">
-            <span className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-            <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
-            <span className="w-3 h-3 rounded-full bg-[#28c840]" />
-            <span className="ml-3 text-[14px] font-mono text-muted-foreground">
-              shopify-review — zsh
-            </span>
-          </div>
-          <div className="p-5 font-mono text-[15px] leading-relaxed flex-1 overflow-hidden">
-            <div className="text-foreground">
-              <span className="text-[color:var(--positive)]">$</span> shopify app review --self
-            </div>
-            <div className="text-muted-foreground mb-4">Running compliance checks...</div>
-
-            <div className="rounded-md border border-border bg-black/30 p-4 mb-4">
-              <div className="text-foreground mb-3">Compliance Report</div>
-              <div className="grid grid-cols-3 gap-4 mb-3">
-                <div>
-                  <div className="text-[color:var(--positive)] text-[28px] font-bold leading-none">29</div>
-                  <div className="text-[12px] text-muted-foreground mt-1">Likely passing</div>
-                </div>
-                <div>
-                  <div className="text-accent text-[28px] font-bold leading-none">3</div>
-                  <div className="text-[12px] text-muted-foreground mt-1">Needs review</div>
-                </div>
-                <div>
-                  <div className="text-[color:var(--negative)] text-[28px] font-bold leading-none">1</div>
-                  <div className="text-[12px] text-muted-foreground mt-1">Likely failing</div>
-                </div>
-              </div>
-              <div className="space-y-2 text-[13px]">
-                <div>
-                  <div><span className="text-[color:var(--negative)]">✗</span> <span className="text-foreground">webhooks/orders.create</span> — invalid endpoint</div>
-                  <div className="text-muted-foreground pl-5">returns 500 on test payload · recommended fix: verify HMAC</div>
-                </div>
-                <div>
-                  <div><span className="text-accent">?</span> <span className="text-foreground">GraphQL version 2023-04 is deprecated</span></div>
-                  <div className="text-muted-foreground pl-5">upgrade to 2024-10 before submission</div>
-                </div>
-                <div>
-                  <div><span className="text-[color:var(--positive)]">✓</span> <span className="text-foreground">listing.screenshots</span> — all 5 present, correct dimensions</div>
-                  <div className="text-muted-foreground pl-5">1600×900 · PNG</div>
-                </div>
-                <div>
-                  <div><span className="text-[color:var(--positive)]">✓</span> <span className="text-foreground">oauth scopes</span> — minimal & justified</div>
-                  <div className="text-muted-foreground pl-5">read_products, write_orders</div>
-                </div>
-              </div>
-            </div>
-            <div className="text-foreground">
-              <span className="text-[color:var(--positive)]">$</span> <span className="inline-block w-2 h-4 bg-foreground/70 animate-pulse align-middle" />
+      <h1 style={{ fontSize: 54, fontWeight: 700, color: C.slate, lineHeight: 1.15 }}>
+        App Submission Volume Outpaced Our Capacity to Review
+      </h1>
+      <Divider />
+      <p style={{ fontSize: 24, color: C.gray, lineHeight: 1.55, marginBottom: 48, maxWidth: 1600 }}>
+        How App Review works: a 3P developer submits, auto-checks run first, then our QA team validates against
+        150+ requirements. Feedback goes to email, and the cycle repeats until the app passes.
+      </p>
+      <div className="grid grid-cols-3 gap-10 mb-12">
+        {stats.map((s) => (
+          <div
+            key={s.label}
+            className="rounded-xl overflow-hidden text-center"
+            style={{ background: C.cardBg, border: `1px solid ${C.cardBorder}`, boxShadow: "0 10px 30px -12px rgba(15,23,42,0.12)" }}
+          >
+            <div style={{ height: 10, background: s.color }} />
+            <div className="px-8 py-12">
+              <div style={{ fontSize: 96, fontWeight: 800, color: s.color, lineHeight: 1 }}>{s.value}</div>
+              <div style={{ fontSize: 22, color: C.gray, marginTop: 16, lineHeight: 1.4 }}>{s.label}</div>
             </div>
           </div>
-        </div>
-
-        {/* Feature cards */}
-        <div className="flex flex-col gap-5 justify-center">
-          {features.map((f, i) => (
-            <Card key={f.title}>
-              <div className="flex gap-5">
-                <div className="text-accent font-mono text-[26px] font-bold shrink-0">
-                  0{i + 1}
-                </div>
-                <div>
-                  <div className="text-[26px] font-bold mb-2 leading-tight">
-                    {f.title}
-                  </div>
-                  <div className="text-[20px] text-muted-foreground leading-snug">
-                    {f.body}
-                  </div>
-                </div>
-              </div>
-            </Card>
-          ))}
-        </div>
+        ))}
       </div>
+      <p style={{ fontSize: 26, color: C.slate, lineHeight: 1.45 }}>
+        These developers serve merchants generating{" "}
+        <span style={{ fontWeight: 700 }}>$1.3B in commerce</span>. Slow reviews weren't just an ops problem —
+        they were a reputational and ecosystem risk with leadership visibility.
+      </p>
     </SlideFrame>
   );
 }
 
-/* -------------------- Slide 3 — Role & Metrics -------------------- */
+/* =================== Slide 3 — Role & Mandate =================== */
 function S3() {
-  const funnel = [
+  const items = [
     "Apps in the store",
     "Developers actively publishing",
-    "SLA (time to process)",
+    "SLA (time to process a submission)",
     "Pass / reject rate",
     "Violations reported post-publish",
-    "Reviews and ratings",
+    "Reviews & ratings",
   ];
+  const shades = ["#1E3A8A", "#1D4ED8", "#2563EB", "#3B82F6", "#60A5FA", "#93C5FD"];
   return (
     <SlideFrame>
-      <SlideHeader
-        kicker="Role & Metrics"
-        title="My Role: Grow the Store. Protect the Ecosystem."
-      />
-      <div className="grid grid-cols-2 gap-12 flex-1 min-h-0">
+      <h1 style={{ fontSize: 54, fontWeight: 700, color: C.slate, lineHeight: 1.15 }}>
+        Mission: Grow the app store without compromising integrity
+      </h1>
+      <Divider />
+      <div className="grid grid-cols-2 gap-16 flex-1 min-h-0">
         <div className="flex flex-col justify-center">
-          <p className="text-[30px] leading-snug text-muted-foreground">
-            As lead PM for the Shopify App Store, my mandate was to{" "}
-            <span className="text-foreground font-semibold">
-              increase the number of apps published
-            </span>{" "}
-            while{" "}
-            <span className="text-foreground font-semibold">
-              maintaining integrity of the ecosystem
-            </span>
-            .
+          <p style={{ fontSize: 26, color: C.slate, lineHeight: 1.5, marginBottom: 32 }}>
+            As Shopify App Store lead, my mandate was to increase apps while maintaining quality — two things
+            in direct tension when volume spikes.
           </p>
-          <p className="text-[30px] leading-snug text-muted-foreground mt-6">
-            Two things in <span className="text-accent font-semibold">direct tension</span>{" "}
-            when volume spikes.
-          </p>
+          <div style={{ fontSize: 26, fontWeight: 700, color: C.slate, marginBottom: 20 }}>
+            I owned a full performance funnel:
+          </div>
+          <ol className="space-y-3">
+            {items.map((it, i) => (
+              <li
+                key={it}
+                style={{
+                  fontSize: 24,
+                  color: i === 0 ? C.blue : C.slate,
+                  fontWeight: i === 0 ? 700 : 400,
+                }}
+              >
+                {i + 1}. {it}
+              </li>
+            ))}
+          </ol>
         </div>
-        <div className="flex flex-col items-center justify-center gap-2">
-          {funnel.map((label, i) => {
+        <div className="flex flex-col items-center justify-center gap-3">
+          {items.map((it, i) => {
             const width = 100 - i * 11;
             return (
               <div
-                key={label}
-                className="rounded-lg border border-border bg-surface flex items-center justify-center px-6 py-3"
-                style={{ width: `${width}%` }}
+                key={it}
+                className="rounded-md flex items-center justify-center"
+                style={{
+                  width: `${width}%`,
+                  background: shades[i],
+                  padding: "22px 24px",
+                }}
               >
-                <span className="text-accent font-mono text-[18px] mr-3">
-                  0{i + 1}
-                </span>
-                <span className="text-[20px] font-medium text-foreground text-center">
-                  {label}
+                <span
+                  style={{
+                    color: "#fff",
+                    fontSize: 22,
+                    fontWeight: i === 0 ? 700 : 500,
+                    textAlign: "center",
+                  }}
+                >
+                  {i + 1}. {it}
                 </span>
               </div>
             );
@@ -211,259 +283,360 @@ function S3() {
   );
 }
 
-/* -------------------- Slide 4 — What Didn't Go as Planned -------------------- */
+/* =================== Slide 4 — Ideas We Considered =================== */
 function S4() {
   const cols = [
     {
-      label: "Hypothesis",
-      body: "Back-and-forth communication is the bottleneck. With 150+ requirements, email threads were unmanageable.",
+      title: "Risk-Based Review",
+      accent: C.grayAccent,
+      bullets: [
+        "Fast-track lanes for trusted partners",
+        "Audit-heavy model: post-publish enforcement",
+        "Domain expertise tiers (L1 / L2 / L3)",
+      ],
     },
     {
-      label: "What We Built",
-      body: "In-admin submission feedback tool — replaced free-form email with structured per-issue checklists.",
+      title: "Dev Tooling & Submission",
+      accent: C.blue,
+      bullets: [
+        "Inline validation in submission UI",
+        "Developer pre-submission test environment",
+        "Actionable partner dashboard feedback",
+        "AI pre-check against 150+ requirements",
+      ],
     },
     {
-      label: "What Actually Happened",
-      body: "Bounce rate didn't improve. Developers were submitting undercooked apps and relying on our QA team to catch issues for them.",
+      title: "Policy, Legal & Governance",
+      accent: C.purple,
+      bullets: [
+        "Severity framework (minor → critical)",
+        "Audit & reduce 150+ requirements",
+        "Post-publish remediation for non-critical issues",
+      ],
     },
   ];
   return (
     <SlideFrame>
-      <SlideHeader
-        kicker="What Didn't Go as Planned"
-        title="We Solved the Wrong Problem First"
-      />
-      <div className="grid grid-cols-3 gap-8 mb-10">
-        {cols.map((c, i) => (
-          <Card key={c.label}>
-            <div className="text-accent font-mono text-[24px] mb-3">
-              0{i + 1}
+      <Overline>Ideas We Considered</Overline>
+      <h1 style={{ fontSize: 48, fontWeight: 700, color: C.slate, lineHeight: 1.15 }}>
+        We mapped 40+ ideas into three categories before deciding
+      </h1>
+      <Divider />
+      <div className="grid grid-cols-3 gap-8 flex-1 min-h-0">
+        {cols.map((c) => (
+          <WhiteCard key={c.title} accent={c.accent}>
+            <div style={{ fontSize: 28, fontWeight: 700, color: c.accent, marginBottom: 24 }}>
+              {c.title}
             </div>
-            <div className="text-[26px] uppercase tracking-[0.14em] text-foreground font-semibold mb-5">
-              {c.label}
-            </div>
-            <div className="text-[24px] text-muted-foreground leading-snug">
-              {c.body}
-            </div>
-          </Card>
+            <Bullets items={c.bullets} color={C.gray} size={22} />
+          </WhiteCard>
         ))}
       </div>
-      <Callout label="Real Insight">
-        The root cause wasn't communication friction — developers weren't
-        testing before submitting. <span className="text-accent font-semibold">We pivoted.</span>
+    </SlideFrame>
+  );
+}
+
+/* =================== Slide 5 — Three Parallel Tracks =================== */
+function S5() {
+  const tracks = [
+    {
+      title: "Product / Eng",
+      accent: C.blue,
+      bullets: ["AI-powered self-review toolkit", "Improved submission form"],
+    },
+    {
+      title: "Ops",
+      accent: C.teal,
+      bullets: ["Frontline SMEs for complex reviews", "Smart routing by domain expertise"],
+    },
+    {
+      title: "Policy",
+      accent: C.purple,
+      bullets: ["Audit 150+ requirements", "Critical failures → outright rejection"],
+    },
+  ];
+  return (
+    <SlideFrame>
+      <Overline color={C.blue}>Three Parallel Tracks We Committed To</Overline>
+      <h1 style={{ fontSize: 48, fontWeight: 700, color: C.slate, lineHeight: 1.15 }}>
+        Three parallel tracks — one team accountable for each
+      </h1>
+      <Divider />
+      <div className="grid grid-cols-3 gap-8 mb-12">
+        {tracks.map((t) => (
+          <DarkCard key={t.title} accent={t.accent}>
+            <div style={{ fontSize: 28, fontWeight: 700, color: "#fff", marginBottom: 24 }}>
+              {t.title}
+            </div>
+            <Bullets items={t.bullets} color={C.text} size={22} />
+          </DarkCard>
+        ))}
+      </div>
+      <Callout>
+        <span style={{ color: C.blue2, fontWeight: 700 }}>Going deeper: </span>
+        For this presentation I'll focus on the Product / Eng track — specifically the AI toolkit.
       </Callout>
     </SlideFrame>
   );
 }
 
-/* -------------------- Slide 5 — The Solution -------------------- */
-function S5() {
-  return (
-    <SlideFrame>
-      <SlideHeader
-        kicker="The Solution"
-        title="Building Something Trustworthy, Not Just Smart"
-      />
-      <div className="flex-1 flex flex-col gap-10 min-h-0">
-        <Card>
-          <p className="text-[30px] leading-snug text-foreground">
-            We didn't just point an LLM at 150 requirements and ship it. We
-            partnered with our{" "}
-            <span className="text-accent font-semibold">
-              internal review SMEs
-            </span>{" "}
-            — people who had done this manually for years — to teach the system
-            what good judgment actually looks like.
-          </p>
-          <p className="text-[26px] leading-snug text-muted-foreground mt-5">
-            That shaped the logic, the confidence thresholds, and the language.
-          </p>
-        </Card>
-        <Callout label="Why 'Likely Passing' Instead of 'Passing'">
-          Developers treat Shopify's word as truth. Being{" "}
-          <span className="text-[color:var(--negative)] font-semibold">
-            wrong with confidence
-          </span>{" "}
-          is worse than being{" "}
-          <span className="text-[color:var(--positive)] font-semibold">
-            right with nuance
-          </span>
-          . The language was a deliberate trust decision.
-        </Callout>
-      </div>
-    </SlideFrame>
-  );
-}
-
-/* -------------------- Slide 6 — Execution -------------------- */
+/* =================== Slide 6 — Improving the Submission Flow =================== */
 function S6() {
-  const pods = [
+  const cards = [
     {
-      horizon: "Short-term",
-      title: "Submission Form",
-      body: "Kept at MVP. Structured per-issue feedback replacing email. Still shipped — but descoped from multi-phase to lean v1 once we identified the real root cause.",
-      accent: false,
+      title: "The Hypothesis",
+      accent: C.blue,
+      bullets: [
+        "150+ requirements, all feedback via email",
+        "One long thread per submission",
+        "Back-and-forth until resolved",
+      ],
     },
     {
-      horizon: "Medium-term",
-      title: "AI Toolkit",
-      body: "AI self-review tool: runs against a developer's codebase in ~2 min. Checks all mechanical compliance requirements. Paired with a Partner Dashboard tracker that blocks resubmission until all issues resolved.",
-      accent: true,
+      title: "What We Built & Shipped",
+      accent: C.green,
+      bullets: [
+        "Replaced email with per-issue checklist",
+        "Developers track resolution in portal",
+        "Launched as planned",
+      ],
     },
     {
-      horizon: "Longer-term",
-      title: "Agentic Review (in progress)",
-      body: "Agent that installs and tests apps end-to-end. Challenge: every app is unique. Focused on common patterns first — sign-in, login, plan selection — building specialization from there.",
-      accent: false,
+      title: "What the Data Showed",
+      accent: C.amber,
+      bullets: [
+        "Bounce rate didn't move",
+        "Developers submitting apps without self-testing",
+        "Communication wasn't the core problem",
+      ],
     },
   ];
   return (
     <SlideFrame>
-      <SlideHeader kicker="Execution" title="Three Pods. Three Time Horizons." />
+      <h1 style={{ fontSize: 48, fontWeight: 700, color: C.slate, lineHeight: 1.15 }}>
+        Improving the submission flow
+      </h1>
+      <Divider />
       <div className="grid grid-cols-3 gap-8 mb-10 flex-1 min-h-0">
-        {pods.map((p) => (
-          <Card key={p.title} accent={p.accent} className="flex flex-col">
-            <div
-              className={`text-[20px] uppercase tracking-[0.18em] mb-3 ${
-                p.accent ? "text-accent" : "text-muted-foreground"
-              }`}
-            >
-              {p.horizon}
+        {cards.map((c) => (
+          <WhiteCard key={c.title} accent={c.accent}>
+            <div style={{ fontSize: 26, fontWeight: 700, color: c.accent, marginBottom: 24 }}>
+              {c.title}
             </div>
-            <div className="text-[32px] font-bold mb-5 leading-tight">
-              {p.title}
-            </div>
-            <div className="text-[22px] text-muted-foreground leading-snug">
-              {p.body}
-            </div>
-          </Card>
+            <Bullets items={c.bullets} color={C.slate} size={22} />
+          </WhiteCard>
         ))}
       </div>
-      <div className="text-center text-[24px] text-muted-foreground">
-        <span className="uppercase tracking-[0.18em] text-accent font-semibold">
-          Prioritization:
-        </span>{" "}
-        Time to market{" "}
-        <span className="text-foreground mx-2">→</span> Impact{" "}
-        <span className="text-foreground mx-2">→</span> Complexity
+      <Callout>
+        <span style={{ color: C.blue2, fontWeight: 700 }}>The decision: </span>
+        Redirect investment to pre-submission assessment.
+      </Callout>
+    </SlideFrame>
+  );
+}
+
+/* =================== Slide 7 — Improving the Quality of Submission =================== */
+function S7() {
+  return (
+    <SlideFrame>
+      <div
+        className="flex-1 flex flex-col"
+        style={{ background: C.navy, margin: -96, padding: 96 }}
+      >
+        <h1 style={{ fontSize: 60, fontWeight: 700, color: "#fff", lineHeight: 1.15, marginBottom: 56 }}>
+          Improving the quality of submission
+        </h1>
+        <div className="flex flex-col gap-8 flex-1 min-h-0">
+          <div
+            className="rounded-xl p-10"
+            style={{ background: C.navy2, border: `1px solid ${C.navy2Border}` }}
+          >
+            <Bullets
+              items={[
+                "Partnered with QA SMEs who'd reviewed apps manually for years",
+                "Taught the system: nuance, edge cases, what a borderline fail looks like",
+                "Their input shaped the logic, confidence thresholds, and language",
+              ]}
+              color="#fff"
+              size={28}
+            />
+          </div>
+          <DarkPanel accent={C.blue}>
+            <div style={{ fontSize: 30, fontWeight: 700, color: C.blueM, marginBottom: 20 }}>
+              How it works
+            </div>
+            <Bullets
+              items={[
+                "Runs against developer codebase in ~2 min",
+                "Checks all 150+ mechanical compliance requirements",
+                "Blocks resubmission until every flagged issue is resolved",
+              ]}
+              color="#fff"
+              size={26}
+            />
+          </DarkPanel>
+        </div>
       </div>
     </SlideFrame>
   );
 }
 
-/* -------------------- Slide 7 — Stakeholder Management -------------------- */
-function S7() {
+/* =================== Slide 8 — Stakeholder Management =================== */
+function S8() {
   const groups = [
-    { icon: "◇", t: "App Developers", d: "23K, external, vocal" },
-    { icon: "§", t: "Governance & Legal", d: "Policy + risk" },
-    { icon: "◎", t: "Operations / QA Team", d: "Frontline reviewers" },
-    { icon: "▲", t: "Internal Leadership", d: "Directors → VP" },
+    { label: "App Developers", desc: "23K external developers · vocal on social media", color: C.blue },
+    { label: "Governance & Legal", desc: "Ecosystem integrity and policy compliance", color: C.purple },
+    { label: "Operations / QA", desc: "Internal review team conducting manual testing", color: C.teal },
+    { label: "Internal Leadership", desc: "Directors → VP of Engineering & Product Design", color: C.grayAccent },
   ];
   return (
     <SlideFrame>
-        <SlideHeader
-        kicker="Stakeholder Management"
-        title="Four Groups. One Principle That Ended the Hardest Debate."
-      />
-      <div className="grid grid-cols-2 gap-10 flex-1 min-h-0">
-        <div className="flex flex-col gap-4 justify-center">
+      <h1 style={{ fontSize: 50, fontWeight: 700, color: C.slate, lineHeight: 1.15 }}>
+        Principle: Shopify Is a Steward, Not Just an Operator
+      </h1>
+      <Divider />
+      <div className="grid grid-cols-2 gap-12 flex-1 min-h-0">
+        <div className="flex flex-col justify-center gap-5">
           {groups.map((g) => (
             <div
-              key={g.t}
-              className="flex items-center gap-6 rounded-xl border border-border bg-surface px-6 py-5"
+              key={g.label}
+              className="flex rounded-xl overflow-hidden"
+              style={{ background: C.cardBg, border: `1px solid ${C.cardBorder}` }}
             >
-              <div className="w-14 h-14 rounded-lg bg-accent/15 text-accent flex items-center justify-center text-[28px] font-bold shrink-0">
-                {g.icon}
-              </div>
-              <div>
-                <div className="text-[28px] font-bold leading-tight">{g.t}</div>
-                <div className="text-[20px] text-muted-foreground">{g.d}</div>
+              <div style={{ width: 10, background: g.color }} />
+              <div className="p-6">
+                <div style={{ fontSize: 28, fontWeight: 700, color: C.slate }}>{g.label}</div>
+                <div style={{ fontSize: 20, color: C.gray, marginTop: 6 }}>{g.desc}</div>
               </div>
             </div>
           ))}
         </div>
-        <div className="flex flex-col justify-center">
-          <Callout label="Some Challenges">
-            A VP proposed{" "}
-            <span className="text-foreground font-semibold">
-              opening the gates
-            </span>{" "}
-            — let all apps in, let the marketplace self-regulate. Faster SLA,
-            fewer resources. But it violated ecosystem integrity.
-            <div className="mt-5 text-[26px] text-muted-foreground">
-              We aligned with a principle:
+        <DarkPanel accent={C.blue} className="flex flex-col">
+          <div style={{ fontSize: 26, fontWeight: 700, color: C.blueM, marginBottom: 20 }}>
+            Challenges
+          </div>
+          <p style={{ fontSize: 22, color: C.text, lineHeight: 1.55, marginBottom: 16 }}>
+            A VP proposed opening the gates — let all apps in, let the marketplace self-regulate.
+          </p>
+          <p style={{ fontSize: 22, color: C.text, lineHeight: 1.55, marginBottom: 16 }}>
+            On paper: faster SLA, fewer resources. In practice: copycat apps, low-quality submissions,
+            eroded merchant trust.
+          </p>
+          <p style={{ fontSize: 22, color: C.text, lineHeight: 1.55, marginBottom: 20 }}>
+            The counter wasn't a feature comparison. It was a principle:
+          </p>
+          <div
+            className="rounded-lg px-6 py-6 text-center"
+            style={{ background: C.blue2, color: "#fff", fontStyle: "italic", fontWeight: 700, fontSize: 24, lineHeight: 1.4 }}
+          >
+            "We are the steward of this marketplace, not just the operator."
+          </div>
+        </DarkPanel>
+      </div>
+    </SlideFrame>
+  );
+}
+
+/* =================== Slide 9 — Outcomes =================== */
+function S9() {
+  const rows = [
+    { metric: "SLA", before: "45 days", after: "2 weeks" },
+    { metric: "MCP Adoption", before: "—", after: "13% at launch" },
+    { metric: "Reception", before: "—", after: "Positive dev forums" },
+  ];
+  return (
+    <SlideFrame>
+      <div className="flex-1 flex flex-col" style={{ background: C.navy, margin: -96, padding: 96 }}>
+        <Overline color={C.blueM}>Outcomes</Overline>
+        <h1 style={{ fontSize: 52, fontWeight: 700, color: "#fff", lineHeight: 1.15, marginBottom: 48 }}>
+          Results across all three tracks
+        </h1>
+        <div className="flex flex-col gap-6 flex-1 min-h-0">
+          <DarkPanel accent={C.blue}>
+            <div style={{ fontSize: 18, fontWeight: 700, color: C.blueM, letterSpacing: "0.22em", textTransform: "uppercase", marginBottom: 18 }}>
+              Product / Eng
             </div>
-            <div className="mt-3 text-accent text-[30px] font-semibold leading-snug">
-              "We are the steward of this marketplace, not just the operator."
+            <div className="grid grid-cols-[1.2fr_1fr_1.5fr] gap-6" style={{ fontSize: 18, color: C.muted, letterSpacing: "0.16em", textTransform: "uppercase", paddingBottom: 12, borderBottom: `1px solid ${C.navy2Border}` }}>
+              <div>Metric</div><div>Before</div><div>After</div>
             </div>
-            <div className="mt-5 text-[22px] uppercase tracking-[0.18em] text-muted-foreground">
-              Principles move faster than debate.
-            </div>
-          </Callout>
+            {rows.map((r) => (
+              <div
+                key={r.metric}
+                className="grid grid-cols-[1.2fr_1fr_1.5fr] gap-6 items-center"
+                style={{ padding: "16px 0", borderBottom: `1px solid ${C.navy2Border}` }}
+              >
+                <div style={{ fontSize: 24, color: "#fff", fontWeight: 600 }}>{r.metric}</div>
+                <div style={{ fontSize: 22, color: C.muted, fontFamily: "monospace" }}>
+                  {r.before} <span style={{ color: C.muted }}>→</span>
+                </div>
+                <div style={{ fontSize: 24, color: C.greenL, fontWeight: 700 }}>{r.after}</div>
+              </div>
+            ))}
+          </DarkPanel>
+          <div className="grid grid-cols-2 gap-6">
+            <DarkPanel accent={C.teal}>
+              <div style={{ fontSize: 18, fontWeight: 700, color: C.teal, letterSpacing: "0.22em", textTransform: "uppercase", marginBottom: 14 }}>
+                Ops
+              </div>
+              <p style={{ fontSize: 22, color: C.text, lineHeight: 1.5 }}>
+                Frontline ops team built for the most complex submissions — removed the bottleneck of
+                generalist reviewers on nuanced cases.
+              </p>
+            </DarkPanel>
+            <DarkPanel accent={C.purple}>
+              <div style={{ fontSize: 18, fontWeight: 700, color: C.purple, letterSpacing: "0.22em", textTransform: "uppercase", marginBottom: 14 }}>
+                Policy
+              </div>
+              <p style={{ fontSize: 22, color: C.text, lineHeight: 1.5 }}>
+                Critical-failures category introduced — apps with critical issues rejected outright, giving
+                developers clearer signal on what truly blocks publication.
+              </p>
+            </DarkPanel>
+          </div>
+        </div>
+        <div style={{ fontSize: 20, fontStyle: "italic", color: C.gray, marginTop: 32 }}>
+          Jan → Apr 2026 · 4 months end to end
         </div>
       </div>
     </SlideFrame>
   );
 }
 
-/* -------------------- Slide 8 — Outcomes + Reflection -------------------- */
-function S8() {
-  const rows = [
-    { metric: "SLA", before: "45 days", after: "2 weeks" },
-    {
-      metric: "Developer adoption",
-      before: "—",
-      after: "13% using the MCP at launch",
-    },
-    {
-      metric: "Reception",
-      before: "—",
-      after: "Positive developer posts on partner forums",
-    },
-  ];
+/* =================== Slide 10 — What I'd Do Differently =================== */
+function S10() {
   return (
     <SlideFrame>
-      <SlideHeader
-        kicker="Outcomes"
-        title="Results and the Lesson I'd Apply Earlier Next Time"
-      />
-      <Card className="mb-8">
-        <div className="grid grid-cols-[1.2fr_1fr_1.5fr] gap-6 text-[22px] uppercase tracking-[0.16em] text-muted-foreground pb-4 border-b border-border">
-          <div>Metric</div>
-          <div>Before</div>
-          <div>After</div>
-        </div>
-        {rows.map((r) => (
-          <div
-            key={r.metric}
-            className="grid grid-cols-[1.2fr_1fr_1.5fr] gap-6 py-5 border-b border-border last:border-b-0 items-center"
-          >
-            <div className="text-[26px] font-semibold text-foreground">
-              {r.metric}
-            </div>
-            <div className="text-[26px] text-muted-foreground font-mono">
-              {r.before}
-            </div>
-            <div className="text-[26px] text-[color:var(--positive)] font-semibold">
-              {r.after}
-            </div>
+      <div className="flex-1 flex flex-col" style={{ background: C.navy, margin: -96, padding: 96 }}>
+        <Overline color={C.blueM}>What I'd Do Differently</Overline>
+        <h1 style={{ fontSize: 56, fontWeight: 700, color: "#fff", lineHeight: 1.15, marginBottom: 56 }}>
+          What I'd do differently
+        </h1>
+        <DarkPanel accent={C.blue} className="flex-1">
+          <div className="flex flex-col gap-8 justify-center h-full">
+            <p style={{ fontSize: 26, color: C.text, lineHeight: 1.55 }}>
+              We evaluated 40–50 ideas before aligning. Some took weeks to kill because we hadn't
+              established governing principles upfront.
+            </p>
+            <p style={{ fontSize: 22, color: C.muted, fontStyle: "italic" }}>
+              The principle we should have led with:
+            </p>
+            <p style={{ fontSize: 30, color: C.blueM, fontWeight: 700, fontStyle: "italic", lineHeight: 1.4 }}>
+              "We are stewards of the marketplace. Quality is non-negotiable. Ecosystem integrity beats
+              short-term throughput."
+            </p>
+            <p style={{ fontSize: 26, color: C.text, lineHeight: 1.55 }}>
+              Used as a filter from day one, those principles would have eliminated half the idea list in
+              week one and accelerated consensus across legal, governance, and leadership.
+            </p>
+            <p style={{ fontSize: 22, color: C.muted, fontStyle: "italic" }}>
+              Lesson: In multi-stakeholder environments, principles are a prioritization tool — not just a
+              values statement.
+            </p>
           </div>
-        ))}
-      </Card>
-      <Callout label="What I'd Do Differently">
-        We evaluated 40–50 ideas before aligning. Some took weeks to kill —
-        like the "open the gates" proposal — because we hadn't established
-        governing principles upfront.{" "}
-        <span className="text-accent font-semibold">
-          Define principles before generating solutions.
-        </span>{" "}
-        They do the work of alignment faster than any stakeholder meeting.
-      </Callout>
+        </DarkPanel>
+      </div>
     </SlideFrame>
   );
 }
 
-/* -------------------- Slide 9 — Solution Demo (reprise) -------------------- */
-const S9 = S2b;
-
-export const commerceSlides = [S1, S2, S2b, S3, S4, S5, S6, S7, S8, S9];
+export const commerceSlides = [S1, S2, S3, S4, S5, S6, S7, S8, S9, S10];
