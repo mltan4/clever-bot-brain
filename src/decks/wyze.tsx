@@ -18,7 +18,7 @@ function S1() {
         >
           Case Study
         </div>
-        <h1 className="text-[120px] font-extrabold leading-[0.95] tracking-tighter mb-10 max-w-[1500px]">
+        <h1 className="text-[88px] font-extrabold leading-[1.02] tracking-tight mb-8 max-w-[1600px]">
           Scaling the<br />
           Wyze App Release
         </h1>
@@ -34,8 +34,9 @@ function S1() {
           className="font-mono text-[20px] uppercase tracking-[0.24em]"
           style={{ color: MUTED }}
         >
-          Project 2 of 2 · Mark Tan · Product Operations Case Study
+          Mark Tan
         </div>
+
       </div>
     </SlideFrame>
   );
