@@ -211,7 +211,7 @@ function S4() {
               {c.items.map((it) => (
                 <li
                   key={it}
-                  className="flex items-start gap-3 text-[22px] leading-snug"
+                  className="flex items-start gap-3 text-[26px] leading-snug"
                   style={{ color: "#E2E8F0" }}
                 >
                   <span style={{ color: c.tone }}>•</span>
