@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as WyzeSlideRouteImport } from './routes/wyze.$slide'
 import { Route as WorkosSlideRouteImport } from './routes/workos.$slide'
 import { Route as CommerceSlideRouteImport } from './routes/commerce.$slide'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WyzeSlideRoute = WyzeSlideRouteImport.update({
+  id: '/wyze/$slide',
+  path: '/wyze/$slide',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WorkosSlideRoute = WorkosSlideRouteImport.update({
@@ -33,30 +39,34 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/commerce/$slide': typeof CommerceSlideRoute
   '/workos/$slide': typeof WorkosSlideRoute
+  '/wyze/$slide': typeof WyzeSlideRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/commerce/$slide': typeof CommerceSlideRoute
   '/workos/$slide': typeof WorkosSlideRoute
+  '/wyze/$slide': typeof WyzeSlideRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/commerce/$slide': typeof CommerceSlideRoute
   '/workos/$slide': typeof WorkosSlideRoute
+  '/wyze/$slide': typeof WyzeSlideRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/commerce/$slide' | '/workos/$slide'
+  fullPaths: '/' | '/commerce/$slide' | '/workos/$slide' | '/wyze/$slide'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/commerce/$slide' | '/workos/$slide'
-  id: '__root__' | '/' | '/commerce/$slide' | '/workos/$slide'
+  to: '/' | '/commerce/$slide' | '/workos/$slide' | '/wyze/$slide'
+  id: '__root__' | '/' | '/commerce/$slide' | '/workos/$slide' | '/wyze/$slide'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CommerceSlideRoute: typeof CommerceSlideRoute
   WorkosSlideRoute: typeof WorkosSlideRoute
+  WyzeSlideRoute: typeof WyzeSlideRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wyze/$slide': {
+      id: '/wyze/$slide'
+      path: '/wyze/$slide'
+      fullPath: '/wyze/$slide'
+      preLoaderRoute: typeof WyzeSlideRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/workos/$slide': {
@@ -89,6 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CommerceSlideRoute: CommerceSlideRoute,
   WorkosSlideRoute: WorkosSlideRoute,
+  WyzeSlideRoute: WyzeSlideRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
