@@ -14,9 +14,9 @@ import { useEffect, useMemo } from "react";
 import appCss from "../styles.css?url";
 
 const DECKS = {
-  commerce: { label: "Shopify AI Toolkit — App Review", total: 10 },
+  commerce: { label: "Shopify AI Toolkit", total: 10 },
+  wyze: { label: "Wyze Scaling Release", total: 8 },
   workos: { label: "WorkOS", total: 7 },
-  wyze: { label: "Wyze App Release", total: 8 },
 } as const;
 
 type DeckId = keyof typeof DECKS;
