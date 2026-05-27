@@ -68,7 +68,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Product Decks" },
-      { name: "description", content: "Commerce AI Self-Review Agent & WorkOS presentation decks" },
+      { name: "description", content: "Shopify AI Toolkit, Wyze Scaling Release, and WorkOS presentation decks" },
     ],
     links: [{ rel: "stylesheet", href: appCss }],
   }),
