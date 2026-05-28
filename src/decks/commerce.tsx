@@ -28,22 +28,19 @@ function S1() {
 function SAgenda() {
   const items = [
     "Business Context",
-    "How App Review Works",
-    "Role & Mandate",
-    "Diagnostic: Where the Pipeline Broke",
-    "Ideas We Considered",
-    "Three Parallel Tracks",
-    "AI Self-Review Toolkit",
-    "Results & Principles",
+    "Diagnosing the Bottlenecks",
+    "Prioritizing High-Leverage Bets",
+    "Deep Dive: AI Review Toolkit",
+    "Outcomes and Learnings",
   ];
   return (
     <SlideFrame>
       <SlideHeader kicker="Agenda" title="What we'll cover" />
-      <div className="grid grid-cols-2 gap-x-12 gap-y-5 flex-1 min-h-0 content-start">
+      <div className="flex flex-col gap-5 flex-1 min-h-0 content-start max-w-[1200px]">
         {items.map((t, i) => (
           <div
             key={t}
-            className="flex items-center gap-6 rounded-xl border border-border bg-surface p-6"
+            className="flex items-center gap-6 rounded-xl border border-border bg-surface px-8 py-5"
           >
             <span className="font-mono text-[32px] font-bold text-accent shrink-0">
               0{i + 1}
