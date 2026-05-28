@@ -765,4 +765,4 @@ function SDemo() {
   );
 }
 
-export const commerceSlides = [S1, SAgenda, S2, SVideo, S3, SDiagnostic, S4, S5, S6, S7, SDemo, S9, S8, S10];
+export const commerceSlides = [S1, SAgenda, S2, SVideo, S3, SDiagnostic, S4, S6, S7, SDemo, S9, S8, S10];
