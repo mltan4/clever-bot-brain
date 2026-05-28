@@ -99,20 +99,22 @@ function SVideo() {
 
 /* -------------------- Slide 4 — Role & Mandate -------------------- */
 function S3() {
-  const funnel = [
-    "Apps in the store",
-    "Developers actively publishing",
-    "SLA (time to process a submission)",
-    "Pass / reject rate",
-    "Violations reported post-publish",
-    "Reviews & ratings",
+  const leftItems = ["faster approvals", "lower friction", "ecosystem growth"];
+  const leftKpis = [
+    "Number of apps",
+    "Number of developers",
+    "SLA (time to review submission)",
   ];
-  const left = ["faster approvals", "lower friction", "ecosystem growth"];
-  const right = [
+  const rightItems = [
     "merchant trust",
     "fraud prevention",
     "quality standards",
     "platform safety",
+  ];
+  const rightKpis = [
+    "Pass / reject rate",
+    "Violations reported post-publish",
+    "Reviews and ratings",
   ];
   return (
     <SlideFrame>
@@ -120,84 +122,71 @@ function S3() {
         kicker="Role & Mandate"
         title="Mission: Grow the app store without compromising integrity"
       />
-      <div className="grid grid-cols-2 gap-12 flex-1 min-h-0">
-        <div className="flex flex-col justify-center gap-8">
-          <p className="text-[24px] leading-snug text-muted-foreground">
-            As Shopify App Store lead, my mandate was to balance two forces in{" "}
-            <span className="text-accent font-semibold">direct tension</span>:
-          </p>
-          <div className="grid grid-cols-[1fr_auto_1fr] items-stretch gap-4">
-            <div className="rounded-2xl border border-border bg-surface p-6 flex flex-col">
-              <div className="text-accent text-[16px] font-semibold uppercase tracking-[0.18em] mb-2">
-                Left
-              </div>
-              <div className="text-[26px] font-bold leading-tight mb-4">
-                Increase App Volume
-              </div>
-              <ul className="space-y-2">
-                {left.map((it) => (
-                  <li
-                    key={it}
-                    className="text-[20px] text-muted-foreground flex gap-2"
-                  >
-                    <span className="text-accent">·</span>
-                    <span>{it}</span>
-                  </li>
-                ))}
-              </ul>
+      <p className="text-[28px] leading-snug text-muted-foreground mb-8 max-w-[1600px]">
+        As Shopify App Store lead, my mandate was to balance two forces in{" "}
+        <span className="text-accent font-semibold">direct tension</span>:
+      </p>
+      <div className="grid grid-cols-[1fr_auto_1fr] items-stretch gap-6 flex-1 min-h-0">
+        <div className="rounded-2xl border border-border bg-surface p-10 flex flex-col">
+          <div className="text-[40px] font-bold leading-tight mb-6">
+            Increase App Volume
+          </div>
+          <ul className="space-y-3 mb-8">
+            {leftItems.map((it) => (
+              <li key={it} className="text-[28px] text-muted-foreground flex gap-3">
+                <span className="text-accent">·</span>
+                <span>{it}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-auto pt-6 border-t border-border">
+            <div className="text-accent text-[18px] font-semibold uppercase tracking-[0.18em] mb-4">
+              KPIs
             </div>
-            <div className="flex items-center text-accent text-[40px] font-bold">
-              ⇄
-            </div>
-            <div className="rounded-2xl border border-border bg-surface p-6 flex flex-col">
-              <div className="text-accent text-[16px] font-semibold uppercase tracking-[0.18em] mb-2">
-                Right
-              </div>
-              <div className="text-[26px] font-bold leading-tight mb-4">
-                Protect Marketplace Integrity
-              </div>
-              <ul className="space-y-2">
-                {right.map((it) => (
-                  <li
-                    key={it}
-                    className="text-[20px] text-muted-foreground flex gap-2"
-                  >
-                    <span className="text-accent">·</span>
-                    <span>{it}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ul className="space-y-3">
+              {leftKpis.map((it) => (
+                <li key={it} className="text-[26px] text-foreground flex gap-3">
+                  <span className="text-accent shrink-0">–</span>
+                  <span>{it}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center gap-3">
-          {funnel.map((label, i) => {
-            const width = 100 - i * 10;
-            return (
-              <div
-                key={label}
-                className="rounded-lg border border-border flex items-center justify-center px-6 py-5"
-                style={{
-                  width: `${width}%`,
-                  backgroundColor: `color-mix(in oklab, var(--accent) ${
-                    24 - i * 2
-                  }%, var(--surface))`,
-                }}
-              >
-                <span className="text-accent font-mono text-[20px] mr-4">
-                  0{i + 1}
-                </span>
-                <span className="text-[24px] font-semibold text-foreground text-center">
-                  {label}
-                </span>
-              </div>
-            );
-          })}
+        <div className="flex items-center text-accent text-[48px] font-bold">
+          ⇄
+        </div>
+        <div className="rounded-2xl border border-border bg-surface p-10 flex flex-col">
+          <div className="text-[40px] font-bold leading-tight mb-6">
+            Protect Marketplace Integrity
+          </div>
+          <ul className="space-y-3 mb-8">
+            {rightItems.map((it) => (
+              <li key={it} className="text-[28px] text-muted-foreground flex gap-3">
+                <span className="text-accent">·</span>
+                <span>{it}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-auto pt-6 border-t border-border">
+            <div className="text-accent text-[18px] font-semibold uppercase tracking-[0.18em] mb-4">
+              KPIs
+            </div>
+            <ul className="space-y-3">
+              {rightKpis.map((it) => (
+                <li key={it} className="text-[26px] text-foreground flex gap-3">
+                  <span className="text-accent shrink-0">–</span>
+                  <span>{it}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </SlideFrame>
   );
 }
+
 
 /* -------------------- Slide 5 — Diagnostic Framework -------------------- */
 function SDiagnostic() {
