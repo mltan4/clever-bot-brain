@@ -528,12 +528,22 @@ function S8() {
           <div className="text-accent text-[20px] font-semibold uppercase tracking-[0.18em] mb-4">
             Challenges
           </div>
-          <p className="text-[24px] text-muted-foreground leading-snug mb-8">
-            A VP proposed opening the gates: let all apps in, let the marketplace
-            self-regulate. On paper: faster SLA, fewer resources. In practice:
-            copycat apps, low-quality submissions, eroded merchant trust.
-          </p>
-          <div className="rounded-xl border-l-4 border-accent bg-accent/10 px-6 py-5">
+          <ul className="space-y-4">
+            {[
+              "VP of Eng proposed letting the marketplace self-regulate. On paper: faster SLA, fewer resources. In practice: copycat apps, low-quality submissions, eroded merchant trust.",
+              "VP of Product did not support solutions that weren't the source of truth. Example: demo videos or submitting test results.",
+              "Director of Ops did not approve partner triage because that meant more complex workflows.",
+            ].map((it) => (
+              <li
+                key={it}
+                className="text-[22px] text-muted-foreground leading-snug flex gap-3"
+              >
+                <span className="text-accent shrink-0">·</span>
+                <span>{it}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="rounded-xl border-l-4 border-accent bg-accent/10 px-6 py-5 mt-6">
             <div className="text-accent text-[28px] font-semibold leading-snug">
               Short-term wins have long-term consequences.
             </div>
