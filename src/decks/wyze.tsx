@@ -13,17 +13,17 @@ function S1() {
     <SlideFrame>
       <div className="flex-1 flex flex-col justify-center">
         <div
-          className="font-mono text-[28px] uppercase tracking-[0.24em] mb-10"
+          className="font-mono text-[22px] uppercase tracking-[0.24em] mb-8"
           style={{ color: ACCENT }}
         >
           Case Study
         </div>
-        <h1 className="text-[88px] font-extrabold leading-[1.02] tracking-tight mb-10 max-w-[1600px]">
+        <h1 className="text-[88px] font-extrabold leading-[1.02] tracking-tight mb-8 max-w-[1600px]">
           Scaling Mobile<br />
           Release Cycles
         </h1>
         <p
-          className="text-[40px] leading-snug max-w-[1400px] mb-20"
+          className="text-[34px] leading-snug max-w-[1400px] mb-16"
           style={{ color: "#E2E8F0" }}
         >
           Decoupling releases —{" "}
@@ -31,7 +31,7 @@ function S1() {
           products
         </p>
         <div
-          className="font-mono text-[26px] uppercase tracking-[0.24em]"
+          className="font-mono text-[20px] uppercase tracking-[0.24em]"
           style={{ color: MUTED }}
         >
           Mark Tan
@@ -47,13 +47,13 @@ function S2() {
   return (
     <SlideFrame>
       <SlideHeader title="Scaling Wyze Through Mobile" />
-      <div className="grid grid-cols-3 gap-12 mb-20">
+      <div className="grid grid-cols-3 gap-8 mb-12">
         <Stat value="100K → 4M" label="app downloads during my tenure" tone="accent" />
         <Stat value="1 → 7" label="hardware products in under 2 years" tone="accent" />
         <Stat value="$120M" label="Series B raised / ~$80M ARR" tone="accent" />
       </div>
       <p
-        className="text-[34px] leading-snug max-w-[1500px]"
+        className="text-[28px] leading-snug max-w-[1500px]"
         style={{ color: "#E2E8F0" }}
       >
         Wyze's initial thesis: charge a fraction of Ring or Nest means that we
@@ -82,7 +82,7 @@ function S3() {
       <div className="grid grid-cols-2 gap-16 flex-1 min-h-0">
         <div className="flex flex-col">
           <p
-            className="text-[30px] leading-snug mb-10"
+            className="text-[24px] leading-snug mb-8"
             style={{ color: "#E2E8F0" }}
           >
             As Director of Product for Mobile, my lane looked narrow — own the
@@ -90,12 +90,12 @@ function S3() {
             tissue across every product Wyze made.
           </p>
           <div
-            className="font-mono text-[30px] uppercase tracking-[0.18em] mb-7"
+            className="font-mono text-[24px] uppercase tracking-[0.18em] mb-5"
             style={{ color: ACCENT }}
           >
             What this actually meant:
           </div>
-          <ol className="flex flex-col gap-12">
+          <ol className="flex flex-col gap-4">
             {[
               "App growth (downloads, ratings, DAU)",
               "Cross-device experience cohesion",
@@ -105,11 +105,11 @@ function S3() {
             ].map((t, i) => (
               <li
                 key={t}
-                className="flex items-start gap-12 text-[32px]"
+                className="flex items-start gap-4 text-[26px]"
                 style={{ color: "#E2E8F0" }}
               >
                 <span
-                  className="font-mono text-[30px] w-10 shrink-0"
+                  className="font-mono text-[24px] w-10 shrink-0"
                   style={{ color: ACCENT }}
                 >
                   0{i + 1}
@@ -121,16 +121,16 @@ function S3() {
         </div>
         <div className="flex flex-col">
           <div
-            className="font-mono text-[28px] uppercase tracking-[0.2em] mb-7"
+            className="font-mono text-[22px] uppercase tracking-[0.2em] mb-5"
             style={{ color: MUTED }}
           >
             All 7 products live in one app
           </div>
-          <div className="grid grid-cols-3 gap-12 mb-10">
+          <div className="grid grid-cols-3 gap-4 mb-8">
             {products.map((p) => (
               <div
                 key={p}
-                className="rounded-xl p-7 text-center text-[30px] font-semibold"
+                className="rounded-xl p-5 text-center text-[24px] font-semibold"
                 style={{
                   background: CARD_BG,
                   border: `1px solid ${ACCENT}40`,
@@ -141,11 +141,11 @@ function S3() {
             ))}
           </div>
           <div className="flex flex-col items-center gap-3">
-            <div className="text-[34px]" style={{ color: MUTED }}>
+            <div className="text-[28px]" style={{ color: MUTED }}>
               ↓
             </div>
             <div
-              className="w-full rounded-2xl py-8 text-center text-[38px] font-bold"
+              className="w-full rounded-2xl py-8 text-center text-[32px] font-bold"
               style={{
                 background: `linear-gradient(90deg, ${ACCENT}, ${POSITIVE})`,
                 color: "#0F172A",
@@ -194,24 +194,24 @@ function S4() {
   return (
     <SlideFrame>
       <SlideHeader title="Every Launch Was a Custom Build" />
-      <div className="grid grid-cols-3 gap-12 mb-20 flex-1 min-h-0">
+      <div className="grid grid-cols-3 gap-8 mb-10 flex-1 min-h-0">
         {cols.map((c) => (
           <div
             key={c.title}
-            className="rounded-2xl p-10 flex flex-col"
+            className="rounded-2xl p-8 flex flex-col"
             style={{ background: CARD_BG }}
           >
             <div
-              className="font-mono text-[24px] uppercase tracking-[0.18em] mb-7"
+              className="font-mono text-[18px] uppercase tracking-[0.18em] mb-5"
               style={{ color: c.tone }}
             >
               {c.title}
             </div>
-            <ul className="flex flex-col gap-12">
+            <ul className="flex flex-col gap-4">
               {c.items.map((it) => (
                 <li
                   key={it}
-                  className="flex items-start gap-3 text-[32px] leading-snug"
+                  className="flex items-start gap-3 text-[26px] leading-snug"
                   style={{ color: "#E2E8F0" }}
                 >
                   <span style={{ color: c.tone }}>•</span>
@@ -223,16 +223,16 @@ function S4() {
         ))}
       </div>
       <div
-        className="rounded-xl px-10 py-8 border-l-4"
+        className="rounded-xl px-8 py-6 border-l-4"
         style={{ background: `${AMBER}14`, borderColor: AMBER }}
       >
         <div
-          className="font-mono text-[24px] uppercase tracking-[0.18em] mb-2"
+          className="font-mono text-[18px] uppercase tracking-[0.18em] mb-2"
           style={{ color: AMBER }}
         >
           Root Cause:
         </div>
-        <p className="text-[30px] leading-snug">
+        <p className="text-[24px] leading-snug">
           Mobile was architected to serve one product. Every new device was a
           custom build, not a category. There was no framework for a user's daily
           relationship with any Wyze product — we were building features, not
@@ -266,24 +266,24 @@ function S5() {
     <SlideFrame>
       <SlideHeader title="Decouple the Release Cycle" />
       <p
-        className="text-[32px] leading-snug max-w-[1600px] mb-20"
+        className="text-[26px] leading-snug max-w-[1600px] mb-10"
         style={{ color: "#E2E8F0" }}
       >
         Instead of one mobile release tied to each hardware update, we ran
         multiple software releases per hardware cycle — and split the mobile app
         into three parallel tracks so integration work never blocked the ship.
       </p>
-      <div className="grid grid-cols-3 gap-12 flex-1 min-h-0">
+      <div className="grid grid-cols-3 gap-8 flex-1 min-h-0">
         {tracks.map((c) => (
           <Card key={c.n} accent>
             <div
-              className="font-mono text-[34px] font-bold mb-10"
+              className="font-mono text-[28px] font-bold mb-4"
               style={{ color: POSITIVE }}
             >
               {c.n}
             </div>
-            <div className="text-[40px] font-bold mb-10">{c.t}</div>
-            <p className="text-[28px] leading-snug" style={{ color: "#E2E8F0" }}>
+            <div className="text-[34px] font-bold mb-4">{c.t}</div>
+            <p className="text-[22px] leading-snug" style={{ color: "#E2E8F0" }}>
               {c.d}
             </p>
           </Card>
@@ -317,22 +317,22 @@ function S6() {
   return (
     <SlideFrame>
       <SlideHeader title="Challenge: Breaking the Hardware Dependency" />
-      <div className="grid grid-cols-2 gap-12 flex-1 min-h-0">
-        <div className="flex flex-col gap-12">
+      <div className="grid grid-cols-2 gap-10 flex-1 min-h-0">
+        <div className="flex flex-col gap-4">
           {stakeholders.map((s) => (
             <div
               key={s.l}
-              className="rounded-xl p-10"
+              className="rounded-xl p-6"
               style={{ background: CARD_BG }}
             >
               <div
-                className="text-[30px] font-bold mb-2"
+                className="text-[24px] font-bold mb-2"
                 style={{ color: ACCENT }}
               >
                 {s.l}
               </div>
               <p
-                className="text-[26px] leading-snug"
+                className="text-[20px] leading-snug"
                 style={{ color: "#E2E8F0" }}
               >
                 {s.d}
@@ -341,27 +341,27 @@ function S6() {
           ))}
         </div>
         <div
-          className="rounded-2xl p-10 flex flex-col gap-12"
+          className="rounded-2xl p-8 flex flex-col gap-6"
           style={{ background: "#0B1220", border: `1px solid ${POSITIVE}40` }}
         >
           <div
-            className="font-mono text-[24px] uppercase tracking-[0.18em]"
+            className="font-mono text-[18px] uppercase tracking-[0.18em]"
             style={{ color: POSITIVE }}
           >
             Cross-functional Alignment
           </div>
-          <p className="text-[28px] leading-snug">
+          <p className="text-[22px] leading-snug">
             The initial reaction from hardware PMs was concern about the app
             not being ready when the device shipped. The reframe didn't win the
             argument — data did.
           </p>
 
           <div
-            className="rounded-xl p-10"
+            className="rounded-xl p-6"
             style={{ background: "#1E293B" }}
           >
             <p
-              className="text-[26px] leading-snug"
+              className="text-[20px] leading-snug"
               style={{ color: "#E2E8F0" }}
             >
               I mapped the delay pattern — how many days elapsed between hardware
@@ -394,7 +394,7 @@ function S7() {
         style={{ background: CARD_BG }}
       >
         <div
-          className="grid grid-cols-3 px-10 py-6 font-mono text-[26px] uppercase tracking-[0.18em]"
+          className="grid grid-cols-3 px-10 py-5 font-mono text-[20px] uppercase tracking-[0.18em]"
           style={{ color: MUTED, borderBottom: "1px solid #334155" }}
         >
           <div>Metric</div>
@@ -409,12 +409,12 @@ function S7() {
               borderBottom: i < rows.length - 1 ? "1px solid #334155" : "none",
             }}
           >
-            <div className="text-[32px] font-semibold">{r.m}</div>
-            <div className="text-[32px]" style={{ color: MUTED }}>
+            <div className="text-[26px] font-semibold">{r.m}</div>
+            <div className="text-[26px]" style={{ color: MUTED }}>
               {r.b}
             </div>
             <div
-              className="text-[38px] font-bold"
+              className="text-[32px] font-bold"
               style={{ color: POSITIVE }}
             >
               {r.a}
@@ -443,11 +443,11 @@ function S8() {
   return (
     <SlideFrame>
       <SlideHeader kicker="WHAT I'D DO DIFFERENTLY" title="What I'd do differently" />
-      <div className="flex flex-col gap-12 flex-1 min-h-0">
+      <div className="flex flex-col gap-8 flex-1 min-h-0">
         {items.map((it) => (
           <div
             key={it.n}
-            className="rounded-2xl p-12 flex items-start gap-12"
+            className="rounded-2xl p-10 flex items-start gap-8"
             style={{ background: CARD_BG }}
           >
             <div
@@ -457,9 +457,9 @@ function S8() {
               {it.n}
             </div>
             <div>
-              <div className="text-[34px] font-bold mb-10">{it.t}</div>
+              <div className="text-[28px] font-bold mb-4">{it.t}</div>
               <p
-                className="text-[28px] leading-relaxed"
+                className="text-[22px] leading-relaxed"
                 style={{ color: "#E2E8F0" }}
               >
                 {it.d}
