@@ -12,7 +12,6 @@ import {
 import { useEffect, useMemo } from "react";
 
 import appCss from "../styles.css?url";
-import { DevDocs } from "@/components/DevDocs";
 
 const DECKS = {
   about: { label: "About", total: 1 },
@@ -214,7 +213,6 @@ function DeckShell() {
         </button>
       </footer>
 
-      <DevDocs />
     </div>
   );
 }
