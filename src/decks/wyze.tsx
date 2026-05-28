@@ -42,6 +42,43 @@ function S1() {
   );
 }
 
+/* -------------------- Agenda -------------------- */
+function SAgenda() {
+  const items = [
+    "Business Context",
+    "Role & Mandate",
+    "What Wasn't Working",
+    "Insight & Pivot",
+    "Stakeholder Alignment",
+    "Outcomes",
+    "What I'd Do Differently",
+  ];
+  return (
+    <SlideFrame>
+      <SlideHeader kicker="Agenda" title="What we'll cover" />
+      <div className="grid grid-cols-2 gap-x-16 gap-y-5 flex-1 min-h-0 content-start">
+        {items.map((t, i) => (
+          <div
+            key={t}
+            className="flex items-center gap-6 rounded-xl p-6"
+            style={{ background: CARD_BG }}
+          >
+            <span
+              className="font-mono text-[32px] font-bold shrink-0"
+              style={{ color: ACCENT }}
+            >
+              0{i + 1}
+            </span>
+            <span className="text-[30px] font-semibold" style={{ color: "#E2E8F0" }}>
+              {t}
+            </span>
+          </div>
+        ))}
+      </div>
+    </SlideFrame>
+  );
+}
+
 /* -------------------- Slide 2: Business Context -------------------- */
 function S2() {
   return (
@@ -472,4 +509,4 @@ function S8() {
   );
 }
 
-export const wyzeSlides = [S1, S2, S3, S4, S5, S6, S7, S8];
+export const wyzeSlides = [S1, SAgenda, S2, S3, S4, S5, S6, S7, S8];

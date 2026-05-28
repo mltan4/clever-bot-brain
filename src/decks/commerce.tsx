@@ -24,6 +24,40 @@ function S1() {
   );
 }
 
+/* -------------------- Agenda -------------------- */
+function SAgenda() {
+  const items = [
+    "Business Context",
+    "How App Review Works",
+    "Role & Mandate",
+    "Diagnostic: Where the Pipeline Broke",
+    "Ideas We Considered",
+    "Three Parallel Tracks",
+    "AI Self-Review Toolkit",
+    "Results & Principles",
+  ];
+  return (
+    <SlideFrame>
+      <SlideHeader kicker="Agenda" title="What we'll cover" />
+      <div className="grid grid-cols-2 gap-x-12 gap-y-5 flex-1 min-h-0 content-start">
+        {items.map((t, i) => (
+          <div
+            key={t}
+            className="flex items-center gap-6 rounded-xl border border-border bg-surface p-6"
+          >
+            <span className="font-mono text-[32px] font-bold text-accent shrink-0">
+              0{i + 1}
+            </span>
+            <span className="text-[28px] font-semibold text-foreground">
+              {t}
+            </span>
+          </div>
+        ))}
+      </div>
+    </SlideFrame>
+  );
+}
+
 /* -------------------- Slide 2 — Business Context -------------------- */
 function S2() {
   return (
@@ -741,4 +775,4 @@ function SDemo() {
   );
 }
 
-export const commerceSlides = [S1, S2, SVideo, S3, SDiagnostic, S4, S5, S6, S7, SDemo, S9, S8, S10];
+export const commerceSlides = [S1, SAgenda, S2, SVideo, S3, SDiagnostic, S4, S5, S6, S7, SDemo, S9, S8, S10];
