@@ -12,7 +12,7 @@ function S1() {
             Scaling the Shopify App Store
           </h1>
           <p className="text-[36px] text-muted-foreground max-w-[1500px] leading-snug mb-16">
-            From <span className="text-foreground font-semibold">45 days to 2 weeks</span>,
+            From <span className="text-foreground font-semibold">45 days to 26 days</span>,
             AI-powered self-review toolkit
           </p>
           <div className="text-[22px] uppercase tracking-[0.22em] text-muted-foreground">
@@ -141,7 +141,7 @@ function S3() {
           </ul>
           <div className="mt-auto pt-6 border-t border-border">
             <div className="text-accent text-[18px] font-semibold uppercase tracking-[0.18em] mb-4">
-              KPIs
+              Metrics
             </div>
             <ul className="space-y-3">
               {leftKpis.map((it) => (
@@ -170,7 +170,7 @@ function S3() {
           </ul>
           <div className="mt-auto pt-6 border-t border-border">
             <div className="text-accent text-[18px] font-semibold uppercase tracking-[0.18em] mb-4">
-              KPIs
+              Metrics
             </div>
             <ul className="space-y-3">
               {rightKpis.map((it) => (
@@ -290,20 +290,28 @@ function S4() {
           <div>Speed</div>
           <div>Complexity</div>
         </div>
-        {rows.map((r, i) => (
-          <div
-            key={r.name}
-            className={`grid grid-cols-[2.4fr_1.1fr_1fr_1fr_1fr] gap-6 px-8 py-5 items-center ${
-              i < rows.length - 1 ? "border-b border-border" : ""
-            }`}
-          >
-            <div className="text-[24px] font-semibold text-foreground">{r.name}</div>
-            <div className="text-[22px] font-semibold text-foreground">{r.track}</div>
-            <div className={`text-[22px] font-semibold ${tone(r.impact)}`}>{r.impact}</div>
-            <div className={`text-[22px] font-semibold ${tone(r.speed)}`}>{r.speed}</div>
-            <div className={`text-[22px] font-semibold ${tone(r.complexity)}`}>{r.complexity}</div>
-          </div>
-        ))}
+        {rows.map((r, i) => {
+          const trackBg: Record<string, string> = {
+            "Product / Eng": "color-mix(in oklab, var(--accent) 12%, transparent)",
+            "Ops": "color-mix(in oklab, #3B82F6 14%, transparent)",
+            "Governance": "color-mix(in oklab, #F59E0B 12%, transparent)",
+          };
+          return (
+            <div
+              key={r.name}
+              className={`grid grid-cols-[2.4fr_1.1fr_1fr_1fr_1fr] gap-6 px-8 py-5 items-center ${
+                i < rows.length - 1 ? "border-b border-border" : ""
+              }`}
+              style={{ backgroundColor: trackBg[r.track] }}
+            >
+              <div className="text-[24px] font-semibold text-foreground">{r.name}</div>
+              <div className="text-[22px] font-semibold text-foreground">{r.track}</div>
+              <div className={`text-[22px] font-semibold ${tone(r.impact)}`}>{r.impact}</div>
+              <div className={`text-[22px] font-semibold ${tone(r.speed)}`}>{r.speed}</div>
+              <div className={`text-[22px] font-semibold ${tone(r.complexity)}`}>{r.complexity}</div>
+            </div>
+          );
+        })}
       </div>
       <Callout label="Going deeper">
         For this presentation I'll focus on the Product/Eng track — specifically the AI toolkit.
@@ -539,9 +547,10 @@ function S8() {
 /* -------------------- Outcomes (was S9) -------------------- */
 function S9() {
   const rows = [
-    { metric: "SLA", before: "45 days", after: "2 weeks" },
+    { metric: "SLA", before: "45 days", after: "26 days" },
+    { metric: "Pass rate", before: "45%", after: "76%" },
     { metric: "AI Toolkit", before: "—", after: "13% adoption at launch" },
-    { metric: "Reception", before: "—", after: "Positive dev forums" },
+    { metric: "Customer Feedback", before: "Escalations", after: "Less surprises on forums/social" },
   ];
   return (
     <SlideFrame>
@@ -765,4 +774,4 @@ function SDemo() {
   );
 }
 
-export const commerceSlides = [S1, SAgenda, S2, SVideo, S3, SDiagnostic, S4, S6, S7, SDemo, S9, S8, S10];
+export const commerceSlides = [S1, SAgenda, S2, SVideo, S3, SDiagnostic, S4, S7, SDemo, S9, S8, S10];
