@@ -6,7 +6,7 @@ const MUTED = "#94A3B8";
 const points = [
   "I grew up in the Philippines, and my tech obsession brought me to the Bay Area, and now Seattle.",
   "I started out focused on UX, later realizing that systems and workflows are where I can create greater impact.",
-  "I love routines and rituals. Consistency drives me, whether through morning smoothies, work cadence, or afternoon workouts.",
+  "I love routines and rituals. Whether through morning smoothies, work cadence, or afternoon workouts.",
 ];
 
 function S1() {
