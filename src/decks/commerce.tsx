@@ -13,7 +13,7 @@ function S1() {
             Scaling the Shopify App Store Pipeline
           </h1>
           <p className="text-[36px] text-muted-foreground max-w-[1500px] leading-snug mb-16">
-            Reducing wait times from <span className="text-foreground font-semibold">45 days to 26 days</span>
+            Reducing wait times from <span className="text-foreground font-semibold">45 to 26 days</span>
             using Shopify AI toolkit
           </p>
           <div className="text-[22px] uppercase tracking-[0.22em] text-muted-foreground">
