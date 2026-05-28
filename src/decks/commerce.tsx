@@ -32,7 +32,7 @@ function SAgenda() {
     "Diagnosing the Bottlenecks",
     "Prioritizing High-Leverage Bets",
     "Deep Dive: AI Review Toolkit",
-    "Outcomes and Learnings",
+    "Cross-Functional Ops & Learnings",
   ];
   return (
     <SlideFrame>
@@ -502,10 +502,12 @@ function S7() {
 /* -------------------- Principle (was S8) -------------------- */
 function S8() {
   const groups = [
-    { t: "App Developers", d: "23K external developers · vocal on social media" },
+    { t: "Customers (App Developers, Merchants)", d: "23K external developers · vocal on social media" },
     { t: "Governance & Legal", d: "Ecosystem integrity and policy compliance" },
-    { t: "Operations / QA", d: "Internal review team conducting manual testing" },
+    { t: "Customer Success & Operations", d: "Internal review team conducting manual testing" },
     { t: "Internal Leadership", d: "Directors → VP of Engineering & Product Design" },
+    { t: "Partnership & Rev Ops", d: "SMB and enterprise alignment" },
+    { t: "Marketing", d: "Partner comms and dev docs" },
   ];
   return (
     <SlideFrame>
@@ -625,6 +627,14 @@ function S9() {
               blocks publication.
             </p>
           </div>
+        </div>
+      </div>
+      <div className="rounded-xl border-l-4 border-accent bg-accent/10 px-6 py-5 mt-6">
+        <div className="text-accent text-[20px] font-semibold uppercase tracking-[0.18em] mb-2">
+          Note
+        </div>
+        <div className="text-[22px] text-foreground leading-snug">
+          Built dashboards to monitor SLA performance, rejection patterns, and operational signals using Zendesk, BigQuery, and warehouse data.
         </div>
       </div>
       <div className="text-[18px] uppercase tracking-[0.2em] text-muted-foreground mt-8">
