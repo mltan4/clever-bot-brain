@@ -1,5 +1,6 @@
 import { SlideFrame } from "@/components/SlideFrame";
 import { Card, Callout, Stat, SlideHeader } from "@/components/deck-ui";
+import aiToolkitVideo from "@/assets/ai-toolkit-in-action.mp4";
 
 /* -------------------- Slide 1 — Title -------------------- */
 function S1() {
@@ -784,4 +785,28 @@ function SDemo() {
   );
 }
 
-export const commerceSlides = [S1, SAgenda, S2, SVideo, S3, SDiagnostic, S4, S7, SDemo, S9, S8, S10];
+function SDemoVideo() {
+  return (
+    <SlideFrame>
+      <div className="text-accent text-[22px] font-semibold uppercase tracking-[0.2em] mb-4">
+        The Solution · Demo
+      </div>
+      <h1 className="text-[60px] font-extrabold leading-[1.05] tracking-tight mb-6">
+        Shopify AI Toolkit Self-Review
+      </h1>
+      <p className="text-[26px] text-muted-foreground max-w-[1500px] leading-snug mb-8">
+        AI assistant gets direct access to Shopify's docs, API schemas, and code validation.
+        Users can set up the AI Toolkit via our plugin, or manually with skills.
+      </p>
+      <div className="flex-1 flex items-center justify-center min-h-0">
+        <video
+          src={aiToolkitVideo}
+          controls
+          className="max-h-full max-w-full rounded-2xl border border-border"
+        />
+      </div>
+    </SlideFrame>
+  );
+}
+
+export const commerceSlides = [S1, SAgenda, S2, SVideo, S3, SDiagnostic, S4, S7, SDemo, SDemoVideo, S9, S8, S10];
