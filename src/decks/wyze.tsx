@@ -509,4 +509,4 @@ function S8() {
   );
 }
 
-export const wyzeSlides = [S1, S2, S3, S4, S5, S6, S7, S8];
+export const wyzeSlides = [S1, SAgenda, S2, S3, S4, S5, S6, S7, S8];
