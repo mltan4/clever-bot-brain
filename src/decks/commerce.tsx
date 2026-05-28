@@ -8,14 +8,14 @@ function S1() {
       <div className="flex-1 flex items-center">
         <div className="w-2 h-64 bg-accent rounded-full mr-12 shrink-0" />
         <div className="flex flex-col">
-          <h1 className="text-[88px] font-extrabold leading-[1.02] tracking-tight mb-8 max-w-[1600px]">
+          <h1 className="text-[88px] font-extrabold leading-[1.02] tracking-tight mb-10 max-w-[1600px]">
             Scaling the Shopify App Store
           </h1>
-          <p className="text-[36px] text-muted-foreground max-w-[1500px] leading-snug mb-16">
+          <p className="text-[42px] text-muted-foreground max-w-[1500px] leading-snug mb-20">
             From <span className="text-foreground font-semibold">45 days to 2 weeks</span>,
             AI-powered self-review toolkit
           </p>
-          <div className="text-[22px] uppercase tracking-[0.22em] text-muted-foreground">
+          <div className="text-[28px] uppercase tracking-[0.22em] text-muted-foreground">
             Mark Tan
           </div>
         </div>
@@ -32,21 +32,21 @@ function S2() {
         kicker="Business Context"
         title="Scaling Crisis: App Volume Outpaced Our Review Capacity"
       />
-      <div className="grid grid-cols-3 gap-8 mb-10">
+      <div className="grid grid-cols-3 gap-12 mb-20">
         <Stat value="40%" label="spike in app submission volume" tone="accent" />
         <Stat value="45 days" label="SLA at peak (benchmark: 11 days)" tone="negative" />
         <Stat value="23K" label="existing + new developers affected, vocal on social" tone="accent" />
       </div>
-      <p className="text-[32px] text-muted-foreground leading-snug max-w-[1700px] mb-8">
+      <p className="text-[38px] text-muted-foreground leading-snug max-w-[1700px] mb-10">
         These developers serve merchants generating{" "}
         <span className="text-accent font-semibold">$1.3B in commerce</span>. Slow
         reviews were a reputational and ecosystem risk with leadership visibility.
       </p>
-      <div className="rounded-xl border-l-4 border-accent bg-accent/10 px-8 py-6">
-        <div className="text-accent text-[20px] font-semibold uppercase tracking-[0.18em] mb-2">
+      <div className="rounded-xl border-l-4 border-accent bg-accent/10 px-10 py-8">
+        <div className="text-accent text-[26px] font-semibold uppercase tracking-[0.18em] mb-2">
           The Problem
         </div>
-        <div className="text-[30px] text-foreground leading-snug font-semibold">
+        <div className="text-[36px] text-foreground leading-snug font-semibold">
           AI dramatically lowered the barrier to building apps, causing
           submission volume to outpace review capacity.
         </div>
@@ -94,24 +94,24 @@ function S3() {
         title="Mission: Grow the app store without compromising integrity"
       />
       <div className="grid grid-cols-2 gap-12 flex-1 min-h-0">
-        <div className="flex flex-col justify-center gap-8">
-          <p className="text-[24px] leading-snug text-muted-foreground">
+        <div className="flex flex-col justify-center gap-12">
+          <p className="text-[30px] leading-snug text-muted-foreground">
             As Shopify App Store lead, my mandate was to balance two forces in{" "}
             <span className="text-accent font-semibold">direct tension</span>:
           </p>
-          <div className="grid grid-cols-[1fr_auto_1fr] items-stretch gap-4">
-            <div className="rounded-2xl border border-border bg-surface p-6 flex flex-col">
-              <div className="text-accent text-[16px] font-semibold uppercase tracking-[0.18em] mb-2">
+          <div className="grid grid-cols-[1fr_auto_1fr] items-stretch gap-12">
+            <div className="rounded-2xl border border-border bg-surface p-10 flex flex-col">
+              <div className="text-accent text-[22px] font-semibold uppercase tracking-[0.18em] mb-2">
                 Left
               </div>
-              <div className="text-[26px] font-bold leading-tight mb-4">
+              <div className="text-[32px] font-bold leading-tight mb-10">
                 Increase App Volume
               </div>
-              <ul className="space-y-2">
+              <ul className="space-y-8">
                 {left.map((it) => (
                   <li
                     key={it}
-                    className="text-[20px] text-muted-foreground flex gap-2"
+                    className="text-[26px] text-muted-foreground flex gap-2"
                   >
                     <span className="text-accent">·</span>
                     <span>{it}</span>
@@ -122,18 +122,18 @@ function S3() {
             <div className="flex items-center text-accent text-[40px] font-bold">
               ⇄
             </div>
-            <div className="rounded-2xl border border-border bg-surface p-6 flex flex-col">
-              <div className="text-accent text-[16px] font-semibold uppercase tracking-[0.18em] mb-2">
+            <div className="rounded-2xl border border-border bg-surface p-10 flex flex-col">
+              <div className="text-accent text-[22px] font-semibold uppercase tracking-[0.18em] mb-2">
                 Right
               </div>
-              <div className="text-[26px] font-bold leading-tight mb-4">
+              <div className="text-[32px] font-bold leading-tight mb-10">
                 Protect Marketplace Integrity
               </div>
-              <ul className="space-y-2">
+              <ul className="space-y-8">
                 {right.map((it) => (
                   <li
                     key={it}
-                    className="text-[20px] text-muted-foreground flex gap-2"
+                    className="text-[26px] text-muted-foreground flex gap-2"
                   >
                     <span className="text-accent">·</span>
                     <span>{it}</span>
@@ -149,7 +149,7 @@ function S3() {
             return (
               <div
                 key={label}
-                className="rounded-lg border border-border flex items-center justify-center px-6 py-5"
+                className="rounded-lg border border-border flex items-center justify-center px-10 py-8"
                 style={{
                   width: `${width}%`,
                   backgroundColor: `color-mix(in oklab, var(--accent) ${
@@ -157,10 +157,10 @@ function S3() {
                   }%, var(--surface))`,
                 }}
               >
-                <span className="text-accent font-mono text-[20px] mr-4">
+                <span className="text-accent font-mono text-[26px] mr-4">
                   0{i + 1}
                 </span>
-                <span className="text-[24px] font-semibold text-foreground text-center">
+                <span className="text-[30px] font-semibold text-foreground text-center">
                   {label}
                 </span>
               </div>
@@ -196,7 +196,7 @@ function SDiagnostic() {
             return (
               <div key={label} className="w-full flex flex-col items-center">
                 <div
-                  className="rounded-lg border border-border flex items-center justify-center px-6 py-5"
+                  className="rounded-lg border border-border flex items-center justify-center px-10 py-8"
                   style={{
                     width: `${width}%`,
                     backgroundColor: `color-mix(in oklab, var(--accent) ${
@@ -204,30 +204,30 @@ function SDiagnostic() {
                     }%, var(--surface))`,
                   }}
                 >
-                  <span className="text-accent font-mono text-[20px] mr-4">
+                  <span className="text-accent font-mono text-[26px] mr-4">
                     0{i + 1}
                   </span>
-                  <span className="text-[24px] font-semibold text-foreground text-center">
+                  <span className="text-[30px] font-semibold text-foreground text-center">
                     {label}
                   </span>
                 </div>
                 {i < steps.length - 1 && (
-                  <div className="text-accent text-[24px] leading-none my-1">↓</div>
+                  <div className="text-accent text-[30px] leading-none my-1">↓</div>
                 )}
               </div>
             );
           })}
         </div>
         <div className="flex flex-col justify-center">
-          <div className="rounded-2xl border border-border bg-[#0b0f1a] p-10">
-            <div className="text-accent text-[20px] font-semibold uppercase tracking-[0.18em] mb-6">
+          <div className="rounded-2xl border border-border bg-[#0b0f1a] p-12">
+            <div className="text-accent text-[26px] font-semibold uppercase tracking-[0.18em] mb-10">
               Bottlenecks
             </div>
-            <ul className="space-y-5">
+            <ul className="space-y-7">
               {bottlenecks.map((b) => (
                 <li
                   key={b}
-                  className="flex gap-4 text-[26px] text-foreground leading-snug"
+                  className="flex gap-12 text-[32px] text-foreground leading-snug"
                 >
                   <span className="text-[#ef4444] shrink-0">❌</span>
                   <span>{b}</span>
@@ -258,14 +258,14 @@ function S4() {
   };
   return (
     <SlideFrame>
-      <div className="text-accent text-[22px] font-semibold uppercase tracking-[0.2em] mb-4">
+      <div className="text-accent text-[28px] font-semibold uppercase tracking-[0.2em] mb-10">
         Ideas we considered
       </div>
-      <h1 className="text-[60px] font-extrabold leading-[1.05] tracking-tight mb-12">
+      <h1 className="text-[60px] font-extrabold leading-[1.05] tracking-tight mb-20">
         We mapped 40+ ideas — here are the four we evaluated
       </h1>
       <div className="rounded-2xl border border-border bg-surface overflow-hidden">
-        <div className="grid grid-cols-[2.2fr_1fr_1fr_1fr] gap-6 px-8 py-5 bg-[#0b0f1a] text-[20px] uppercase tracking-[0.16em] text-muted-foreground font-semibold">
+        <div className="grid grid-cols-[2.2fr_1fr_1fr_1fr] gap-12 px-8 py-6 bg-[#0b0f1a] text-[26px] uppercase tracking-[0.16em] text-muted-foreground font-semibold">
           <div>Initiative</div>
           <div>Impact</div>
           <div>Speed</div>
@@ -274,14 +274,14 @@ function S4() {
         {rows.map((r, i) => (
           <div
             key={r.name}
-            className={`grid grid-cols-[2.2fr_1fr_1fr_1fr] gap-6 px-8 py-6 items-center ${
+            className={`grid grid-cols-[2.2fr_1fr_1fr_1fr] gap-12 px-10 py-8 items-center ${
               i < rows.length - 1 ? "border-b border-border" : ""
             }`}
           >
-            <div className="text-[28px] font-semibold text-foreground">{r.name}</div>
-            <div className={`text-[26px] font-semibold ${tone(r.impact)}`}>{r.impact}</div>
-            <div className={`text-[26px] font-semibold ${tone(r.speed)}`}>{r.speed}</div>
-            <div className={`text-[26px] font-semibold ${tone(r.complexity)}`}>{r.complexity}</div>
+            <div className="text-[34px] font-semibold text-foreground">{r.name}</div>
+            <div className={`text-[32px] font-semibold ${tone(r.impact)}`}>{r.impact}</div>
+            <div className={`text-[32px] font-semibold ${tone(r.speed)}`}>{r.speed}</div>
+            <div className={`text-[32px] font-semibold ${tone(r.complexity)}`}>{r.complexity}</div>
           </div>
         ))}
       </div>
@@ -319,26 +319,26 @@ function S5() {
   ];
   return (
     <SlideFrame>
-      <div className="text-accent text-[22px] font-semibold uppercase tracking-[0.2em] mb-4">
+      <div className="text-accent text-[28px] font-semibold uppercase tracking-[0.2em] mb-10">
         Ownership Model
       </div>
-      <h1 className="text-[60px] font-extrabold leading-[1.05] tracking-tight mb-12">
+      <h1 className="text-[60px] font-extrabold leading-[1.05] tracking-tight mb-20">
         Three parallel tracks — Ownership Model
       </h1>
-      <div className="grid grid-cols-3 gap-8 mb-8 items-start">
+      <div className="grid grid-cols-3 gap-12 mb-10 items-start">
         {tracks.map((t) => (
           <div
             key={t.title}
             className="rounded-2xl border border-border bg-[#0b0f1a] flex flex-col overflow-hidden"
           >
             <div className="h-2" style={{ backgroundColor: t.accent }} />
-            <div className="p-8 flex flex-col gap-5">
-              <div className="text-[32px] font-bold leading-tight">{t.title}</div>
-              <ol className="space-y-4">
+            <div className="p-10 flex flex-col gap-7">
+              <div className="text-[38px] font-bold leading-tight">{t.title}</div>
+              <ol className="space-y-8">
                 {t.items.map((it, i) => (
                   <li
                     key={it}
-                    className="text-[28px] text-foreground leading-snug flex gap-4"
+                    className="text-[34px] text-foreground leading-snug flex gap-12"
                   >
                     <span className="text-accent font-mono shrink-0">{i + 1}.</span>
                     <span>{it}</span>
@@ -388,20 +388,20 @@ function S6() {
   return (
     <SlideFrame>
       <SlideHeader title="Improving the submission flow" />
-      <div className="grid grid-cols-3 gap-8 mb-8 items-start">
+      <div className="grid grid-cols-3 gap-12 mb-10 items-start">
         {cols.map((c, i) => (
           <Card key={c.title} className="flex flex-col">
-            <div className="text-accent font-mono text-[24px] mb-3">
+            <div className="text-accent font-mono text-[30px] mb-3">
               0{i + 1}
             </div>
-            <div className="text-[30px] font-bold mb-5 leading-tight">
+            <div className="text-[36px] font-bold mb-7 leading-tight">
               {c.title}
             </div>
-            <ol className="space-y-4">
+            <ol className="space-y-8">
               {c.items.map((it, j) => (
                 <li
                   key={it}
-                  className="text-[26px] text-foreground leading-snug flex gap-3"
+                  className="text-[32px] text-foreground leading-snug flex gap-3"
                 >
                   <span className="text-accent font-mono shrink-0">{j + 1}.</span>
                   <span>{it}</span>
@@ -423,9 +423,9 @@ function S7() {
   return (
     <SlideFrame>
       <SlideHeader title="Shopify AI Self-Review Toolkit" />
-      <div className="flex flex-col gap-8 flex-1 min-h-0">
-        <div className="rounded-2xl border border-border bg-[#0b0f1a] p-10">
-          <ul className="space-y-4">
+      <div className="flex flex-col gap-12 flex-1 min-h-0">
+        <div className="rounded-2xl border border-border bg-[#0b0f1a] p-12">
+          <ul className="space-y-8">
             {[
               "Partnered with QA SMEs who'd reviewed apps manually for years",
               "Taught the system: nuance, edge cases, what a borderline fail looks like",
@@ -433,7 +433,7 @@ function S7() {
             ].map((it) => (
               <li
                 key={it}
-                className="text-[30px] text-foreground leading-snug flex gap-3"
+                className="text-[36px] text-foreground leading-snug flex gap-3"
               >
                 <span className="text-accent shrink-0">·</span>
                 <span>{it}</span>
@@ -441,11 +441,11 @@ function S7() {
             ))}
           </ul>
         </div>
-        <div className="rounded-2xl border border-border bg-[#0b0f1a] p-10">
-          <div className="text-accent text-[22px] font-semibold uppercase tracking-[0.18em] mb-5">
+        <div className="rounded-2xl border border-border bg-[#0b0f1a] p-12">
+          <div className="text-accent text-[28px] font-semibold uppercase tracking-[0.18em] mb-7">
             How it works
           </div>
-          <ul className="space-y-4">
+          <ul className="space-y-8">
             {[
               "Runs against developer codebase in ~2 min",
               "Checks all 150+ mechanical compliance requirements",
@@ -453,7 +453,7 @@ function S7() {
             ].map((it) => (
               <li
                 key={it}
-                className="text-[30px] text-foreground leading-snug flex gap-3"
+                className="text-[36px] text-foreground leading-snug flex gap-3"
               >
                 <span className="text-accent shrink-0">·</span>
                 <span>{it}</span>
@@ -477,32 +477,32 @@ function S8() {
   return (
     <SlideFrame>
       <SlideHeader title="Principle: Shopify Is a Steward, Not Just an Operator" />
-      <div className="grid grid-cols-2 gap-10 flex-1 min-h-0">
-        <div className="flex flex-col gap-4 justify-center">
+      <div className="grid grid-cols-2 gap-12 flex-1 min-h-0">
+        <div className="flex flex-col gap-12 justify-center">
           {groups.map((g) => (
             <div
               key={g.t}
               className="flex items-stretch rounded-xl border border-border bg-surface overflow-hidden"
             >
               <div className="w-1.5 bg-accent shrink-0" />
-              <div className="px-6 py-5">
-                <div className="text-[26px] font-bold leading-tight">{g.t}</div>
-                <div className="text-[20px] text-muted-foreground mt-1">{g.d}</div>
+              <div className="px-10 py-8">
+                <div className="text-[32px] font-bold leading-tight">{g.t}</div>
+                <div className="text-[26px] text-muted-foreground mt-1">{g.d}</div>
               </div>
             </div>
           ))}
         </div>
-        <div className="rounded-2xl border border-border bg-[#0b0f1a] p-10 flex flex-col justify-center">
-          <div className="text-accent text-[20px] font-semibold uppercase tracking-[0.18em] mb-4">
+        <div className="rounded-2xl border border-border bg-[#0b0f1a] p-12 flex flex-col justify-center">
+          <div className="text-accent text-[26px] font-semibold uppercase tracking-[0.18em] mb-10">
             Challenges
           </div>
-          <p className="text-[24px] text-muted-foreground leading-snug mb-8">
+          <p className="text-[30px] text-muted-foreground leading-snug mb-10">
             A VP proposed opening the gates: let all apps in, let the marketplace
             self-regulate. On paper: faster SLA, fewer resources. In practice:
             copycat apps, low-quality submissions, eroded merchant trust.
           </p>
-          <div className="rounded-xl border-l-4 border-accent bg-accent/10 px-6 py-5">
-            <div className="text-accent text-[28px] font-semibold leading-snug">
+          <div className="rounded-xl border-l-4 border-accent bg-accent/10 px-10 py-8">
+            <div className="text-accent text-[34px] font-semibold leading-snug">
               Short-term wins have long-term consequences.
             </div>
           </div>
@@ -521,20 +521,20 @@ function S9() {
   ];
   return (
     <SlideFrame>
-      <div className="text-accent text-[22px] font-semibold uppercase tracking-[0.2em] mb-4">
+      <div className="text-accent text-[28px] font-semibold uppercase tracking-[0.2em] mb-10">
         Outcomes
       </div>
-      <h1 className="text-[60px] font-extrabold leading-[1.05] tracking-tight mb-10">
+      <h1 className="text-[60px] font-extrabold leading-[1.05] tracking-tight mb-20">
         Results across all three tracks
       </h1>
-      <div className="flex flex-col gap-6 flex-1 min-h-0">
+      <div className="flex flex-col gap-12 flex-1 min-h-0">
         <div className="flex items-stretch rounded-2xl border border-border bg-surface overflow-hidden">
           <div className="w-1.5 bg-accent shrink-0" />
-          <div className="p-8 flex-1">
-            <div className="text-accent text-[20px] font-semibold uppercase tracking-[0.18em] mb-4">
+          <div className="p-10 flex-1">
+            <div className="text-accent text-[26px] font-semibold uppercase tracking-[0.18em] mb-10">
               Product / Eng
             </div>
-            <div className="grid grid-cols-[1.2fr_1fr_1.5fr] gap-6 text-[16px] uppercase tracking-[0.16em] text-muted-foreground pb-3 border-b border-border">
+            <div className="grid grid-cols-[1.2fr_1fr_1.5fr] gap-12 text-[22px] uppercase tracking-[0.16em] text-muted-foreground pb-3 border-b border-border">
               <div>Metric</div>
               <div>Before</div>
               <div>After</div>
@@ -542,15 +542,15 @@ function S9() {
             {rows.map((r) => (
               <div
                 key={r.metric}
-                className="grid grid-cols-[1.2fr_1fr_1.5fr] gap-6 py-3 border-b border-border last:border-b-0 items-center"
+                className="grid grid-cols-[1.2fr_1fr_1.5fr] gap-12 py-4 border-b border-border last:border-b-0 items-center"
               >
-                <div className="text-[22px] font-semibold text-foreground">
+                <div className="text-[28px] font-semibold text-foreground">
                   {r.metric}
                 </div>
-                <div className="text-[22px] text-muted-foreground font-mono">
+                <div className="text-[28px] text-muted-foreground font-mono">
                   {r.before}
                 </div>
-                <div className="text-[22px] text-[color:var(--positive)] font-semibold">
+                <div className="text-[28px] text-[color:var(--positive)] font-semibold">
                   {r.after}
                 </div>
               </div>
@@ -559,11 +559,11 @@ function S9() {
         </div>
         <div className="flex items-stretch rounded-2xl border border-border bg-surface overflow-hidden">
           <div className="w-1.5 bg-accent shrink-0" />
-          <div className="p-8 flex-1">
-            <div className="text-accent text-[20px] font-semibold uppercase tracking-[0.18em] mb-3">
+          <div className="p-10 flex-1">
+            <div className="text-accent text-[26px] font-semibold uppercase tracking-[0.18em] mb-3">
               Ops
             </div>
-            <p className="text-[26px] text-muted-foreground leading-snug">
+            <p className="text-[32px] text-muted-foreground leading-snug">
               Frontline ops team built for the most complex submissions — removed
               the bottleneck of generalist reviewers on nuanced cases.
             </p>
@@ -571,11 +571,11 @@ function S9() {
         </div>
         <div className="flex items-stretch rounded-2xl border border-border bg-surface overflow-hidden">
           <div className="w-1.5 bg-accent shrink-0" />
-          <div className="p-8 flex-1">
-            <div className="text-accent text-[20px] font-semibold uppercase tracking-[0.18em] mb-3">
+          <div className="p-10 flex-1">
+            <div className="text-accent text-[26px] font-semibold uppercase tracking-[0.18em] mb-3">
               Policy
             </div>
-            <p className="text-[26px] text-muted-foreground leading-snug">
+            <p className="text-[32px] text-muted-foreground leading-snug">
               Critical failures category introduced — apps with critical issues
               rejected outright, giving developers clearer signal on what truly
               blocks publication.
@@ -583,7 +583,7 @@ function S9() {
           </div>
         </div>
       </div>
-      <div className="text-[18px] uppercase tracking-[0.2em] text-muted-foreground mt-8">
+      <div className="text-[24px] uppercase tracking-[0.2em] text-muted-foreground mt-8">
         Jan → Apr 2026 · 4 months end to end
       </div>
     </SlideFrame>
@@ -616,27 +616,27 @@ function S10() {
   ];
   return (
     <SlideFrame>
-      <div className="text-accent text-[22px] font-semibold uppercase tracking-[0.2em] mb-4">
+      <div className="text-accent text-[28px] font-semibold uppercase tracking-[0.2em] mb-10">
         Learnings
       </div>
-      <h1 className="text-[60px] font-extrabold leading-[1.05] tracking-tight mb-10">
+      <h1 className="text-[60px] font-extrabold leading-[1.05] tracking-tight mb-20">
         Learnings
       </h1>
-      <ol className="flex flex-col gap-5 flex-1 min-h-0">
+      <ol className="flex flex-col gap-7 flex-1 min-h-0">
         {lessons.map((l, i) => (
           <li
             key={i}
-            className="rounded-2xl border border-border bg-surface px-8 py-6 flex gap-6"
+            className="rounded-2xl border border-border bg-surface px-10 py-8 flex gap-12"
           >
-            <span className="text-accent font-mono text-[32px] font-bold shrink-0">
+            <span className="text-accent font-mono text-[38px] font-bold shrink-0">
               {String(i + 1).padStart(2, "0")}
             </span>
             <div>
-              <div className="text-[26px] font-bold text-foreground leading-snug">
+              <div className="text-[32px] font-bold text-foreground leading-snug">
                 {l.h}
               </div>
               {l.d && (
-                <div className="text-[22px] text-muted-foreground leading-snug mt-2">
+                <div className="text-[28px] text-muted-foreground leading-snug mt-2">
                   {l.d}
                 </div>
               )}
