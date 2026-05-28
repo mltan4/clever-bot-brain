@@ -10,11 +10,11 @@ function S1() {
         <div className="w-2 h-64 bg-accent rounded-full mr-12 shrink-0" />
         <div className="flex flex-col">
           <h1 className="text-[88px] font-extrabold leading-[1.02] tracking-tight mb-8 max-w-[1600px]">
-            Scaling the Shopify App Store
+            Scaling the Shopify App Store Pipeline
           </h1>
           <p className="text-[36px] text-muted-foreground max-w-[1500px] leading-snug mb-16">
-            From <span className="text-foreground font-semibold">45 days to 26 days</span>,
-            AI-powered self-review toolkit
+            Reducing wait times from <span className="text-foreground font-semibold">45 days to 26 days</span>
+            using Shopify AI toolkit
           </p>
           <div className="text-[22px] uppercase tracking-[0.22em] text-muted-foreground">
             Mark Tan
