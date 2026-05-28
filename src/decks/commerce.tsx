@@ -653,7 +653,7 @@ function S10() {
       d: "Complex operational problems rarely have one root cause. Design for parallel progress, not sequential perfection.",
     },
     {
-      h: "Nemawashi (根回し) works wonders.",
+      h: "Nemawashi (根回し) is key.",
       d: "",
     },
   ];
