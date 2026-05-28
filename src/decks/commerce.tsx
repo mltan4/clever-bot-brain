@@ -259,11 +259,13 @@ function SDiagnostic() {
 
 /* -------------------- Slide 6 — Ideas We Considered (table) -------------------- */
 function S4() {
-  const rows: Array<{ name: string; impact: string; speed: string; complexity: string }> = [
-    { name: "Improve submission communication", impact: "Medium", speed: "Fast", complexity: "Low" },
-    { name: "AI pre-submission toolkit", impact: "High", speed: "Medium", complexity: "Medium" },
-    { name: "Reviewer specialization routing", impact: "Medium", speed: "Medium", complexity: "Low" },
-    { name: "Rewrite 150+ policies", impact: "High", speed: "Slow", complexity: "High" },
+  const rows: Array<{ name: string; track: string; impact: string; speed: string; complexity: string }> = [
+    { name: "Improved submission form", track: "Product / Eng", impact: "Medium", speed: "Fast", complexity: "Low" },
+    { name: "AI Self-Review Toolkit", track: "Product / Eng", impact: "High", speed: "Medium", complexity: "Medium" },
+    { name: "Frontline SMEs for complex reviews", track: "Ops", impact: "Medium", speed: "Medium", complexity: "Low" },
+    { name: "Smart routing by domain expertise", track: "Ops", impact: "Medium", speed: "Medium", complexity: "Low" },
+    { name: "Audit 150+ requirements", track: "Governance", impact: "High", speed: "Slow", complexity: "High" },
+    { name: "Critical failures → outright rejection", track: "Governance", impact: "High", speed: "Medium", complexity: "Medium" },
   ];
   const tone = (v: string) => {
     if (v === "High" || v === "Fast") return "text-[color:var(--positive)]";
@@ -277,12 +279,13 @@ function S4() {
       <div className="text-accent text-[22px] font-semibold uppercase tracking-[0.2em] mb-4">
         Ideas we considered
       </div>
-      <h1 className="text-[60px] font-extrabold leading-[1.05] tracking-tight mb-12">
-        We mapped 40+ ideas — here are the four we evaluated
+      <h1 className="text-[60px] font-extrabold leading-[1.05] tracking-tight mb-8">
+        We mapped 40+ ideas — here's a subset
       </h1>
-      <div className="rounded-2xl border border-border bg-surface overflow-hidden">
-        <div className="grid grid-cols-[2.2fr_1fr_1fr_1fr] gap-6 px-8 py-5 bg-[#0b0f1a] text-[20px] uppercase tracking-[0.16em] text-muted-foreground font-semibold">
+      <div className="rounded-2xl border border-border bg-surface overflow-hidden mb-8">
+        <div className="grid grid-cols-[2.4fr_1.1fr_1fr_1fr_1fr] gap-6 px-8 py-5 bg-[#0b0f1a] text-[20px] uppercase tracking-[0.16em] text-muted-foreground font-semibold">
           <div>Initiative</div>
+          <div>Track</div>
           <div>Impact</div>
           <div>Speed</div>
           <div>Complexity</div>
@@ -290,20 +293,25 @@ function S4() {
         {rows.map((r, i) => (
           <div
             key={r.name}
-            className={`grid grid-cols-[2.2fr_1fr_1fr_1fr] gap-6 px-8 py-6 items-center ${
+            className={`grid grid-cols-[2.4fr_1.1fr_1fr_1fr_1fr] gap-6 px-8 py-5 items-center ${
               i < rows.length - 1 ? "border-b border-border" : ""
             }`}
           >
-            <div className="text-[28px] font-semibold text-foreground">{r.name}</div>
-            <div className={`text-[26px] font-semibold ${tone(r.impact)}`}>{r.impact}</div>
-            <div className={`text-[26px] font-semibold ${tone(r.speed)}`}>{r.speed}</div>
-            <div className={`text-[26px] font-semibold ${tone(r.complexity)}`}>{r.complexity}</div>
+            <div className="text-[24px] font-semibold text-foreground">{r.name}</div>
+            <div className="text-[22px] font-semibold text-foreground">{r.track}</div>
+            <div className={`text-[22px] font-semibold ${tone(r.impact)}`}>{r.impact}</div>
+            <div className={`text-[22px] font-semibold ${tone(r.speed)}`}>{r.speed}</div>
+            <div className={`text-[22px] font-semibold ${tone(r.complexity)}`}>{r.complexity}</div>
           </div>
         ))}
       </div>
+      <Callout label="Going deeper">
+        For this presentation I'll focus on the Product/Eng track — specifically the AI toolkit.
+      </Callout>
     </SlideFrame>
   );
 }
+
 
 /* -------------------- Slide 7 — Three Parallel Tracks -------------------- */
 function S5() {
@@ -757,4 +765,4 @@ function SDemo() {
   );
 }
 
-export const commerceSlides = [S1, SAgenda, S2, SVideo, S3, SDiagnostic, S4, S5, S6, S7, SDemo, S9, S8, S10];
+export const commerceSlides = [S1, SAgenda, S2, SVideo, S3, SDiagnostic, S4, S6, S7, SDemo, S9, S8, S10];
