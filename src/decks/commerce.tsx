@@ -809,4 +809,4 @@ function SDemoVideo() {
   );
 }
 
-export const commerceSlides = [S1, SAgenda, S2, SVideo, S3, SDiagnostic, S4, SDemo, SDemoVideo, S7, S10, S9, S8];
+export const commerceSlides = [S1, SAgenda, S2, SVideo, S3, SDiagnostic, S4, SDemo, SDemoVideo, S7, S9, S8, S10];
