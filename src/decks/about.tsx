@@ -4,11 +4,9 @@ const ACCENT = "#3B82F6";
 const MUTED = "#94A3B8";
 
 const points = [
-  "I grew up in the Philippines and spent years dreaming about working in tech in the US.",
-  "My career has mostly been figuring things out — across product, ops, and community.",
-  "I started out obsessed with UX, later realized systems and workflows is where I can have a bigger impact.",
-  "Peers consistently describe me as organized. I genuinely love checklists.",
-  "I'd love to teach and help more people onboard into new technology.",
+  "I grew up in the Philippines, and my obsession with tech eventually brought me to the Bay Area, then Seattle.",
+  "I started out focused on UX, later realizing that systems and workflows are where I can create bigger long-term impact.",
+  "I love routines and checklists. Consistency drives me, whether through morning smoothies, team rituals at work, or afternoon workouts.",
 ];
 
 function S1() {
