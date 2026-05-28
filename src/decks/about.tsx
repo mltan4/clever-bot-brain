@@ -4,9 +4,9 @@ const ACCENT = "#3B82F6";
 const MUTED = "#94A3B8";
 
 const points = [
-  "I grew up in the Philippines, and my obsession with tech eventually brought me to the Bay Area, then Seattle.",
-  "I started out focused on UX, later realizing that systems and workflows are where I can create bigger long-term impact.",
-  "I love routines and checklists. Consistency drives me, whether through morning smoothies, team rituals at work, or afternoon workouts.",
+  "I grew up in the Philippines, and my tech obsession brought me to the Bay Area, and now Seattle.",
+  "I started out focused on UX, later realizing that systems and workflows are where I can create greater impact.",
+  "I love routines and rituals. Consistency drives me, whether through morning smoothies, work cadence, or afternoon workouts.",
 ];
 
 function S1() {
